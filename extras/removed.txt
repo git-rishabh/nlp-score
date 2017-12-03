@@ -1,0 +1,12523 @@
+192
+{
+String[] greeting = new String[3];
+greeting[0] = "Welcome to Core Java";
+greeting[1] = "by Cay Horstmann";
+greeting[2] = "and Gary Cornell";
+for (String g : greeting)
+System.out.println(g);
+
+150
+{
+JFrame frame = new ImageViewerFrame();
+frame.setTitle("ImageViewer");
+frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+frame.setVisible(true);
+
+89
+{
+String name = chooser.getSelectedFile().getPath();
+label.setIcon(new ImageIcon(name));
+
+166
+{
+// show file chooser dialog
+int result = chooser.showOpenDialog(null);
+// if file selected, set it as icon of the label
+if (result == JFileChooser.APPROVE_OPTION)
+
+
+652
+{
+setSize(DEFAULT_WIDTH, DEFAULT_HEIGHT);
+// use a label to display the images
+label = new JLabel();
+add(label);
+// set up the file chooser
+chooser = new JFileChooser();
+chooser.setCurrentDirectory(new File("."));
+// set up the menu bar
+JMenuBar menuBar = new JMenuBar();
+setJMenuBar(menuBar);
+JMenu menu = new JMenu("File");
+menuBar.add(menu);
+JMenuItem openItem = new JMenuItem("Open");
+menu.add(openItem);
+openItem.addActionListener(new ActionListener()59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+);
+JMenuItem exitItem = new JMenuItem("Exit");
+menu.add(exitItem);
+exitItem.addActionListener(new ActionListener()
+);
+
+174
+{
+private JLabel label;
+private JFileChooser chooser;
+private static final int DEFAULT_WIDTH = 300;
+private static final int DEFAULT_HEIGHT = 400;
+public ImageViewerFrame()
+
+
+55
+{
+getAppletContext().showDocument(new URL(urlString));
+
+615
+{
+18
+setLayout(new BorderLayout());
+19
+20
+JLabel label = new JLabel(getParameter("greeting"),
+SwingConstants.CENTER);
+21
+label.setFont(new Font("Serif", Font.BOLD, 18));
+22
+add(label, BorderLayout.CENTER);
+23
+24
+JPanel panel = new JPanel();
+25
+26
+JButton cayButton = new JButton("Cay Horstmann");
+27
+cayButton.addActionListener(makeAction("http://www.horstman
+28
+panel.add(cayButton);
+29
+30
+JButton garyButton = new JButton("Gary Cornell");
+31
+garyButton.addActionListener(makeAction("mailto:gary_corne39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+private ActionListener makeAction(final String urlString)
+
+
+57
+{
+System.out.println("We will not use 'Hello, World!'");
+
+57
+{
+System.out.println("We will not use 'Hello, World!'");
+
+57
+{
+System.out.println("We will not use 'Hello, World!'");
+
+200
+{
+final double CM_PER_INCH = 2.54;
+double paperWidth = 8.5;
+double paperHeight = 11;
+System.out.println("Paper size in centimeters: "
++ paperWidth * CM_PER_INCH + " by " + paperHeight * CM_PER_INCH);
+
+167
+{
+double paperWidth = 8.5;
+double paperHeight = 11;
+System.out.println("Paper size in centimeters: "
++ paperWidth * CM_PER_INCH + " by " + paperHeight * CM_PER_INCH);
+
+89
+{
+public static final double CM_PER_INCH = 2.54;
+public static void main(String[] args)
+
+
+357
+{
+12
+Scanner in = new Scanner(System.in);
+13
+14
+// get first input
+15
+System.out.print("What is your name? ");
+16
+String name = in.nextLine();
+17
+18
+// get second input
+19
+System.out.print("How old are you? ");
+20
+int age = in.nextInt();
+21
+22
+// display output on console
+23
+System.out.println("Hello, " + name + ". Next year, you'll be " +
+(age + 1));
+24
+
+51
+{
+10
+public static void main(String[] args)
+11
+
+25 
+59
+{
+Scanner in = new Scanner(Paths.get("myfile.txt"));
+. . .
+
+64
+{
+int k;
+int n; // ERROR--can't redefine n in inner block
+. . .
+
+100
+{
+balance += payment;
+double interest = balance * interestRate / 100;
+balance += interest;
+years++;
+
+176
+{
+balance += payment;
+double interest = balance * interestRate / 100;
+balance += interest;
+year++;
+// print current balance
+. . .
+// ask if ready to retire and get input
+. . .
+
+96
+{
+10
+11
+12
+13
+14
+15
+16
+17
+18
+");
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39 
+140
+{
+// add this year's payment and interest
+balance += payment;
+double interest = balance * interestRate / 100;
+balance += interest;
+years++;
+
+497
+{
+// read inputs
+Scanner in = new Scanner(System.in);
+System.out.print("How much money do you need to retire? ");
+double goal = in.nextDouble();
+System.out.print("How much money will you contribute every year?
+double payment = in.nextDouble();
+System.out.print("Interest rate in %: ");
+double interestRate = in.nextDouble();
+double balance = 0;
+int years = 0;
+// update account balance while goal isn't reached
+while (balance < goal)
+
+System.out.println("You can retire in " + years + " years.");
+
+386
+{
+28
+// add this year's payment and interest
+29
+balance += payment;
+30
+double interest = balance * interestRate / 100;
+31
+balance += interest;
+32
+33
+year++;
+34
+35
+// print current balance
+36
+System.out.printf("After year %d, your balance is %,.2f%n",
+year, balance);
+37
+38
+// ask if ready to retire and get input
+39
+System.out.print("Ready to retire? (Y/N) ");
+40
+input = in.next();
+41
+
+389
+{
+Scanner in = new Scanner(System.in);
+System.out.print("How much money will you contribute every year?
+double payment = in.nextDouble();
+System.out.print("Interest rate in %: ");
+double interestRate = in.nextDouble();19
+20
+double balance = 0;
+21
+int year = 0;
+22
+23
+String input;
+24
+25
+// update account balance while user isn't ready to retire
+26
+do
+27
+
+42
+while (input.equals("N"));
+43
+
+55
+{
+System.out.println("Counting down . . . " + i);
+i--;
+
+501
+{
+11
+Scanner in = new Scanner(System.in);
+12
+13
+System.out.print("How many numbers do you need to draw? ");
+14
+int k = in.nextInt();
+15
+16
+System.out.print("What is the highest number you can draw? ");
+17
+int n = in.nextInt();
+18
+/*
+19
+* compute binomial coefficient n*(n-1)*(n-2)*...*(n-
+k+1)/(1*2*3*...*k)
+20
+*/
+21
+int lotteryOdds = 1;
+22
+for (int i = 1; i <= k; i++)
+23
+lotteryOdds = lotteryOdds * (n - i + 1) / i;
+24
+25
+System.out.println("Your odds are 1 in " + lotteryOdds + ". Good
+luck!");
+26
+
+121
+{
+case 1:
+. . .
+break;
+case 2:
+. . .
+break;
+case 3:
+. . .
+break;
+case 4:
+. . .
+break;
+default:
+// bad input
+. . .
+break;
+
+55
+{
+case "yes": // OK since Java SE 7
+. . .
+break;
+. . .
+
+61
+{
+case SMALL: // no need to use Size.SMALL. . .
+break;
+. . .
+
+128
+{
+balance += payment;
+double interest = balance * interestRate / 100;
+balance += interest;
+if (balance >= goal) break;
+years++;
+
+120
+{
+balance += payment;
+double interest = balance * interestRate / 100;
+balance += interest;
+if (balance < goal)
+years++;
+
+165
+{
+System.out.print("Enter a number >= 0: ");
+n = in.nextInt();
+if (n < 0) // should never happen—can't go on
+break read_data;
+// break out of read_data loop
+. . .
+
+55
+{
+. . .
+for (. . .) // this inner loop is not labeled
+
+
+60
+{
+. . .
+if ( condition ) break
+. . .
+label ; // exits block
+
+113
+{
+System.out.print("Enter a number: ");n = in.nextInt();
+if (n < 0) continue;
+sum += n; // not executed if n < 0
+
+126
+{
+System.out.print("Enter a number, -1 to quit: ");
+n = in.nextInt();
+if (n < 0) continue;
+sum += n; // not executed if n < 0
+
+593
+{
+13
+Scanner in = new Scanner(System.in);
+14
+15
+System.out.print("How many numbers do you need to draw? ");
+16
+int k = in.nextInt();
+17
+18
+System.out.print("What is the highest number you can draw? ");
+19
+int n = in.nextInt();
+20
+21
+/*
+22
+* compute binomial coefficient n*(n-1)*(n-2)*...*(n-
+k+1)/(1*2*3*...*k)
+23
+*/
+24
+25
+BigInteger lotteryOdds = BigInteger.valueOf(1);
+26
+27
+for (int i = 1; i <= k; i++)
+28
+lotteryOdds = lotteryOdds.multiply(BigInteger.valueOf(n - i +
+1)).divide(
+29
+BigInteger.valueOf(i));
+30
+31
+System.out.println("Your odds are 1 in " + lotteryOdds + ". Good
+luck!");
+32
+
+51
+{
+11
+public static void main(String[] args)
+12
+
+33 
+255
+{
+if (args[0].equals("-h"))
+System.out.print("Hello,");
+else if (args[0].equals("-g"))
+System.out.print("Goodbye,");
+// print the other command-line arguments
+for (int i = 1; i < args.length; i++)
+System.out.print(" " + args[i]);
+System.out.println("!");
+
+261
+{
+29
+// make a random index between 0 and n - 1
+30
+int r = (int) (Math.random() * n);
+31
+32
+// pick the element at the random location
+33
+result[i] = numbers[r];
+34
+35
+// move the last element into the random location
+36
+numbers[r] = numbers[n - 1];
+37
+n--;
+38
+
+698
+{
+12
+Scanner in = new Scanner(System.in);
+13
+14
+System.out.print("How many numbers do you need to draw? ");
+15
+int k = in.nextInt();
+16
+17
+System.out.print("What is the highest number you can draw? ");
+18
+int n = in.nextInt();
+19
+20
+// fill an array with numbers 1 2 3 . . . n
+21
+int[] numbers = new int[n];
+22
+for (int i = 0; i < numbers.length; i++)
+23
+numbers[i] = i + 1;
+24
+25
+// draw k numbers and put them into a second array
+26
+int[] result = new int[k];
+27
+for (int i = 0; i < result.length; i++)
+28
+
+39
+40
+// print the sorted array
+41
+Arrays.sort(result);
+42
+System.out.println("Bet the following combination. It'll make you
+rich!");
+43
+for (int r : result)44
+45
+46
+System.out.println(r);
+
+107
+{
+double oldBalance = balances[i - 1][j];
+double interest = . . .;
+balances[i][j] = oldBalance + interest;
+
+228
+{
+// get last year's balances from previous row
+double oldBalance = balances[i - 1][j];
+// compute interest
+double interest = oldBalance * interestRate[j];
+// compute this year's balances
+balances[i][j] = oldBalance + interest;
+
+96
+{
+// print table row
+for (double b : row)
+System.out.printf("%10.2f", b);
+System.out.println();
+
+802
+{
+final double STARTRATE = 10;
+final int NRATES = 6;
+final int NYEARS = 10;
+// set interest rates to 10 . . . 15%
+double[] interestRate = new double[NRATES];
+for (int j = 0; j < interestRate.length; j++)
+interestRate[j] = (STARTRATE + j) / 100.0;19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+double[][] balances = new double[NYEARS][NRATES];
+// set initial balances to 10000
+for (int j = 0; j < balances[0].length; j++)
+balances[0][j] = 10000;
+// compute interest for future years
+for (int i = 1; i < balances.length; i++)
+
+// print one row of interest rates
+for (int j = 0; j < interestRate.length; j++)
+System.out.printf("%9.0f%%", 100 * interestRate[j]);
+System.out.println();
+// print balance table
+for (double[] row : balances)
+
+
+57
+{
+// compute lotteryOdds
+. . .
+odds[n][k] = lotteryOdds;
+
+257
+{
+23
+/*
+24
+* compute binomial coefficient n*(n-1)*(n-2)*...*(n-
+k+1)/(1*2*3*...*k)
+25
+*/
+26
+int lotteryOdds = 1;
+27
+for (int i = 1; i <= k; i++)
+28
+lotteryOdds = lotteryOdds * (n - i + 1) / i;
+2930
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+odds[n][k] = lotteryOdds;
+
+75
+{
+for (int odd : row)
+System.out.printf("%4d", odd);
+System.out.println();
+
+340
+{
+10
+final int NMAX = 10;
+11
+12
+// allocate triangular array
+13
+14
+int[][] odds = new int[NMAX + 1][];
+15
+for (int n = 0; n <= NMAX; n++)
+16
+odds[n] = new int[n + 1];
+17
+18
+// fill triangular array
+19
+20
+for (int n = 0; n < odds.length; n++)
+21
+for (int k = 0; k < odds[n].length; k++)
+22
+
+// print triangular array
+for (int[] row : odds)
+
+
+85
+{
+indent++;
+d.add(Calendar.DAY_OF_MONTH, -1);
+weekday = d.get(Calendar.DAY_OF_WEEK);
+
+123
+{
+System.out.printf("%4s", weekdayNames[weekday]);
+d.add(Calendar.DAY_OF_MONTH, 1);
+weekday = d.get(Calendar.DAY_OF_WEEK);
+
+97
+{
+30
+indent++;
+31
+d.add(Calendar.DAY_OF_MONTH, -1);
+32
+weekday = d.get(Calendar.DAY_OF_WEEK);
+33
+
+135
+{
+39
+System.out.printf("%4s", weekdayNames[weekday]);
+40
+d.add(Calendar.DAY_OF_MONTH, 1);
+41
+weekday = d.get(Calendar.DAY_OF_WEEK);
+42
+
+446
+{
+51
+// print day
+52
+int day = d.get(Calendar.DAY_OF_MONTH);
+53
+System.out.printf("%3d", day);
+54
+55
+// mark current day with *
+56
+if (day == today) System.out.print("*");
+57
+else System.out.print(" ");58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+// advance d to the next day
+d.add(Calendar.DAY_OF_MONTH, 1);
+weekday = d.get(Calendar.DAY_OF_WEEK);
+// start a new line at the start of the week
+if (weekday == firstDayOfWeek) System.out.println();
+
+991
+{
+12
+// construct d as current date
+13
+GregorianCalendar d = new GregorianCalendar();
+14
+15
+int today = d.get(Calendar.DAY_OF_MONTH);
+16
+int month = d.get(Calendar.MONTH);
+17
+18
+// set d to start date of the month
+19
+d.set(Calendar.DAY_OF_MONTH, 1);
+20
+21
+int weekday = d.get(Calendar.DAY_OF_WEEK);
+22
+23
+// get first day of week (Sunday in the U.S.)
+24
+int firstDayOfWeek = d.getFirstDayOfWeek();
+25
+26
+// determine the required indentation for the first line
+27
+int indent = 0;
+28
+while (weekday != firstDayOfWeek)
+29
+
+34
+35
+// print weekday names
+36
+String[] weekdayNames = new
+DateFormatSymbols().getShortWeekdays();
+37
+do
+38
+
+43
+while (weekday != firstDayOfWeek);
+44
+System.out.println();
+45
+for (int i = 1; i <= indent; i++)
+46
+System.out.print(" ");
+47
+48
+d.set(Calendar.DAY_OF_MONTH, 1);
+49
+do
+50
+
+while (d.get(Calendar.MONTH) == month);
+// the loop exits when d is day 1 of the next month
+// print final end of line if necessary
+if (weekday != firstDayOfWeek) System.out.println();
+
+82
+{
+field 1
+field 2
+. . .
+constructor 1
+constructor 2
+. . .
+method 1
+method 2
+. . .
+
+128
+{
+name = n;
+salary = s;
+GregorianCalendar calendar = new GregorianCalendar(year, month - 1,
+day);
+hireDay = calendar.getTime();
+
+228
+{
+// instance fields
+private String name;
+private double salary;
+private Date hireDay;
+// constructor
+public Employee(String n, double s, int year, int month, int day)
+
+// a method
+public String getName()
+
+// more methods
+. . .
+
+574
+{
+12
+// fill the staff array with three Employee objects
+13
+Employee[] staff = new Employee[3];
+14
+staff[0] = new Employee("Carl Cracker", 75000, 1987, 12, 15);
+15
+staff[1] = new Employee("Harry Hacker", 50000, 1989, 10, 1);
+16
+staff[2] = new Employee("Tony Tester", 40000, 1990, 3, 15);
+17
+18
+// raise everyone's salary by 5%
+19
+for (Employee e : staff)
+20
+e.raiseSalary(5);
+21
+22
+// print out information about all Employee objects
+23
+for (Employee e : staff)
+24
+System.out.println("name=" + e.getName() + ",salary=" +
+e.getSalary() + ",hireDay="
+25
++ e.getHireDay());
+26
+
+51
+{
+10
+public static void main(String[] args)
+11
+
+27 
+186
+{
+37
+name = n;
+38
+salary = s;
+39
+GregorianCalendar calendar = new GregorianCalendar(year, month -
+1, day);
+40
+// GregorianCalendar uses 0 for January
+41
+hireDay = calendar.getTime();
+42
+
+60
+{
+double raise = salary * byPercent / 100;
+salary += raise;
+
+301
+{
+31
+private String name;
+32
+private double salary;
+33
+private Date hireDay;
+34
+35
+public Employee(String n, double s, int year, int month, int day)
+36
+
+43
+44
+public String getName()
+45
+
+48
+49
+public double getSalary()
+50
+
+53
+54
+public Date getHireDay()
+55
+
+public void raiseSalary(double byPercent)
+
+
+128
+{
+name = n;
+salary = s;
+GregorianCalendar calendar = new GregorianCalendar(year, month - 1, day);
+hireDay = calendar.getTime();
+
+62
+{
+String name = n; // ERROR
+double salary = s; // ERROR
+. . .
+
+60
+{
+double raise = salary * byPercent / 100;
+salary += raise;
+
+70
+{
+double raise = this.salary * byPercent / 100;
+this.salary += raise;
+
+61
+{
+private Date hireDay;
+. . .
+public Date getHireDay()
+. . .
+
+55
+{
+private static int nextId = 1;
+private int id;
+. . .
+
+70
+{
+. . .
+public static final double PI = 3.14159265358979323846;
+. . .
+
+59
+{
+. . .
+public static final PrintStream out = . . .;
+. . .
+
+128
+{
+name = n;
+salary = s;
+GregorianCalendar calendar = new GregorianCalendar(year, month
+- 1, day);
+hireDay = calendar.getTime();
+
+132
+{
+Employee e = new Employee("Romeo", 50000, 2003, 3, 31);
+e.raiseSalary(10);
+System.out.println(e.getName() + " " + e.getSalary());
+
+134
+{
+public Employee(String n, double s, int year, int month, int day)
+
+. . .
+public static void main(String[] args) // unit test
+
+. . .
+
+118
+{
+20
+e.setId();
+21
+System.out.println("name=" + e.getName() + ",id=" + e.getId() +
+",salary="
+22
++ e.getSalary());
+23
+
+429
+{
+10
+// fill the staff array with three Employee objects
+11
+Employee[] staff = new Employee[3];
+12
+13
+staff[0] = new Employee("Tom", 40000);
+14
+staff[1] = new Employee("Dick", 60000);
+15
+staff[2] = new Employee("Harry", 65000);
+16
+17
+// print out information about all Employee objects
+18
+for (Employee e : staff)
+19
+
+24
+25
+int n = Employee.getNextId(); // calls static method
+26
+System.out.println("Next available id=" + n);
+27
+
+100
+{
+61
+id = nextId; // set id to next available id
+62
+nextId++;63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+
+100
+{
+Employee e = new Employee("Harry", 50000);
+System.out.println(e.getName() + " " + e.getSalary());
+
+364
+{
+32
+private static int nextId = 1;
+33
+34
+private String name;
+35
+private double salary;
+36
+private int id;
+37
+38
+public Employee(String n, double s)
+39
+
+44
+public String getName()
+45
+
+48
+49
+public double getSalary()
+50
+
+53
+54
+public int getId()
+55
+
+58
+59
+public void setId()
+60
+
+public static int getNextId()
+
+public static void main(String[] args) // unit test
+
+
+1110
+{
+/*
+* Test 1: Methods can't modify numeric parameters
+*/
+System.out.println("Testing tripleValue:");
+double percent = 10;
+System.out.println("Before: percent=" + percent);
+tripleValue(percent);
+System.out.println("After: percent=" + percent);
+/*
+* Test 2: Methods can change the state of object parameters
+*/
+System.out.println("\nTesting tripleSalary:");
+Employee harry = new Employee("Harry", 50000);24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+System.out.println("Before: salary=" + harry.getSalary());
+tripleSalary(harry);
+System.out.println("After: salary=" + harry.getSalary());
+/*
+* Test 3: Methods can't attach new objects to object parameters
+*/
+System.out.println("\nTesting swap:");
+Employee a = new Employee("Alice", 70000);
+Employee b = new Employee("Bob", 60000);
+System.out.println("Before: a=" + a.getName());
+System.out.println("Before: b=" + b.getName());
+swap(a, b);
+System.out.println("After: a=" + a.getName());
+System.out.println("After: b=" + b.getName());
+
+58
+{
+x = 3 * x;
+System.out.println("End of method: x=" + x);
+
+84
+{
+x.raiseSalary(200);
+System.out.println("End of method: salary=" + x.getSalary());
+
+148
+{
+Employee temp = x;
+x = y;
+y = temp;
+System.out.println("End of method: x=" + x.getName());
+System.out.println("End of method: y=" + y.getName());
+
+203
+{
+public static void main(String[] args)
+
+public static void tripleValue(double x) // doesn't work
+
+public static void tripleSalary(Employee x) // works
+
+public static void swap(Employee x, Employee y)
+
+
+60
+{
+double raise = salary * byPercent / 100;
+salary += raise;
+
+198
+{
+private String name;
+private double salary;
+public Employee(String n, double s)
+
+public String getName()
+
+public double getSalary()
+82
+83
+84
+85
+86
+87
+88
+public void raiseSalary(double byPercent)
+
+
+101
+{
+private static int nextId;
+private int id = assignId();
+. . .
+private static int assignId()
+
+. . .
+
+78
+{
+// calls Employee(String, double)
+this("Employee #" + nextId, s);
+nextId++;
+
+182
+{
+private static int nextId;
+private int id;
+private String name;
+private double salary;
+// object initialization block
+public Employee(String n, double s)
+
+public Employee()
+
+. . .
+
+70
+{
+Random generator = new Random();
+nextId = generator.nextInt(10000);
+
+402
+{
+11
+// fill the staff array with three Employee objects
+12
+13
+Employee[] staff = new Employee[3];
+14
+15
+staff[0] = new Employee("Harry", 40000);
+16
+staff[1] = new Employee(60000);
+17
+staff[2] = new Employee();
+18
+19
+// print out information about all Employee objects
+20
+21
+for (Employee e : staff)
+22
+System.out.println("name=" + e.getName() + ",id=" + e.getId() +
+",salary="
+23
++ e.getSalary());
+24
+
+134
+{
+38
+Random generator = new Random();
+39
+// set nextId to a random number between 0 and 9999
+40
+nextId = generator.nextInt(10000);
+41
+
+84
+{
+// calls the Employee(String, double) constructor
+this("Employee #" + nextId, s);
+
+128
+{
+// name initialized to ""--see below
+// salary not explicitly set--initialized to 0
+// id initialized in initialization block
+
+568
+{
+28
+private static int nextId;
+29
+30
+private int id;
+31
+private String name = ""; // instance field initialization
+32
+private double salary;
+33
+34
+// static initialization block
+35
+36
+static
+37
+
+42
+43
+// object initialization block
+44
+45
+
+4950
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+// three overloaded constructors
+public Employee(String n, double s)
+
+public Employee(double s)
+
+// the default constructor
+public Employee()
+
+public String getName()
+
+public double getSalary()
+
+public int getId()
+
+
+362
+{
+14
+// because of the import statement, we don't have to use
+com.horstmann.corejava.Employee here
+15
+Employee harry = new Employee("Harry Hacker", 50000, 1989, 10, 1);
+16
+17
+harry.raiseSalary(5);
+18
+19
+// because of the static import statement, we don't have to use
+System.out here
+20
+out.println("name=" + harry.getName() + ",salary=" +
+harry.getSalary());
+21
+
+51
+{
+12
+public static void main(String[] args)
+13
+
+22 
+186
+{
+19
+name = n;
+20
+salary = s;
+21
+GregorianCalendar calendar = new GregorianCalendar(year, month -
+1, day);
+22
+// GregorianCalendar uses 0 for January
+23
+hireDay = calendar.getTime();
+24
+
+69
+{
+43
+double raise = salary * byPercent / 100;
+44
+salary += raise;
+45
+
+297
+{
+private String name;
+private double salary;
+private Date hireDay;
+public Employee(String n, double s, int year, int month, int day)18
+
+25
+26
+public String getName()
+27
+
+30
+31
+public double getSalary()
+32
+
+35
+36
+public Date getHireDay()
+37
+
+40
+41
+public void raiseSalary(double byPercent)
+42
+
+46 
+74
+{
+double raise = salary * byPercent / 100;
+salary += raise;
+return raise;
+
+156
+{
+private int[] value;
+private int[] suit;
+public
+public
+public
+public
+public
+CardDeck() 
+void shuffle() 
+int getTopValue() 
+int getTopSuit() 
+void draw() 
+
+108
+{
+private Card[] cards;
+public
+public
+public
+public
+CardDeck() 
+void shuffle() 
+Card getTop() 
+void draw() 
+
+120
+{
+private int value;
+private int suit;
+public Card(int aValue, int aSuit) 
+public int getValue() 
+public int getSuit() 
+
+62
+{
+private double bonus;
+. . .
+public void setBonus(double b)
+
+
+82
+{
+double baseSalary = getSalary(); // still won't work
+return baseSalary + bonus;
+
+67
+{
+double baseSalary = super.getSalary();return baseSalary + bonus;
+
+502
+{
+// construct a Manager object
+Manager boss = new Manager("Carl Cracker", 80000, 1987, 12, 15);
+boss.setBonus(5000);
+Employee[] staff = new Employee[3];
+// fill the staff array with Manager and Employee objects
+staff[0] = boss;
+staff[1] = new Employee("Harry Hacker", 50000, 1989, 10, 1);
+staff[2] = new Employee("Tommy Tester", 40000, 1990, 3, 15);
+// print out information about all Employee objects
+for (Employee e : staff)
+System.out.println("name=" + e.getName() + ",salary=" +e.getSalary());
+26
+
+143
+{
+14
+name = n;
+15
+salary = s;
+16
+GregorianCalendar calendar = new GregorianCalendar(year, month -
+1, day);
+17
+hireDay = calendar.getTime();
+18
+
+69
+{
+36
+double raise = salary * byPercent / 100;
+37
+salary += raise;
+38
+
+308
+{
+8
+private String name;
+9
+private double salary;
+10
+private Date hireDay;
+11
+12
+public Employee(String n, double s, int year, int month, int day)
+13
+
+19
+20
+public String getName()
+21
+
+24
+public double getSalary()
+25
+
+28
+29
+public Date getHireDay()
+30
+
+33
+34
+public void raiseSalary(double byPercent)
+35
+
+39 
+68
+{
+double baseSalary = super.getSalary();
+return baseSalary + bonus;
+
+293
+{
+private double bonus;
+/**
+* @param n the employee's name
+* @param s the salary
+* @param year the hire year
+* @param month the hire month
+* @param day the hire day
+*/
+public Manager(String n, double s, int year, int month, int day)
+
+public double getSalary()
+
+public void setBonus(double b)
+
+
+114
+{
+private String name;
+public Person(String n)
+
+public abstract String getDescription();
+public String getName()
+
+
+53
+{
+public:
+virtual string getDescription() = 0;
+. . .
+
+92
+{
+private String major;
+public Student(String n, String m)
+
+public String getDescription()
+
+
+360
+{
+Person[] people = new Person[2];
+// fill the people array with Student and Employee objects
+people[0] = new Employee("Harry Hacker", 50000, 1989, 10, 1);
+people[1] = new Student("Maria Morris", "computer science");
+// print out names and descriptions of all Person objects
+for (Person p : people)
+System.out.println(p.getName() + ", " + p.getDescription());
+
+114
+{
+public abstract String getDescription();
+private String name;
+public Person(String n)
+
+public String getName()
+
+
+143
+{
+13
+super(n);
+14
+salary = s;
+15
+GregorianCalendar calendar = new GregorianCalendar(year, month -
+1, day);
+16
+hireDay = calendar.getTime();
+17
+
+76
+{
+30
+return String.format("an employee with a salary of $%.2f",
+salary);
+31
+
+69
+{
+35
+double raise = salary * byPercent / 100;
+36
+salary += raise;
+37
+
+291
+{
+8
+private double salary;
+9
+private Date hireDay;
+10
+11
+public Employee(String n, double s, int year, int month, int day)
+12
+
+18
+public double getSalary()
+19
+
+22
+23
+public Date getHireDay()
+24
+
+27
+28
+public String getDescription()
+29
+
+32
+33
+public void raiseSalary(double byPercent)
+34
+
+38 
+59
+{
+// pass n to superclass constructor
+super(n);
+major = m;
+
+174
+{
+private String major;
+/**
+* @param n the student's name
+* @param m the student's major
+*/
+public Student(String n, String m)
+18
+19
+20
+21
+22
+public String getDescription()
+
+
+523
+{
+// a quick test to see if the objects are identicalif (this == otherObject) return true;
+// must return false if the explicit parameter is null
+if (otherObject == null) return false;
+// if the classes don't match, they can't be equal
+if (getClass() != otherObject.getClass())
+return false;
+// now we know otherObject is a non-null Employee
+Employee other = (Employee) otherObject;
+// test whether the fields have identical values
+return name.equals(other.name)
+&& salary == other.salary
+&& hireDay.equals(other.hireDay);
+
+51
+{
+. . .
+public boolean equals(Object otherObject)
+
+
+191
+{
+if (!super.equals(otherObject)) return false;
+// super.equals checked that this and otherObject belong to the same
+class
+Manager other = (Manager) otherObject;
+return bonus == other.bonus;
+
+51
+{
+. . .
+public boolean equals(Object otherObject)
+
+
+111
+{
+return Objects.equals(name, other.name)
+&& salary == other.salary
+&& Objects.equals(hireDay, other.hireDay);
+
+93
+{
+return 7 * name.hashCode()
++ 11 * new Double(salary).hashCode()
++ 13 * hireDay.hashCode();
+
+107
+{
+return 7 * Objects.hashCode(name)
++ 11 * new Double(salary).hashCode()
++ 13 * Objects.hashCode(hireDay);
+
+86
+{
+return "Employee[name=" + name
++ ",salary=" + salary
++ ",hireDay=" + hireDay
++ "]";
+
+101
+{
+return getClass().getName()
++ "[name=" + name
++ ",salary=" + salary
++ ",hireDay=" + hireDay
++ "]";
+
+53
+{
+return super.toString()
++ "[bonus=" + bonus
++ "]";
+
+1116
+{
+12
+Employee alice1 = new Employee("Alice Adams", 75000, 1987, 12,
+15);
+13
+Employee alice2 = alice1;
+14
+Employee alice3 = new Employee("Alice Adams", 75000, 1987, 12,
+15);
+15
+Employee bob = new Employee("Bob Brandson", 50000, 1989, 10, 1);
+16
+17
+System.out.println("alice1 == alice2: " + (alice1 == alice2));
+18
+19
+System.out.println("alice1 == alice3: " + (alice1 == alice3));
+20
+21
+System.out.println("alice1.equals(alice3): " +
+alice1.equals(alice3));
+22
+23
+System.out.println("alice1.equals(bob): " + alice1.equals(bob));
+24
+25
+System.out.println("bob.toString(): " + bob);
+26
+27
+Manager carl = new Manager("Carl Cracker", 80000, 1987, 12, 15);
+28
+Manager boss = new Manager("Carl Cracker", 80000, 1987, 12, 15);
+29
+boss.setBonus(5000);
+30
+System.out.println("boss.toString(): " + boss);
+31
+System.out.println("carl.equals(boss): " + carl.equals(boss));
+32
+System.out.println("alice1.hashCode(): " + alice1.hashCode());
+33
+System.out.println("alice3.hashCode(): " + alice3.hashCode());
+34
+System.out.println("bob.hashCode(): " + bob.hashCode());
+35
+System.out.println("carl.hashCode(): " + carl.hashCode());
+36
+
+51
+{
+10
+public static void main(String[] args)
+11
+
+37 
+143
+{
+15
+name = n;
+16
+salary = s;
+17
+GregorianCalendar calendar = new GregorianCalendar(year, month -
+1, day);
+18
+hireDay = calendar.getTime();
+19
+
+69
+{
+38
+double raise = salary * byPercent / 100;
+39
+salary += raise;
+40
+
+587
+{
+44
+// a quick test to see if the objects are identical
+45
+if (this == otherObject) return true;
+46
+47
+// must return false if the explicit parameter is null
+48
+if (otherObject == null) return false;
+49
+// if the classes don't match, they can't be equal
+50
+if (getClass() != otherObject.getClass()) return false;
+51
+52
+// now we know otherObject is a non-null Employee
+53
+Employee other = (Employee) otherObject;
+54
+55
+// test whether the fields have identical values
+56
+return Objects.equals(name, other.name) && salary == other.salary
+&&
+57
+Objects.equals(hireDay, other.hireDay);
+58
+
+52
+{
+62
+return Objects.hash(name, salary, hireDay);
+63
+
+112
+{
+67
+return getClass().getName() + "[name=" + name + ",salary=" +
+salary + ",hireDay=" + hireDay
+68
++ "]";69
+70
+
+413
+{
+private String name;
+private double salary;
+private Date hireDay;
+public Employee(String n, double s, int year, int month, int day)14
+
+20
+21
+public String getName()
+22
+
+25
+26
+public double getSalary()
+27
+
+30
+31
+public Date getHireDay()
+32
+
+35
+36
+public void raiseSalary(double byPercent)
+37
+
+41
+42
+public boolean equals(Object otherObject)
+43
+
+59
+60
+public int hashCode()
+61
+
+64
+65
+public String toString()
+66
+
+
+52
+{
+9
+super(n, s, year, month, day);
+10
+bonus = 0;
+11
+
+77
+{
+15
+double baseSalary = super.getSalary();
+16
+return baseSalary + bonus;
+17
+
+200
+{
+25
+if (!super.equals(otherObject)) return false;
+26
+Manager other = (Manager) otherObject;
+27
+// super.equals checked that this and other belong to the same
+class
+28
+return bonus == other.bonus;
+29
+
+69
+{
+33
+return super.hashCode() + 17 * new Double(bonus).hashCode();
+34
+
+59
+{
+38
+return super.toString() + "[bonus=" + bonus + "]";
+39
+
+294
+{
+5
+private double bonus;
+6
+7
+public Manager(String n, double s, int year, int month, int day)
+8
+
+12
+13
+public double getSalary()
+14
+
+18
+19
+public void setBonus(double b)
+20
+
+23
+public boolean equals(Object otherObject)
+24
+
+30
+31
+public int hashCode()
+32
+
+35
+36
+public String toString()
+37
+
+40 
+590
+{
+14
+// fill the staff array list with three Employee objects
+15
+ArrayList<Employee> staff = new ArrayList<>();
+16
+staff.add(new Employee("Carl Cracker", 75000, 1987, 12, 15));
+17
+staff.add(new Employee("Harry Hacker", 50000, 1989, 10, 1));
+18
+staff.add(new Employee("Tony Tester", 40000, 1990, 3, 15));
+19
+20
+// raise everyone's salary by 5%
+21
+for (Employee e : staff)
+22
+e.raiseSalary(5);
+23
+24
+// print out information about all Employee objects
+25
+for (Employee e : staff)
+26
+System.out.println("name=" + e.getName() + ",salary=" +
+e.getSalary() + ",hireDay="
+27
++ e.getHireDay());
+28
+
+51
+{
+12
+public static void main(String[] args)
+13
+
+29 
+75
+{
+public void update(ArrayList list) 
+public ArrayList find(String query) 
+
+57
+{
+public PrintStream printf(String fmt, Object... args) 
+
+107
+{
+double largest = Double.MIN_VALUE;
+for (double v : values) if (v > largest) largest = v;
+return largest;
+
+155
+{
+SMALL("S"), MEDIUM("M"), LARGE("L"), EXTRA_LARGE("XL");
+private String abbreviation;
+private Size(String abbreviation) 
+public String getAbbreviation() 
+
+412
+{14
+Scanner in = new Scanner(System.in);
+15
+System.out.print("Enter a size: (SMALL, MEDIUM, LARGE,
+EXTRA_LARGE) ");
+16
+String input = in.next().toUpperCase();
+17
+Size size = Enum.valueOf(Size.class, input);
+18
+System.out.println("size=" + size);
+19
+System.out.println("abbreviation=" + size.getAbbreviation());
+20
+if (size == Size.EXTRA_LARGE)
+21
+System.out.println("Good job--you paid attention to the _.");
+22
+
+176
+{
+27
+SMALL("S"), MEDIUM("M"), LARGE("L"), EXTRA_LARGE("XL");
+28
+29
+private Size(String abbreviation) 
+30
+public String getAbbreviation() 
+31
+32
+private String abbreviation;
+33 
+119
+{
+String name = . . .; // get class name
+Class cl = Class.forName(name); // might throw exception
+do something with cl
+
+1172
+{
+public java.lang.Double(java.lang.String);
+public java.lang.Double(double);
+public
+public
+public
+public
+public
+public
+public
+public
+public
+public
+public
+public
+public
+public
+public
+public
+public
+public
+public
+public
+public
+int hashCode();
+int compareTo(java.lang.Object);
+int compareTo(java.lang.Double);
+boolean equals(java.lang.Object);
+java.lang.String toString();
+static java.lang.String toString(double);
+static java.lang.Double valueOf(java.lang.String);
+static boolean isNaN(double);
+boolean isNaN();
+static boolean isInfinite(double);
+boolean isInfinite();
+byte byteValue();
+short shortValue();
+int intValue();
+long longValue();
+float floatValue();
+double doubleValue();
+static double parseDouble(java.lang.String);
+static native long doubleToLongBits(double);
+static native long doubleToRawLongBits(double);
+static native double longBitsToDouble(long);
+public static final double POSITIVE_INFINITY;
+public static final double NEGATIVE_INFINITY;
+public static final double NaN;
+public static final double MAX_VALUE;
+public static final double MIN_VALUE;
+public static final java.lang.Class TYPE;
+private double value;
+private static final long serialVersionUID;
+
+133
+{
+20
+Scanner in = new Scanner(System.in);
+21
+System.out.println("Enter class name (e.g. java.util.Date): ");
+22
+name = in.next();
+23
+
+147
+{\n");
+37
+printConstructors(cl);
+38
+System.out.println();
+39
+printMethods(cl);
+40
+System.out.println();
+41
+printFields(cl);
+42
+System.out.println("
+436
+{
+27
+// print class name and superclass name (if != Object)
+28
+Class cl = Class.forName(name);
+29
+Class supercl = cl.getSuperclass();
+30
+String modifiers = Modifier.toString(cl.getModifiers());
+31
+if (modifiers.length() > 0) System.out.print(modifiers + " ");
+32
+System.out.print("class " + name);
+33
+if (supercl != null && supercl != Object.class)
+System.out.print(" extends "
+34
++ supercl.getName());
+35
+36
+System.out.print("\n");
+43
+
+205
+{
+15
+// read class name from command line args or user input
+16
+String name;
+17
+if (args.length > 0) name = args[0];
+18
+else
+19
+
+24
+25
+try
+26
+
+44
+catch (ClassNotFoundException e)
+45
+
+48
+System.exit(0);
+49
+
+80
+{
+if (j > 0) System.out.print(", ");
+System.out.print(paramTypes[j].getName());
+
+341
+{
+String name = c.getName();
+System.out.print(" ");
+String modifiers = Modifier.toString(c.getModifiers());
+if (modifiers.length() > 0) System.out.print(modifiers + " ");
+System.out.print(name + "(");
+// print parameter types
+Class[] paramTypes = c.getParameterTypes();
+for (int j = 0; j < paramTypes.length; j++)
+
+System.out.println(");");
+
+97
+{
+Constructor[] constructors = cl.getDeclaredConstructors();
+for (Constructor c : constructors)
+
+
+80
+{
+if (j > 0) System.out.print(", ");
+System.out.print(paramTypes[j].getName());
+
+450
+{
+Class retType = m.getReturnType();
+String name = m.getName();
+System.out.print(" ");
+// print modifiers, return type and method name
+String modifiers = Modifier.toString(m.getModifiers());
+if (modifiers.length() > 0) System.out.print(modifiers + " ");
+System.out.print(retType.getName() + " " + name + "(");
+// print parameter types
+Class[] paramTypes = m.getParameterTypes();
+for (int j = 0; j < paramTypes.length; j++)
+
+System.out.println(");");
+
+72
+{
+Method[] methods = cl.getDeclaredMethods();
+for (Method m : methods)
+
+
+53
+{113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125 
+252
+{
+Class type = f.getType();
+String name = f.getName();
+System.out.print(" ");
+String modifiers = Modifier.toString(f.getModifiers());
+if (modifiers.length() > 0) System.out.print(modifiers + " ");
+System.out.println(type.getName() + " " + name + ";");
+
+628
+{
+13
+public static void main(String[] args)
+14
+
+50
+51
+/**
+52
+* Prints all constructors of a class
+53
+* @param cl a class
+54
+*/55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+public static void printConstructors(Class cl)
+
+/**
+* Prints all methods of a class
+* @param cl a class
+*/
+public static void printMethods(Class cl)
+
+/**
+* Prints all fields of a class
+* @param cl a class
+*/
+public static void printFields(Class cl)
+
+Field[] fields = cl.getDeclaredFields();
+for (Field f : fields)
+
+
+84
+{
+if (!r.endsWith("[")) r += ",";
+r += f.getName() + "=";
+try
+
+catch (Exception e) 
+
+200
+{
+r += "[";
+Field[] fields = cl.getDeclaredFields();
+AccessibleObject.setAccessible(fields, true);
+// get the names and values of all fields
+for (Field f : fields)
+
+r += "]";
+cl = cl.getSuperclass();
+
+150
+{
+Class cl = obj.getClass();
+. . .
+String r = cl.getName();// inspect the fields of this class and all superclasses
+do
+
+while (cl != null);
+return r;
+
+185
+{java.lang.Integer[value=1][][],
+java.lang.Integer[value=4][][],java.lang.Integer[value=9][]
+[],java.lang.Integer[value=16][][],
+java.lang.Integer[value=25][][],null,null,null,null,null
+159
+{
+ArrayList<Integer> squares = new ArrayList<>();
+for (int i = 1; i <= 5; i++)
+squares.add(i * i);
+System.out.println(new ObjectAnalyzer().toString(squares));
+
+131
+{
+if (i > 0) r += ",";
+Object val = Array.get(obj, i);
+if (cl.getComponentType().isPrimitive()) r += val;
+else r += toString(val);
+
+64
+{";
+for (int i = 0; i < Array.getLength(obj); i++)
+
+return r + "
+106
+{
+Class t = f.getType();
+Object val = f.get(obj);
+if (t.isPrimitive()) r += val;
+else r += toString(val);
+
+84
+{
+if (!r.endsWith("[")) r += ",";
+r += f.getName() + "=";
+try
+
+catch (Exception e)
+
+
+200
+{
+r += "[";
+Field[] fields = cl.getDeclaredFields();
+AccessibleObject.setAccessible(fields, true);
+// get the names and values of all fields
+for (Field f : fields)
+
+r += "]";
+cl = cl.getSuperclass();
+
+458
+{
+21
+if (obj == null) return "null";22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+if (visited.contains(obj)) return "...";
+visited.add(obj);
+Class cl = obj.getClass();
+if (cl == String.class) return (String) obj;
+if (cl.isArray())
+
+String r = cl.getName();
+// inspect the fields of this class and all superclasses
+do
+
+while (cl != null);
+return r;
+
+305
+{
+11
+private ArrayList<Object> visited = new ArrayList<>();
+12
+13
+/**
+14
+* Converts an object to a string representation that lists all
+fields.
+15
+* @param obj an object
+16
+* @return a string with the object's class name and all field names
+and
+17
+* values
+18
+*/
+19
+public String toString(Object obj)
+20
+
+
+130
+{
+Object[] newArray = new Object[newLength];
+System.arraycopy(a, 0, newArray, 0, Math.min(a.length, newLength));
+return newArray;
+
+283
+{
+Class cl = a.getClass();
+if (!cl.isArray()) return null;
+Class componentType = cl.getComponentType();
+int length = Array.getLength(a);
+Object newArray = Array.newInstance(componentType, newLength);
+System.arraycopy(a, 0, newArray, 0, Math.min(length, newLength));
+return newArray;
+
+310
+{
+15
+int[] a = ;
+16
+a = (int[]) goodCopyOf(a, 10);
+17
+System.out.println(Arrays.toString(a));
+18
+19
+String[] b = ;
+20
+b = (String[]) goodCopyOf(b, 10);
+21
+System.out.println(Arrays.toString(b));
+22
+23
+System.out.println("The following call will generate an
+exception.");
+24
+b = (String[]) badCopyOf(b, 10);
+25
+
+142
+{
+36
+Object[] newArray = new Object[newLength];
+37
+System.arraycopy(a, 0, newArray, 0, Math.min(a.length,
+newLength));
+38
+return newArray;
+39
+
+307
+{
+49
+Class cl = a.getClass();
+50
+if (!cl.isArray()) return null;
+51
+Class componentType = cl.getComponentType();
+52
+int length = Array.getLength(a);
+53
+Object newArray = Array.newInstance(componentType, newLength);
+54
+System.arraycopy(a, 0, newArray, 0, Math.min(length, newLength));
+55
+return newArray;
+56
+
+781
+{
+13
+public static void main(String[] args)
+14
+
+26
+27
+/**
+28
+* This method attempts to grow an array by allocating a new array
+and copying all elements.
+29
+* @param a the array to grow30
+* @param newLength the new length
+31
+* @return a larger array that contains all elements of a. However,
+the returned array has
+32
+* type Object[], not the same type as a
+33
+*/
+34
+public static Object[] badCopyOf(Object[] a, int newLength) // not
+useful
+35
+
+40
+41
+/**
+42
+* This method grows an array by allocating a new array of the same
+type and
+43
+* copying all elements.
+44
+* @param a the array to grow. This can be an object array or a
+primitive type array
+45
+* @return a larger array that contains all elements of a.
+46
+*/
+47
+public static Object goodCopyOf(Object a, int newLength)
+48
+
+57 
+86
+{double y = (Double) f.invoke(null, x);
+System.out.printf("%10.4f | %10.4f%n", x, y);
+
+309
+{
+14
+// get method pointers to the square and sqrt methods
+15
+Method square = MethodTableTest.class.getMethod("square",
+double.class);
+16
+Method sqrt = Math.class.getMethod("sqrt", double.class);
+17
+18
+// print tables of x- and y-values
+19
+20
+printTable(1, 10, 10, square);
+21
+printTable(1, 10, 10, sqrt);
+22
+
+87
+{
+double y = (Double) f.invoke(null, x);
+System.out.printf("%10.4f | %10.4f%n", x, y);
+
+141
+{
+// print out the method as table header
+System.out.println(f);
+double dx = (to - from) / (n - 1);
+for (double x = from; x <= to; x += dx)
+
+
+624
+{
+12
+public static void main(String[] args) throws Exception
+13
+
+23
+24
+/**
+25
+* Returns the square of a number
+26
+* @param x a number
+27
+* @return x squared
+28
+*/
+29
+public static double square(double x)
+30
+
+33
+/**
+34
+* Prints a table with x- and y-values for a method
+35
+* @param from the lower bound for the x-values
+36
+* @param to the upper bound for the x-values
+37
+* @param n the number of rows in the table
+38
+* @param f a method with a double parameter and double return value
+39
+*/40
+f)
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+public static void printTable(double from, double to, int n, Method
+
+
+88
+{
+Employee other = (Employee) otherObject;
+return Double.compare(salary, other.salary);
+
+382
+{
+Employee[] staff = new Employee[3];15
+16
+staff[0] = new Employee("Harry Hacker", 35000);
+17
+staff[1] = new Employee("Carl Cracker", 75000);
+18
+staff[2] = new Employee("Tony Tester", 38000);
+19
+20
+Arrays.sort(staff);
+21
+22
+// print out information about all Employee objects
+23
+for (Employee e : staff)
+24
+System.out.println("name=" + e.getName() + ",salary=" +
+e.getSalary());
+25
+
+69
+{
+26
+double raise = salary * byPercent / 100;
+27
+salary += raise;
+28
+
+55
+{38
+39
+40
+return Double.compare(salary, other.salary);
+
+499
+{
+5
+private String name;
+6
+private double salary;
+7
+8
+public Employee(String n, double s)
+9
+
+13
+14
+public String getName()
+15
+
+18
+19
+public double getSalary()
+20
+
+23
+24
+public void raiseSalary(double byPercent)
+25
+
+29
+30
+/**
+31
+* Compares employees by salary
+32
+* @param other another Employee object
+33
+* @return a negative value if this employee has a lower salary than
+34
+* otherObject, 0 if the salaries are the same, a positive value
+otherwise
+35
+*/
+36
+public int compareTo(Employee other)
+37
+
+
+54
+{
+Manager otherManager = (Manager) other; // NO
+. . .
+
+86
+{
+double milesPerGallon();
+double SPEED_LIMIT = 95; // a public static final constant
+
+123
+{
+// raise visibility level to public, change return type
+public Employee clone() throws CloneNotSupportedException
+
+. . .
+
+149
+{
+// call Object.clone()
+Employee cloned = (Employee) super.clone();
+// clone mutable fields
+cloned.hireDay = (Date) hireDay.clone();
+return cloned;
+
+67
+{
+. . .
+public Employee clone() throws CloneNotSupportedException
+
+
+90
+{
+try
+
+catch (CloneNotSupportedException e) 
+// this won't happen, since we are Cloneable
+
+261
+{
+Employee original = new Employee("John Q. Public", 50000);
+original.setHireDay(2000, 1, 1);
+Employee copy = original.clone();
+copy.raiseSalary(10);
+copy.setHireDay(2002, 12, 31);
+System.out.println("original=" + original);
+System.out.println("copy=" + copy);
+
+58
+{
+13
+name = n;
+14
+salary = s;
+15
+hireDay = new Date();
+16
+
+173
+{
+20
+// call Object.clone()
+21
+Employee cloned = (Employee) super.clone();
+22
+23
+// clone mutable fields
+24
+cloned.hireDay = (Date) hireDay.clone();
+25
+26
+return cloned;
+27
+
+167
+{
+37
+Date newHireDay = new GregorianCalendar(year, month - 1,
+day).getTime();
+38
+39
+// Example of instance field mutation
+40
+hireDay.setTime(newHireDay.getTime());
+41
+
+69
+{
+45
+double raise = salary * byPercent / 100;
+46
+salary += raise;
+47
+
+92
+{
+51
+return "Employee[name=" + name + ",salary=" + salary + ",hireDay="
++ hireDay + "]";
+52
+
+519
+{
+7
+private String name;
+8
+private double salary;
+9
+private Date hireDay;
+10
+11
+public Employee(String n, double s)
+12
+
+17
+18
+public Employee clone() throws CloneNotSupportedException
+19
+
+28
+29
+/**
+30
+* Set the hire day to a given date.
+31
+* @param year the year of the hire day
+32
+* @param month the month of the hire day
+33
+* @param day the day of the hire day
+34
+*/
+35
+public void setHireDay(int year, int month, int day)
+36
+
+42
+43
+public void raiseSalary(double byPercent)
+44
+
+48
+49
+public String toString()
+50
+
+53 
+116
+{
+Date now = new Date();
+System.out.println("At the tone, the time is " + now);
+Toolkit.getDefaultToolkit().beep();
+
+236
+{
+ActionListener listener = new TimePrinter();
+// construct a timer that calls the listener
+// once every 10 seconds
+Timer t = new Timer(10000, listener);
+t.start();
+JOptionPane.showMessageDialog(null, "Quit program?");
+System.exit(0);
+
+116
+{
+Date now = new Date();
+System.out.println("At the tone, the time is " + now);
+Toolkit.getDefaultToolkit().beep();
+
+97
+{
+public:
+class Iterator // a nested class
+;
+. . .
+private:
+class Link // a nested class
+;
+. . .
+
+186
+{
+private int interval;
+private boolean beep;
+public TalkingClock(int interval, boolean beep) 
+public void start() 
+public class TimePrinter implements ActionListener
+// an inner class
+
+
+126
+{
+Date now = new Date();
+System.out.println("At the tone, the time is " + now);
+if (beep) Toolkit.getDefaultToolkit().beep();
+
+134
+{
+Date now = new Date();
+System.out.println("At the tone, the time is " + now);
+if ( outer .beep) Toolkit.getDefaultToolkit().beep();
+
+186
+{
+TalkingClock clock = new TalkingClock(1000, true);
+clock.start();
+// keep program running until user selects "Ok"
+JOptionPane.showMessageDialog(null, "Quit program?");
+System.exit(0);
+
+99
+{
+ActionListener listener = new TimePrinter();
+Timer t = new Timer(interval, listener);
+t.start();
+
+126
+{
+Date now = new Date();
+System.out.println("At the tone, the time is " + now);
+if (beep) Toolkit.getDefaultToolkit().beep();
+
+415
+{
+private int interval;
+private boolean beep;
+/**
+* Constructs a talking clock
+* @param interval the interval between messages (in milliseconds)
+* @param beep true if the clock should beep
+*/39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+public TalkingClock(int interval, boolean beep)
+
+/**
+* Starts the clock.
+*/
+public void start()
+
+public class TimePrinter implements ActionListener
+
+
+72
+{
+. . .
+if (TalkingClock.this.beep) Toolkit.getDefaultToolkit().beep();
+
+133
+{
+public TalkingClock$TimePrinter(TalkingClock);
+public void actionPerformed(java.awt.event.ActionEvent);
+final TalkingClock this$0;
+
+103
+{
+ActionListener listener = new TimePrinter(this);
+Timer t = new Timer(interval, listener);
+t.start();
+
+76
+{
+private TalkingClock outer;
+. . .
+public TimePrinter(TalkingClock clock)
+
+
+140
+{
+private int interval;
+private boolean beep;
+public TalkingClock(int, boolean);
+static boolean access$0(TalkingClock);
+public void start();
+126
+{
+Date now = new Date();
+System.out.println("At the tone, the time is " + now);
+if (beep) Toolkit.getDefaultToolkit().beep();
+
+144
+{
+class TimePrinter implements ActionListener
+
+ActionListener listener = new TimePrinter();
+Timer t = new Timer(interval, listener);
+t.start();
+
+126
+{
+Date now = new Date();
+System.out.println("At the tone, the time is " + now);
+if (beep) Toolkit.getDefaultToolkit().beep();
+
+144
+{
+class TimePrinter implements ActionListener
+
+ActionListener listener = new TimePrinter();
+Timer t = new Timer(interval, listener);
+t.start();
+
+160
+{
+TalkingClock$1TimePrinter(TalkingClock, boolean);
+public void actionPerformed(java.awt.event.ActionEvent);
+final boolean val$beep;
+final TalkingClock this$0;
+
+53
+{
+counter++; // ERROR
+return super.compareTo(other);
+
+126
+{
+Date now = new Date();
+System.out.println("At the tone, the time is " + now);
+if (beep) Toolkit.getDefaultToolkit().beep();
+
+103
+{
+ActionListener listener = new ActionListener()
+;
+Timer t = new Timer(interval, listener);
+t.start();
+
+186
+{
+TalkingClock clock = new TalkingClock();
+clock.start(1000, true);
+// keep program running until user selects "Ok"
+JOptionPane.showMessageDialog(null, "Quit program?");
+System.exit(0);
+
+126
+{
+Date now = new Date();
+System.out.println("At the tone, the time is " + now);
+if (beep) Toolkit.getDefaultToolkit().beep();
+
+79
+{
+public void actionPerformed(ActionEvent event)42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+
+
+103
+{
+ActionListener listener = new ActionListener()
+;
+Timer t = new Timer(interval, listener);
+t.start();
+
+192
+{
+/**
+* Starts the clock.
+* @param interval the interval between messages (in milliseconds)
+* @param beep true if the clock should beep
+*/
+public void start(int interval, final boolean beep)
+
+
+133
+{
+private double first;
+private double second;
+public Pair(double f, double s)
+
+public double getFirst() 
+public double getSecond() 
+
+223
+{
+double[] d = new double[20];
+for (int i = 0; i < d.length; i++)
+d[i] = 100 * Math.random();
+ArrayAlg.Pair p = ArrayAlg.minmax(d);
+System.out.println("min = " + p.getFirst());
+System.out.println("max = " + p.getSecond());
+
+417
+{
+private double first;
+private double second;
+/**
+* Constructs a pair from two floating-point numbers
+* @param f the first number
+* @param s the second number
+*/
+public Pair(double f, double s)
+
+/**
+* Returns the first number of the pair
+* @return the first number
+*/
+public double getFirst()
+50
+/**
+51
+* Returns the second number of the pair
+52
+* @return the second number
+53
+*/
+54
+public double getSecond()
+55
+
+58
+
+116
+{
+double min = Double.MAX_VALUE;
+double max = Double.MIN_VALUE;
+for (double v : values)
+
+return new Pair(min, max);
+
+379
+{
+/**
+* A pair of floating-point numbers
+*/
+public static class Pair
+
+59
+60
+/**
+61
+* Computes both the minimum and the maximum of an array
+62
+* @param values an array of floating-point numbers
+63
+* @return a pair whose first element is the minimum and whose second
+element
+64
+* is the maximum
+65
+*/
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+public static Pair minmax(double[] values)
+
+
+99
+{
+// print method name and parameters
+. . .
+// invoke actual method
+return m.invoke(target, args);
+
+134
+{
+private Object target;
+public TraceHandler(Object t)
+
+public Object invoke(Object proxy, Method m, Object[] args)
+throws Throwable
+
+
+90
+{
+Integer value = i + 1;
+elements[i] = Proxy.newProxyInstance(. . .); // proxy for value;
+
+182
+{
+19
+Integer value = i + 1;
+20
+InvocationHandler handler = new TraceHandler(value);
+21
+Object proxy = Proxy.newProxyInstance(null, new Class[] , handler);
+22
+elements[i] = proxy;
+23
+
+423
+{
+14
+Object[] elements = new Object[1000];
+15
+16
+// fill elements with proxies for the integers 1 ... 1000
+17
+for (int i = 0; i < elements.length; i++)
+18
+
+24
+25
+// construct a random integer
+26
+Integer key = new Random().nextInt(elements.length) + 1;
+27
+28
+// search for the key
+29
+int result = Arrays.binarySearch(elements, key);
+30
+31
+// print match if found
+32
+if (result >= 0) System.out.println(elements[result]);
+33
+
+87
+{
+65
+System.out.print(args[i]);
+66
+if (i < args.length - 1) System.out.print(", ");
+67
+
+285
+{
+55
+// print implicit argument
+56
+System.out.print(target);
+57
+// print method name
+58
+System.out.print("." + m.getName() + "(");
+59
+60
+// print explicit arguments
+61
+if (args != null)
+62
+
+69
+System.out.println(")");
+70
+71
+// invoke actual method
+72
+return m.invoke(target, args);
+73
+
+258
+{
+42
+private Object target;
+43
+44
+/**
+45
+* Constructs a TraceHandler
+46
+* @param t the implicit parameter of the method call
+47
+*/
+48
+public TraceHandler(Object t)
+49
+
+52
+53
+public Object invoke(Object proxy, Method m, Object[] args) throws
+Throwable
+54
+
+74 
+119
+{
+SimpleFrame frame = new SimpleFrame();
+frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+frame.setVisible(true);
+
+134
+{
+private static final int DEFAULT_WIDTH = 300;
+private static final int DEFAULT_HEIGHT = 200;30
+31
+32
+33
+34
+35
+public SimpleFrame()
+
+
+143
+{
+JFrame frame = new SizedFrame();
+frame.setTitle("SizedFrame");
+frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+frame.setVisible(true);
+
+451
+{
+// get screen dimensions
+Toolkit kit = Toolkit.getDefaultToolkit();
+Dimension screenSize = kit.getScreenSize();
+int screenHeight = screenSize.height;36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+int screenWidth = screenSize.width;
+// set frame width, height and let platform pick screen location
+setSize(screenWidth / 2, screenHeight / 2);
+setLocationByPlatform(true);
+// set frame icon
+Image img = new ImageIcon("icon.gif").getImage();
+setIconImage(img);
+
+68
+{
+g.drawString("Not a Hello, World program", MESSAGE_X, MESSAGE_Y);
+
+128
+{
+public static final int MESSAGE_X = 75;
+public static final int MESSAGE_Y = 100;public void paintComponent(Graphics g)
+
+. . .
+
+55
+{ return new Dimension(DEFAULT_WIDTH,
+DEFAULT_HEIGHT); 
+138
+{
+private static final int DEFAULT_WIDTH = 300;
+private static final int DEFAULT_HEIGHT = 200;
+. . .
+public Dimension getPreferredSize() 
+
+154
+{
+JFrame frame = new NotHelloWorldFrame();
+frame.setTitle("NotHelloWorld");
+frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+frame.setVisible(true);
+
+73
+{51
+g.drawString("Not a Hello, World program", MESSAGE_X, MESSAGE_Y);
+52
+
+55
+{ return new
+Dimension(DEFAULT_WIDTH, DEFAULT_HEIGHT); 
+262
+{
+public static final int MESSAGE_X = 75;
+public static final int MESSAGE_Y = 100;
+private static final int DEFAULT_WIDTH = 300;
+private static final int DEFAULT_HEIGHT = 200;
+public void paintComponent(Graphics g)
+
+53
+54
+public Dimension getPreferredSize() 
+55 
+155
+{
+19
+JFrame frame = new DrawFrame();
+20
+frame.setTitle("DrawTest");
+21
+frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+22
+frame.setVisible(true);
+23
+
+52
+{
+15
+EventQueue.invokeLater(new Runnable()
+16
+);
+25
+
+51
+{
+13
+public static void main(String[] args)
+14
+
+26 
+782
+{
+50
+Graphics2D g2 = (Graphics2D) g;
+51
+52
+// draw a rectangle
+53
+double leftX = 100;
+54
+double topY = 100;
+55
+double width = 200;
+56
+double height = 150;
+57
+58
+Rectangle2D rect = new Rectangle2D.Double(leftX, topY, width,
+height);59
+g2.draw(rect);
+60
+// draw the enclosed ellipse
+61
+Ellipse2D ellipse = new Ellipse2D.Double();
+62
+ellipse.setFrame(rect);
+63
+g2.draw(ellipse);
+64
+65
+// draw a diagonal line
+66
+g2.draw(new Line2D.Double(leftX, topY, leftX + width, topY +
+height));
+67
+68
+// draw a circle with the same center
+69
+double centerX = rect.getCenterX();
+70
+double centerY = rect.getCenterY();
+71
+double radius = 150;
+72
+73
+Ellipse2D circle = new Ellipse2D.Double();
+74
+circle.setFrameFromCenter(centerX, centerY, centerX + radius,
+centerY + radius);
+75
+g2.draw(circle);
+76
+
+55
+{ return new
+Dimension(DEFAULT_WIDTH, DEFAULT_HEIGHT); 
+196
+{
+45
+private static final int DEFAULT_WIDTH = 400;
+46
+private static final int DEFAULT_HEIGHT = 400;
+47
+48
+public void paintComponent(Graphics g)
+49
+
+77
+78
+public Dimension getPreferredSize() 
+79 
+170
+{
+String[] fontNames = GraphicsEnvironment
+.getLocalGraphicsEnvironment()
+.getAvailableFontFamilyNames();
+for (String fontName : fontNames)
+System.out.println(fontName);
+
+140
+{
+JFrame frame = new FontFrame();
+frame.setTitle("FontTest");
+frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+frame.setVisible(true);
+
+924
+{
+50
+Graphics2D g2 = (Graphics2D) g;
+51
+52
+String message = "Hello, World!";
+53
+54
+Font f = new Font("Serif", Font.BOLD, 36);
+55
+g2.setFont(f);
+56
+57
+// measure the size of the message
+58
+FontRenderContext context = g2.getFontRenderContext();
+59
+Rectangle2D bounds = f.getStringBounds(message, context);
+60
+61
+// set (x,y) = top left corner of text
+62
+double x = (getWidth() - bounds.getWidth()) / 2;
+63
+double y = (getHeight() - bounds.getHeight()) / 2;
+64
+65
+// add ascent to y to reach the baseline
+66
+double ascent = -bounds.getY();
+67
+double baseY = y + ascent;
+68
+69
+// draw the message
+70
+g2.drawString(message, (int) x, (int) baseY);
+71
+72
+g2.setPaint(Color.LIGHT_GRAY);
+73
+74
+// draw the baseline
+75
+g2.draw(new Line2D.Double(x, baseY, x + bounds.getWidth(),
+baseY));
+76
+// draw the enclosing rectangle
+77
+Rectangle2D rect = new Rectangle2D.Double(x, y, bounds.getWidth(),
+bounds.getHeight());
+78
+g2.draw(rect);
+79
+
+55
+{ return new
+Dimension(DEFAULT_WIDTH, DEFAULT_HEIGHT); 
+196
+{
+45
+private static final int DEFAULT_WIDTH = 300;
+46
+private static final int DEFAULT_HEIGHT = 200;
+47
+48
+public void paintComponent(Graphics g)
+49
+
+80
+81
+public Dimension getPreferredSize() 
+82 
+142
+{
+JFrame frame = new ImageFrame();
+frame.setTitle("ImageTest");
+frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+frame.setVisible(true);
+
+53
+{
+image = new ImageIcon("blue-ball.gif").getImage();
+
+423
+{
+if (image == null) return;
+int imageWidth = image.getWidth(this);
+int imageHeight = image.getHeight(this);
+// draw the image in the upper-left corner
+g.drawImage(image, 0, 0, null);
+// tile the image across the component
+for (int i = 0; i * imageWidth <= getWidth(); i++)
+for (int j = 0; j * imageHeight <= getHeight(); j++)
+if (i + j > 0)69
+g.copyArea(0, 0, imageWidth, imageHeight, i *
+imageWidth, j * imageHeight);
+70
+
+55
+{ return new
+Dimension(DEFAULT_WIDTH, DEFAULT_HEIGHT); 
+227
+{
+private static final int DEFAULT_WIDTH = 300;
+private static final int DEFAULT_HEIGHT = 200;
+private Image image;
+public ImageComponent()
+
+public void paintComponent(Graphics g)
+
+71
+72
+public Dimension getPreferredSize() 
+73 
+55
+{. . .
+public void actionPerformed(ActionEvent event)
+
+
+110
+{
+private Color backgroundColor;
+public ColorAction(Color c)
+
+public void actionPerformed(ActionEvent event)
+
+
+87
+{
+private Color backgroundColor;
+. . .
+public void actionPerformed(ActionEvent event)
+
+
+89
+{
+private JPanel buttonPanel;
+. . .
+private class ColorAction implements ActionListener
+
+
+719
+{
+setSize(DEFAULT_WIDTH, DEFAULT_HEIGHT);
+// create buttons
+JButton yellowButton = new JButton("Yellow");
+JButton blueButton = new JButton("Blue");
+JButton redButton = new JButton("Red");
+buttonPanel = new JPanel();
+// add buttons to panel
+buttonPanel.add(yellowButton);
+buttonPanel.add(blueButton);
+buttonPanel.add(redButton);
+// add panel to frame
+add(buttonPanel);
+// create button actions
+ColorAction yellowAction = new ColorAction(Color.YELLOW);
+ColorAction blueAction = new ColorAction(Color.BLUE);
+ColorAction redAction = new ColorAction(Color.RED);
+// associate actions with buttons
+yellowButton.addActionListener(yellowAction);
+blueButton.addActionListener(blueAction);
+redButton.addActionListener(redAction);
+
+110
+{
+private Color backgroundColor;
+public ColorAction(Color c)
+
+public void actionPerformed(ActionEvent event)
+
+
+266
+{
+private JPanel buttonPanel;
+private static final int DEFAULT_WIDTH = 300;
+private static final int DEFAULT_HEIGHT = 200;
+public ButtonFrame()
+
+/**
+* An action listener that sets the panel's background color.
+*/
+private class ColorAction implements ActionListener
+
+
+152
+{
+JButton button = new JButton(name);
+buttonPanel.add(button);
+ColorAction action = new ColorAction(backgroundColor);
+button.addActionListener(action);
+
+112
+{
+JButton button = new JButton(name);
+buttonPanel.add(button);
+button.addActionListener(new ActionListener()
+);
+
+155
+{
+Object source = event.getSource();
+if (source == yellowButton) . . .else if (source == blueButton) . . .
+else if (source == redButton ) . . .
+else . . .
+
+56
+{
+. . .
+public void actionPerformed(ActionEvent event)
+
+
+62
+{
+frame.loadData(((JTextField) event.getSource()).getText());
+
+79
+{
+UIManager.setLookAndFeel(plaf);
+SwingUtilities.updateComponentTreeUI(panel);
+
+251
+{
+14
+buttonPanel = new JPanel();
+15
+16
+UIManager.LookAndFeelInfo[] infos =
+UIManager.getInstalledLookAndFeels();
+17
+for (UIManager.LookAndFeelInfo info : infos)
+18
+makeButton(info.getName(), info.getClassName());
+19
+20
+add(buttonPanel);
+21
+pack();
+22
+
+100
+{
+UIManager.setLookAndFeel(plafName);
+SwingUtilities.updateComponentTreeUI(PlafFrame.this);
+pack();
+
+78
+{
+// button action: switch to the new look-and-feel
+try
+
+catch (Exception e)
+
+
+156
+{
+// add button to panel
+JButton button = new JButton(name);
+buttonPanel.add(button);
+// set button action
+button.addActionListener(new ActionListener()
+);
+
+360
+{
+11
+private JPanel buttonPanel;
+12
+public PlafFrame()
+13
+
+23
+24
+/**
+25
+* Makes a button to change the pluggable look-and-feel.
+26
+* @param name the button name
+27
+* @param plafName the name of the look-and-feel class28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+*/
+void makeButton(String name, final String plafName)
+
+
+257
+{
+void windowOpened(WindowEvent e);
+void windowClosing(WindowEvent e);
+void windowClosed(WindowEvent e);
+void windowIconified(WindowEvent e);
+void windowDeiconified(WindowEvent e);
+void windowActivated(WindowEvent e);
+void windowDeactivated(WindowEvent e);
+
+305
+{
+public void windowClosing(WindowEvent e)
+
+public void windowOpened(WindowEvent e) public
+public
+public
+public
+public
+void
+void
+void
+void
+void
+windowClosed(WindowEvent e) 
+windowIconified(WindowEvent e) 
+windowDeiconified(WindowEvent e) 
+windowActivated(WindowEvent e) 
+windowDeactivated(WindowEvent e) 
+
+168
+{
+putValue(Action.NAME, name);
+putValue(Action.SMALL_ICON, icon);
+putValue("color", c);
+putValue(Action.SHORT_DESCRIPTION, "Set panel color to " +
+name.toLowerCase());
+
+69
+{
+Color c = (Color) getValue("color");
+buttonPanel.setBackground(c);
+
+103
+{
+public ColorAction(String name, Icon icon, Color c)
+
+public void actionPerformed(ActionEvent event)
+
+
+1150
+{
+18
+setSize(DEFAULT_WIDTH, DEFAULT_HEIGHT);
+19
+20
+buttonPanel = new JPanel();
+21
+22
+// define actions
+23
+Action yellowAction = new ColorAction("Yellow", new
+ImageIcon("yellow-ball.gif"),
+24
+Color.YELLOW);
+25
+Action blueAction = new ColorAction("Blue", new ImageIcon("blue-
+ball.gif"), Color.BLUE);
+26
+Action redAction = new ColorAction("Red", new ImageIcon("red-
+ball.gif"), Color.RED);
+27
+28
+// add buttons for these actions
+29
+buttonPanel.add(new JButton(yellowAction));
+30
+buttonPanel.add(new JButton(blueAction));
+31
+buttonPanel.add(new JButton(redAction));
+32
+33
+// add panel to frame
+34
+add(buttonPanel);
+35
+36
+// associate the Y, B, and R keys with names
+37
+InputMap imap =
+buttonPanel.getInputMap(JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
+38
+imap.put(KeyStroke.getKeyStroke("ctrl Y"), "panel.yellow");
+39
+imap.put(KeyStroke.getKeyStroke("ctrl B"), "panel.blue");
+40
+imap.put(KeyStroke.getKeyStroke("ctrl R"), "panel.red");
+41
+42
+// associate the names with actions
+43
+ActionMap amap = buttonPanel.getActionMap();
+44
+amap.put("panel.yellow", yellowAction);
+45
+amap.put("panel.blue", blueAction);
+46
+amap.put("panel.red", redAction);
+47
+
+183
+{
+59
+putValue(Action.NAME, name);
+60
+putValue(Action.SMALL_ICON, icon);
+61
+putValue(Action.SHORT_DESCRIPTION, "Set panel color to " +
+name.toLowerCase());
+62
+putValue("color", c);
+63
+
+78
+{
+67
+Color c = (Color) getValue("color");
+68
+buttonPanel.setBackground(c);
+69
+
+299
+{
+51
+/**52
+* Constructs a color action.
+53
+* @param name the name to show on the button
+54
+* @param icon the icon to display on the button
+55
+* @param c the background color
+56
+*/
+57
+public ColorAction(String name, Icon icon, Color c)
+58
+
+64
+65
+public void actionPerformed(ActionEvent event)
+66
+
+70
+
+224
+{
+12
+private JPanel buttonPanel;
+13
+private static final int DEFAULT_WIDTH = 300;
+14
+private static final int DEFAULT_HEIGHT = 200;
+15
+16
+public ActionFrame()
+17
+
+48
+49
+public class ColorAction extends AbstractAction
+50
+
+71 
+103
+{
+current = find(event.getPoint());
+if (current == null) // not inside a square
+add(event.getPoint());
+
+104
+{
+current = find(event.getPoint());
+if (current != null && event.getClickCount() >= 2)
+remove(current);
+
+145
+{
+if (find(event.getPoint()) == null)
+setCursor(Cursor.getDefaultCursor());
+else
+setCursor(Cursor.getPredefinedCursor(Cursor.CROSSHAIR_CURSOR));
+
+139
+{
+int x = event.getX();
+int y = event.getY();
+current.setFrame(x - SIDELENGTH / 2, y - SIDELENGTH / 2, SIDELENGTH,
+SIDELENGTH);
+repaint();
+
+135
+{
+squares = new ArrayList<>();
+current = null;
+addMouseListener(new MouseHandler());
+addMouseMotionListener(new MouseMotionHandler());
+
+96
+{
+Graphics2D g2 = (Graphics2D) g;
+// draw all squares
+for (Rectangle2D r : squares)
+g2.draw(r);
+
+52
+{
+for (Rectangle2D r : squares)
+
+46
+return null;
+47
+
+199
+{
+55
+double x = p.getX();
+56
+double y = p.getY();
+57
+58
+current = new Rectangle2D.Double(x - SIDELENGTH / 2, y -
+SIDELENGTH / 2, SIDELENGTH,
+59
+SIDELENGTH);
+60
+squares.add(current);
+61
+repaint();
+62
+
+104
+{
+70
+if (s == null) return;
+71
+if (s == current) current = null;
+72
+squares.remove(s);
+73
+repaint();
+74
+
+148
+{
+80
+// add a new square if the cursor isn't inside a square
+81
+current = find(event.getPoint());
+82
+if (current == null) add(event.getPoint());
+83
+
+163
+{
+86
+// remove the current square if double clicked
+87
+current = find(event.getPoint());
+88
+if (current != null && event.getClickCount() >= 2)
+remove(current);
+89
+
+105
+{
+78
+public void mousePressed(MouseEvent event)
+79
+
+84
+public void mouseClicked(MouseEvent event)
+85
+
+90
+
+227
+{
+96
+// set the mouse cursor to cross hairs if it is inside a
+rectangle
+97
+98
+if (find(event.getPoint()) == null)setCursor(Cursor.getDefaultCursor());
+99
+else
+setCursor(Cursor.getPredefinedCursor(Cursor.CROSSHAIR_CURSOR));
+100
+
+220
+{
+106
+int x = event.getX();
+107
+int y = event.getY();
+108
+109
+// drag the current rectangle to center it at (x, y)
+110
+current.setFrame(x - SIDELENGTH / 2, y - SIDELENGTH / 2,
+SIDELENGTH, SIDELENGTH);
+111
+repaint();
+112
+
+110
+{
+94
+public void mouseMoved(MouseEvent event)
+95
+
+101
+102
+public void mouseDragged(MouseEvent event)
+103
+
+114
+
+768
+{
+private static final int SIDELENGTH = 10;
+private ArrayList<Rectangle2D> squares;
+private Rectangle2D current;
+public MouseComponent()
+
+public void paintComponent(Graphics g)
+
+/**
+* Finds the first square containing a point.
+* @param p a point
+* @return the first square that contains p
+*/
+public Rectangle2D find(Point2D p)
+
+48
+49
+/**
+50
+* Adds a square to the collection.
+51
+* @param p the center of the square
+52
+*/
+53
+public void add(Point2D p)
+54
+
+63
+64
+/**
+65
+* Removes a square from the collection.
+66
+* @param s the square to remove
+67
+*/
+68
+public void remove(Rectangle2D s)
+69
+
+75
+// the square containing the mouse cursor
+76
+private class MouseHandler extends MouseAdapter
+77
+
+91
+92
+private class MouseMotionHandler implements MouseMotionListener
+93
+
+115 
+794
+{
+setLayout(new BorderLayout());
+result = 0;
+lastCommand = "=";
+start = true;
+// add the display
+display = new JButton("0");
+display.setEnabled(false);
+add(display, BorderLayout.NORTH);
+ActionListener insert = new InsertAction();
+ActionListener command = new CommandAction();
+// add the buttons in a 4 x 4 grid
+panel = new JPanel();
+panel.setLayout(new GridLayout(4, 4));
+addButton("7",
+addButton("8",
+addButton("9",
+addButton("/", insert);
+insert);
+insert);
+command);
+addButton("4",
+addButton("5",
+addButton("6",
+addButton("*", insert);
+insert);
+insert);
+command);
+addButton("1",
+addButton("2",
+addButton("3",
+addButton("-", insert);
+insert);
+insert);
+command);
+addButton("0",
+addButton(".",
+addButton("=",
+addButton("+", insert);
+insert);
+command);
+command);
+add(panel, BorderLayout.CENTER);
+
+102
+{
+JButton button = new JButton(label);67
+button.addActionListener(listener);
+68
+panel.add(button);
+69
+
+114
+{
+77
+String input = event.getActionCommand();
+78
+if (start)
+79
+
+83
+display.setText(display.getText() + input);
+84
+
+59
+{
+75
+public void actionPerformed(ActionEvent event)
+76
+
+85
+
+55
+{
+100
+display.setText(command);
+101
+start = false;
+102
+
+70
+{
+98
+if (command.equals("-"))
+99
+
+103
+else lastCommand = command;
+104
+
+105
+{
+107
+calculate(Double.parseDouble(display.getText()));
+108
+lastCommand = command;
+109
+start = true;
+110
+
+87
+{
+94
+String command = event.getActionCommand();
+95
+96
+if (start)
+97
+
+105
+else
+106
+
+111
+
+60
+{
+92
+public void actionPerformed(ActionEvent event)
+93
+
+112
+
+216
+{
+119
+if (lastCommand.equals("+")) result += x;
+120
+else if (lastCommand.equals("-")) result -= x;
+121
+else if (lastCommand.equals("*")) result *= x;
+122
+else if (lastCommand.equals("/")) result /= x;123
+124
+125
+126 
+876
+{
+private JButton display;
+private JPanel panel;
+private double result;
+private String lastCommand;
+private boolean start;
+public CalculatorPanel()
+
+/**
+* Adds a button to the center panel.
+* @param label the button label
+* @param listener the button listener
+*/
+private void addButton(String label, ActionListener listener)
+
+70
+/**
+71
+* This action inserts the button action string to the end of the
+display text.
+72
+*/
+73
+private class InsertAction implements ActionListener
+74
+
+86
+87
+/**
+88
+* This action executes the command that the button action string
+denotes.
+89
+*/
+90
+private class CommandAction implements ActionListener
+91
+
+113
+/**
+114
+* Carries out the pending calculation.
+115
+* @param x the value to be accumulated with the prior result.
+116
+*/
+117
+public void calculate(double x)
+118
+
+else if (lastCommand.equals("=")) result = x;
+display.setText("" + result);
+
+130
+{
+44
+textArea.append("User name: " + textField.getText() + "
+Password: "
+45
++ new String(passwordField.getPassword()) + "\n");
+46
+
+59
+{
+42
+public void actionPerformed(ActionEvent event)
+43
+
+47
+
+920
+{
+17
+final JTextField textField = new JTextField();
+18
+final JPasswordField passwordField = new JPasswordField();
+19
+20
+JPanel northPanel = new JPanel();
+21
+northPanel.setLayout(new GridLayout(2, 2));
+22
+northPanel.add(new JLabel("User name: ", SwingConstants.RIGHT));
+23
+northPanel.add(textField);
+24
+northPanel.add(new JLabel("Password: ", SwingConstants.RIGHT));
+25
+northPanel.add(passwordField);
+26
+27
+add(northPanel, BorderLayout.NORTH);
+28
+29
+final JTextArea textArea = new JTextArea(TEXTAREA_ROWS,
+TEXTAREA_COLUMNS);
+30
+JScrollPane scrollPane = new JScrollPane(textArea);
+31
+32
+add(scrollPane, BorderLayout.CENTER);
+33
+34
+// add button to append text into the text area
+35
+36
+JPanel southPanel = new JPanel();
+37
+38
+JButton insertButton = new JButton("Insert");
+39
+southPanel.add(insertButton);
+40
+insertButton.addActionListener(new ActionListener()
+41
+);
+48
+49
+add(southPanel, BorderLayout.SOUTH);
+50
+pack();
+51
+
+139
+{
+12
+public static final int TEXTAREA_ROWS = 8;
+13
+public static final int TEXTAREA_COLUMNS = 20;
+14
+15
+public TextComponentFrame()
+16
+
+52 
+154
+{
+int mode = 0;
+if (bold.isSelected()) mode += Font.BOLD;
+if (italic.isSelected()) mode += Font.ITALIC;
+label.setFont(new Font("Serif", mode, FONTSIZE));
+
+148
+{
+JFrame frame = new CheckBoxFrame();
+frame.setTitle("CheckBoxTest");
+frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+frame.setVisible(true);
+
+121
+{
+// size refers to the final parameter of the addRadioButton method
+label.setFont(new Font("Serif", Font.PLAIN, size));
+
+487
+{
+19
+// add the sample text label
+20
+label = new JLabel("The quick brown fox jumps over the lazy
+dog.");
+21
+label.setFont(new Font("Serif", Font.PLAIN, DEFAULT_SIZE));
+22
+add(label, BorderLayout.CENTER);
+23
+// add the radio buttons
+24
+buttonPanel = new JPanel();
+25
+group = new ButtonGroup();26
+27
+addRadioButton("Small", 8);
+28
+addRadioButton("Medium", 12);
+29
+addRadioButton("Large", 18);
+30
+addRadioButton("Extra large", 36);
+31
+32
+add(buttonPanel, BorderLayout.SOUTH);
+33
+pack();
+34
+
+136
+{
+53
+// size refers to the final parameter of the
+addRadioButton
+54
+// method
+55
+label.setFont(new Font("Serif", Font.PLAIN, size));
+56
+
+59
+{
+51
+public void actionPerformed(ActionEvent event)
+52
+
+57
+
+303
+{
+43
+boolean selected = size == DEFAULT_SIZE;
+44
+JRadioButton button = new JRadioButton(name, selected);
+45
+group.add(button);
+46
+buttonPanel.add(button);
+47
+48
+// this listener sets the label font size
+49
+ActionListener listener = new ActionListener()
+50
+;
+58
+59
+button.addActionListener(listener);
+60
+
+427
+{
+12
+private JPanel buttonPanel;
+13
+private ButtonGroup group;
+14
+private JLabel label;
+15
+private static final int DEFAULT_SIZE = 36;
+16
+17
+public RadioButtonFrame()
+18
+
+35
+36
+/**
+37
+* Adds a radio button that sets the font size of the sample text.
+38
+* @param name the string to appear on the button
+39
+* @param size the font size that this button sets
+40
+*/
+41
+public void addRadioButton(String name, final int size)
+42
+
+61 
+843
+{
+19
+demoPanel = new JPanel();
+20
+buttonPanel = new JPanel();
+21
+group = new ButtonGroup();
+22
+23
+addRadioButton("Lowered bevel",
+BorderFactory.createLoweredBevelBorder());
+24
+addRadioButton("Raised bevel",
+BorderFactory.createRaisedBevelBorder());
+25
+addRadioButton("Etched", BorderFactory.createEtchedBorder());
+26
+addRadioButton("Line",
+BorderFactory.createLineBorder(Color.BLUE));
+27
+addRadioButton("Matte", BorderFactory.createMatteBorder(10, 10,
+10, 10, Color.BLUE));
+28
+addRadioButton("Empty", BorderFactory.createEmptyBorder());
+29
+30
+Border etched = BorderFactory.createEtchedBorder();
+31
+Border titled = BorderFactory.createTitledBorder(etched, "Border
+types");32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+buttonPanel.setBorder(titled);
+setLayout(new GridLayout(2, 1));
+add(buttonPanel);
+add(demoPanel);
+pack();
+
+147
+{
+JRadioButton button = new JRadioButton(buttonName);
+button.addActionListener(new ActionListener()
+);
+group.add(button);
+buttonPanel.add(button);
+
+186
+{
+13
+private JPanel demoPanel;
+14
+private JPanel buttonPanel;
+15
+private ButtonGroup group;
+16
+17
+public BorderFrame()
+18
+
+public void addRadioButton(String buttonName, final Border b)
+
+
+105
+{
+label.setFont(new Font(
+faceCombo.getItemAt(faceCombo.setSelectedIndex()),
+Font.PLAIN,
+DEFAULT_SIZE));
+
+113
+{
+36
+label.setFont(new
+Font(faceCombo.getItemAt(faceCombo.getSelectedIndex()),
+37
+Font.PLAIN, DEFAULT_SIZE));
+38
+
+59
+{
+34
+public void actionPerformed(ActionEvent event)
+35
+
+39
+
+779
+{
+18
+// add the sample text label
+19
+label = new JLabel("The quick brown fox jumps over the lazy
+dog.");
+20
+label.setFont(new Font("Serif", Font.PLAIN, DEFAULT_SIZE));
+21
+add(label, BorderLayout.CENTER);
+22
+23
+// make a combo box and add face names
+24
+faceCombo = new JComboBox<>();
+25
+faceCombo.addItem("Serif");
+26
+faceCombo.addItem("SansSerif");
+27
+faceCombo.addItem("Monospaced");
+28
+faceCombo.addItem("Dialog");
+29
+faceCombo.addItem("DialogInput");
+30
+31
+// the combo box listener changes the label font to the selected
+face name
+32
+faceCombo.addActionListener(new ActionListener()
+33
+);
+40
+41
+// add combo box to a panel at the frame's southern border
+42
+JPanel comboPanel = new JPanel();
+43
+comboPanel.add(faceCombo);
+44
+add(comboPanel, BorderLayout.SOUTH);
+45
+pack();
+46
+
+150
+{
+12
+private JComboBox<String> faceCombo;
+13
+private JLabel label;
+14
+private static final int DEFAULT_SIZE = 24;
+15
+16
+public ComboBoxFrame()
+17
+
+47 
+85
+{
+JSlider slider = (JSlider) event.getSource();
+int value = slider.getValue();
+. . .
+
+142
+{
+// update text field when the slider value changes
+JSlider source = (JSlider) event.getSource();
+textField.setText("" + source.getValue());
+
+2732
+{
+sliderPanel = new JPanel();
+sliderPanel.setLayout(new GridBagLayout());
+// common listener for all sliders
+listener = new ChangeListener()
+;
+// add a plain slider
+JSlider slider = new JSlider();
+addSlider(slider, "Plain");
+// add a slider with major and minor ticks
+slider = new JSlider();
+slider.setPaintTicks(true);
+slider.setMajorTickSpacing(20);
+slider.setMinorTickSpacing(5);
+addSlider(slider, "Ticks");
+// add a slider that snaps to ticks
+slider = new JSlider();
+slider.setPaintTicks(true);
+slider.setSnapToTicks(true);
+slider.setMajorTickSpacing(20);
+slider.setMinorTickSpacing(5);
+addSlider(slider, "Snap to ticks");
+// add a slider with no track
+slider = new JSlider();
+slider.setPaintTicks(true);54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+slider.setMajorTickSpacing(20);
+slider.setMinorTickSpacing(5);
+slider.setPaintTrack(false);
+addSlider(slider, "No track");
+// add an inverted slider
+slider = new JSlider();
+slider.setPaintTicks(true);
+slider.setMajorTickSpacing(20);
+slider.setMinorTickSpacing(5);
+slider.setInverted(true);
+addSlider(slider, "Inverted");
+// add a slider with numeric labels
+slider = new JSlider();
+slider.setPaintTicks(true);
+slider.setPaintLabels(true);
+slider.setMajorTickSpacing(20);
+slider.setMinorTickSpacing(5);
+addSlider(slider, "Labels");
+// add a slider with alphabetic labels
+slider = new JSlider();
+slider.setPaintLabels(true);
+slider.setPaintTicks(true);
+slider.setMajorTickSpacing(20);
+slider.setMinorTickSpacing(5);
+Dictionary<Integer, Component> labelTable = new Hashtable<>();
+labelTable.put(0, new JLabel("A"));
+labelTable.put(20, new JLabel("B"));
+labelTable.put(40, new JLabel("C"));
+labelTable.put(60, new JLabel("D"));
+labelTable.put(80, new JLabel("E"));
+labelTable.put(100, new JLabel("F"));
+slider.setLabelTable(labelTable);
+addSlider(slider, "Custom labels");
+// add a slider with icon labels
+slider = new JSlider();
+slider.setPaintTicks(true);
+slider.setPaintLabels(true);
+slider.setSnapToTicks(true);
+slider.setMajorTickSpacing(20);
+slider.setMinorTickSpacing(20);
+labelTable = new Hashtable<Integer, Component>();
+// add card images
+labelTable.put(0, new JLabel(new ImageIcon("nine.gif")));
+labelTable.put(20, new JLabel(new ImageIcon("ten.gif")));
+labelTable.put(40, new JLabel(new ImageIcon("jack.gif")));
+labelTable.put(60, new JLabel(new ImageIcon("queen.gif")));
+labelTable.put(80, new JLabel(new ImageIcon("king.gif")));
+labelTable.put(100, new JLabel(new ImageIcon("ace.gif")));
+slider.setLabelTable(labelTable);112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138 
+315
+{
+private JPanel sliderPanel;
+private JTextField textField;
+private ChangeListener listener;
+public SliderFrame()
+
+addSlider(slider, "Icon labels");
+// add the text field that displays the slider value
+textField = new JTextField();
+add(sliderPanel, BorderLayout.CENTER);
+add(textField, BorderLayout.SOUTH);
+pack();
+
+322
+{
+s.addChangeListener(listener);
+JPanel panel = new JPanel();
+panel.add(s);
+panel.add(new JLabel(description));
+panel.setAlignmentX(Component.LEFT_ALIGNMENT);
+GridBagConstraints gbc = new GridBagConstraints();
+gbc.gridy = sliderPanel.getComponentCount();
+gbc.anchor = GridBagConstraints.WEST;
+sliderPanel.add(panel, gbc);
+
+106
+{
+saveAction.setEnabled(!readonlyItem.isSelected());
+saveAsAction.setEnabled(!readonlyItem.isSelected());
+
+66
+{
+30
+System.out.println(getValue(Action.NAME) + " selected.");
+31
+
+99
+{23
+public TestAction(String name)
+24
+
+27
+28
+public void actionPerformed(ActionEvent event)
+29
+
+32
+
+59
+{
+56
+public void actionPerformed(ActionEvent event)
+57
+
+60
+
+123
+{
+68
+boolean saveOk = !readonlyItem.isSelected();
+69
+saveAction.setEnabled(saveOk);
+70
+saveAsAction.setEnabled(saveOk);
+71
+
+59
+{
+66
+public void actionPerformed(ActionEvent event)
+67
+
+72
+
+2726
+{
+36
+setSize(DEFAULT_WIDTH, DEFAULT_HEIGHT);
+37
+38
+JMenu fileMenu = new JMenu("File");
+39
+fileMenu.add(new TestAction("New"));
+40
+41
+// demonstrate accelerators
+42
+JMenuItem openItem = fileMenu.add(new TestAction("Open"));
+43
+openItem.setAccelerator(KeyStroke.getKeyStroke("ctrl O"));
+44
+45
+fileMenu.addSeparator();
+46
+saveAction = new TestAction("Save");
+47
+JMenuItem saveItem = fileMenu.add(saveAction);
+48
+saveItem.setAccelerator(KeyStroke.getKeyStroke("ctrl S"));
+49
+50
+saveAsAction = new TestAction("Save As");
+51
+fileMenu.add(saveAsAction);
+52
+fileMenu.addSeparator();
+53
+54
+fileMenu.add(new AbstractAction("Exit")
+55
+);
+61
+62
+// demonstrate check box and radio button menus
+63
+readonlyItem = new JCheckBoxMenuItem("Read-only");
+64
+readonlyItem.addActionListener(new ActionListener()
+65
+);
+73
+74
+ButtonGroup group = new ButtonGroup();
+75
+76
+JRadioButtonMenuItem insertItem = new
+JRadioButtonMenuItem("Insert");
+77
+insertItem.setSelected(true);
+78
+JRadioButtonMenuItem overtypeItem = new
+JRadioButtonMenuItem("Overtype");79
+80
+group.add(insertItem);
+81
+group.add(overtypeItem);
+82
+83
+// demonstrate icons
+84
+Action cutAction = new TestAction("Cut");
+85
+cutAction.putValue(Action.SMALL_ICON, new ImageIcon("cut.gif"));
+86
+Action copyAction = new TestAction("Copy");
+87
+copyAction.putValue(Action.SMALL_ICON, new ImageIcon("copy.gif"));
+88
+Action pasteAction = new TestAction("Paste");
+89
+pasteAction.putValue(Action.SMALL_ICON, new
+ImageIcon("paste.gif"));
+90
+91
+JMenu editMenu = new JMenu("Edit");
+92
+editMenu.add(cutAction);
+93
+editMenu.add(copyAction);
+94
+editMenu.add(pasteAction);
+95
+96
+// demonstrate nested menus
+97
+JMenu optionMenu = new JMenu("Options");
+98
+99
+optionMenu.add(readonlyItem);
+100
+optionMenu.addSeparator();
+101
+optionMenu.add(insertItem);
+102
+optionMenu.add(overtypeItem);
+103
+104
+editMenu.addSeparator();
+105
+editMenu.add(optionMenu);
+106
+107
+// demonstrate mnemonics
+108
+JMenu helpMenu = new JMenu("Help");
+109
+helpMenu.setMnemonic('H');
+110
+111
+JMenuItem indexItem = new JMenuItem("Index");
+112
+indexItem.setMnemonic('I');
+113
+helpMenu.add(indexItem);
+114
+115
+// you can also add the mnemonic key to an action
+116
+Action aboutAction = new TestAction("About");
+117
+aboutAction.putValue(Action.MNEMONIC_KEY, new Integer('A'));
+118
+helpMenu.add(aboutAction);
+119
+120
+// add all top-level menus to menu bar
+121
+JMenuBar menuBar = new JMenuBar();
+122
+setJMenuBar(menuBar);
+123
+124
+menuBar.add(fileMenu);
+125
+menuBar.add(editMenu);
+126
+menuBar.add(helpMenu);
+127
+128
+// demonstrate pop-ups
+129
+popup = new JPopupMenu();
+130
+popup.add(cutAction);
+131
+popup.add(copyAction);
+132
+popup.add(pasteAction);
+133
+134
+JPanel panel = new JPanel();
+135
+panel.setComponentPopupMenu(popup);136
+137
+138
+139
+140
+141 
+465
+{
+private static final int DEFAULT_WIDTH = 300;
+private static final int DEFAULT_HEIGHT = 200;
+private Action saveAction;
+private Action saveAsAction;
+private JCheckBoxMenuItem readonlyItem;
+private JPopupMenu popup;
+/**
+* A sample action that prints the action name to System.out
+*/
+class TestAction extends AbstractAction
+
+33
+34
+public MenuFrame()
+35
+
+add(panel);
+// the following line is a workaround for bug 4966109
+panel.addMouseListener(new MouseAdapter() );
+
+152
+{
+ToolBarFrame frame = new ToolBarFrame();
+frame.setTitle("ToolBarTest");
+frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+frame.setVisible(true);
+
+65
+{ "Serif", "SansSerif",
+"Monospaced", "Dialog",
+33
+"DialogInput" 
+1488
+{
+24
+GridBagLayout layout = new GridBagLayout();
+25
+setLayout(layout);
+26
+27
+ActionListener listener =
+EventHandler.create(ActionListener.class, this, "updateSample");
+28
+29
+// construct components
+30
+31
+JLabel faceLabel = new JLabel("Face: ");
+32
+face = new JComboBox<>(new String[] );
+34
+35
+face.addActionListener(listener);
+36
+37
+JLabel sizeLabel = new JLabel("Size: ");
+38
+39
+size = new JComboBox<>(new Integer[] );
+40
+41
+size.addActionListener(listener);
+42
+43
+bold = new JCheckBox("Bold");
+44
+bold.addActionListener(listener);
+45
+46
+italic = new JCheckBox("Italic");
+47
+italic.addActionListener(listener);
+48
+49
+sample = new JTextArea(TEXT_ROWS, TEXT_COLUMNS);
+50
+sample.setText("The quick brown fox jumps over the lazy dog");
+51
+sample.setEditable(false);
+52
+sample.setLineWrap(true);
+53
+sample.setBorder(BorderFactory.createEtchedBorder());
+54
+55
+// add components to grid, using GBC convenience class
+56
+57
+add(faceLabel, new GBC(0, 0).setAnchor(GBC.EAST));
+58
+add(face, new GBC(1, 0).setFill(GBC.HORIZONTAL).setWeight(100,
+0).setInsets(1));
+59
+add(sizeLabel, new GBC(0, 1).setAnchor(GBC.EAST));
+60
+add(size, new GBC(1, 1).setFill(GBC.HORIZONTAL).setWeight(100,
+0).setInsets(1));
+61
+add(bold, new GBC(0, 2, 2, 1).setAnchor(GBC.CENTER).setWeight(100,
+100));
+62
+add(italic, new GBC(0, 3, 2,
+1).setAnchor(GBC.CENTER).setWeight(100, 100));
+63
+add(sample, new GBC(2, 0, 1, 4).setFill(GBC.BOTH).setWeight(100,
+100));
+64
+pack();65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+updateSample();
+
+297
+{
+String fontFace = (String) face.getSelectedItem();
+int fontStyle = (bold.isSelected() ? Font.BOLD : 0)
++ (italic.isSelected() ? Font.ITALIC : 0);
+int fontSize = size.getItemAt(size.getSelectedIndex());
+Font font = new Font(fontFace, fontStyle, fontSize);
+sample.setFont(font);
+sample.repaint();
+
+306
+{
+13
+public static final int TEXT_ROWS = 10;
+14
+public static final int TEXT_COLUMNS = 20;15
+16
+private JComboBox<String> face;
+17
+private JComboBox<Integer> size;
+18
+private JCheckBox bold;
+19
+private JCheckBox italic;
+20
+private JTextArea sample;
+21
+22
+public FontFrame()
+23
+
+public void updateSample()
+
+
+51
+{
+20
+this.gridx = gridx;
+21
+this.gridy = gridy;
+22
+
+279
+{
+34
+this.gridx = gridx;
+35
+this.gridy = gridy;36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+this.gridwidth = gridwidth;
+this.gridheight = gridheight;
+
+63
+{
+this.weightx = weightx;
+this.weighty = weighty;
+return this;
+
+81
+{
+this.insets = new Insets(distance, distance, distance, distance);
+return this;
+
+1675
+{
+12
+/**
+13
+* Constructs a GBC with a given gridx and gridy position and all
+other grid
+14
+* bag constraint values set to the default.
+15
+* @param gridx the gridx position
+16
+* @param gridy the gridy position
+17
+*/
+18
+public GBC(int gridx, int gridy)
+19
+
+23
+24
+/**
+25
+* Constructs a GBC with given gridx, gridy, gridwidth, gridheight
+and all
+26
+* other grid bag constraint values set to the default.
+27
+* @param gridx the gridx position
+28
+* @param gridy the gridy position
+29
+* @param gridwidth the cell span in x-direction
+30
+* @param gridheight the cell span in y-direction
+31
+*/
+32
+public GBC(int gridx, int gridy, int gridwidth, int gridheight)
+33
+
+/**
+* Sets the anchor.
+* @param anchor the anchor value
+* @return this object for further modification
+*/
+public GBC setAnchor(int anchor)
+
+/**
+* Sets the fill direction.
+* @param fill the fill direction
+* @return this object for further modification
+*/
+public GBC setFill(int fill)
+
+/**
+* Sets the cell weights.
+* @param weightx the cell weight in x-direction
+* @param weighty the cell weight in y-direction
+* @return this object for further modification
+*/
+public GBC setWeight(double weightx, double weighty)
+
+/**
+* Sets the insets of this cell.
+* @param distance the spacing to use in all directions
+* @return this object for further modification
+*/
+public GBC setInsets(int distance)
+
+/**
+* Sets the insets of this cell.
+* @param top the spacing to use on top
+* @param left the spacing to use to the left
+* @param bottom the spacing to use on the bottom
+* @param right the spacing to use to the right
+* @return this object for further modification
+*/94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111 
+67
+{
+this.insets = new Insets(top, left, bottom, right);
+return this;
+
+55
+{
+this.ipadx = ipadx;
+this.ipady = ipady;
+return this;
+
+65
+{ "Serif", "SansSerif",
+"Monospaced", "Dialog",
+32
+"DialogInput" 
+2435
+{
+25
+ActionListener listener =
+EventHandler.create(ActionListener.class, this, "updateSample");
+26
+27
+// construct components
+28
+29
+JLabel faceLabel = new JLabel("Face: ");
+30
+31
+face = new JComboBox<>(new String[] );
+33
+34
+face.addActionListener(listener);
+35
+36
+JLabel sizeLabel = new JLabel("Size: ");
+37
+38
+size = new JComboBox<>(new Integer[] );
+39
+40
+size.addActionListener(listener);
+41
+42
+bold = new JCheckBox("Bold");
+43
+bold.addActionListener(listener);
+44
+45
+italic = new JCheckBox("Italic");
+46
+italic.addActionListener(listener);
+47
+48
+sample = new JTextArea(TEXT_ROWS, TEXT_COLUMNS);
+49
+sample.setText("The quick brown fox jumps over the lazy dog");
+50
+sample.setEditable(false);
+51
+sample.setLineWrap(true);
+52
+sample.setBorder(BorderFactory.createEtchedBorder());
+53
+54
+pane = new JScrollPane(sample);
+55
+56
+GroupLayout layout = new GroupLayout(getContentPane());
+57
+setLayout(layout);
+58
+layout.setHorizontalGroup(layout.createParallelGroup(GroupLayout.Ali
+59
+.addGroup(
+60
+layout.createSequentialGroup().addContainerGap().addGrou
+61
+layout.createParallelGroup(GroupLayout.Alignment.L
+62
+GroupLayout.Alignment.TRAILING,
+63
+layout.createSequentialGroup().addGroup(
+64
+layout.createParallelGroup(GroupLayout
+65
+.addComponent(faceLabel).addComp
+66
+.addPreferredGap(LayoutStyle.Componen67
+.addGroup(
+68
+layout.createParallelGroup(
+69
+GroupLayout.Alignment.LEAD
+false)
+70
+.addComponent(size).addCom
+71
+.addComponent(italic).addComponent(bold)).ad
+72
+LayoutStyle.ComponentPlacement.RELATED).addCompone
+73
+.addContainerGap()));
+74
+75
+layout.linkSize(SwingConstants.HORIZONTAL, new
+java.awt.Component[] );
+76
+77
+layout.setVerticalGroup(layout.createParallelGroup(GroupLayout.Align
+78
+.addGroup(
+79
+layout.createSequentialGroup().addContainerGap().addGrou
+80
+layout.createParallelGroup(GroupLayout.Alignment.L
+81
+pane,
+GroupLayout.Alignment.TRAILING).addGroup(
+82
+layout.createSequentialGroup().addGroup(
+83
+layout.createParallelGroup(GroupLayout
+84
+.addComponent(face).addComponent
+85
+.addPreferredGap(LayoutStyle.Component
+86
+.addGroup(
+87
+layout.createParallelGroup(
+88
+GroupLayout.Alignment.BASE
+89
+.addComponent(sizeLabel)).
+90
+LayoutStyle.ComponentPlacement.R
+91
+italic,
+GroupLayout.DEFAULT_SIZE,
+92
+GroupLayout.DEFAULT_SIZE,
+Short.MAX_VALUE)
+93
+.addPreferredGap(LayoutStyle.Component
+94
+.addComponent(bold,
+GroupLayout.DEFAULT_SIZE,
+95
+GroupLayout.DEFAULT_SIZE,
+Short.MAX_VALUE)))
+96
+.addContainerGap()));
+97
+pack();
+98
+
+329
+{
+102
+String fontFace = (String) face.getSelectedItem();
+103
+int fontStyle = (bold.isSelected() ? Font.BOLD : 0)
+104
++ (italic.isSelected() ? Font.ITALIC : 0);
+105
+int fontSize = size.getItemAt(size.getSelectedIndex());
+106
+Font font = new Font(fontFace, fontStyle, fontSize);
+107
+sample.setFont(font);
+108
+sample.repaint();
+109
+
+351
+{
+13
+public static final int TEXT_ROWS = 10;
+14
+public static final int TEXT_COLUMNS = 20;
+15
+16
+private JComboBox<String> face;
+17
+private JComboBox<Integer> size;
+18
+private JCheckBox bold;
+19
+private JCheckBox italic;
+20
+private JScrollPane pane;
+21
+private JTextArea sample;
+22
+23
+public FontFrame()
+24
+
+99
+100
+public void updateSample()
+101
+
+110 
+218
+{
+Dimension d = c.getPreferredSize();
+maxComponentWidth = Math.max(maxComponentWidth, d.width);
+maxComponentHeight = Math.max(maxComponentHeight, d.height);
+preferredWidth += d.width;49
+preferredHeight += d.height;
+50
+
+63
+{
+Component c = parent.getComponent(i);
+if (c.isVisible())
+
+51
+
+416
+{
+if (sizesSet) return;
+int n = parent.getComponentCount();
+preferredWidth = 0;
+preferredHeight = 0;
+minWidth = 0;
+minHeight = 0;
+maxComponentWidth = 0;
+maxComponentHeight = 0;
+// compute the maximum component widths and heights
+// and set the preferred size to the sum of the component sizes.
+for (int i = 0; i < n; i++)
+
+52
+minWidth = preferredWidth / 2;
+53
+minHeight = preferredHeight / 2;
+54
+sizesSet = true;
+55
+
+227
+{
+59
+setSizes(parent);
+60
+Insets insets = parent.getInsets();
+61
+int width = preferredWidth + insets.left + insets.right;
+62
+int height = preferredHeight + insets.top + insets.bottom;
+63
+return new Dimension(width, height);
+64
+
+215
+{
+67
+setSizes(parent);
+68
+Insets insets = parent.getInsets();
+69
+int width = minWidth + insets.left + insets.right;
+70
+int height = minHeight + insets.top + insets.bottom;
+71
+return new Dimension(width, height);
+72
+
+177
+{
+101
+double angle = 2 * Math.PI * i / n;
+102
+103
+// center point of component
+104
+int x = xcenter + (int) (Math.cos(angle) * radius);105
+106
+107
+108
+109
+110
+d.height);
+111
+112
+
+74
+{
+98
+Component c = parent.getComponent(i);
+99
+if (c.isVisible())
+100
+
+113
+
+695
+{
+76
+setSizes(parent);
+77
+78
+// compute center of the circle
+79
+80
+Insets insets = parent.getInsets();
+81
+int containerWidth = parent.getSize().width - insets.left -
+insets.right;
+82
+int containerHeight = parent.getSize().height - insets.top -
+insets.bottom;
+83
+84
+int xcenter = insets.left + containerWidth / 2;
+85
+int ycenter = insets.top + containerHeight / 2;
+86
+87
+// compute radius of the circle
+88
+89
+int xradius = (containerWidth - maxComponentWidth) / 2;
+90
+int yradius = (containerHeight - maxComponentHeight) / 2;
+91
+int radius = Math.min(xradius, yradius);
+92
+93
+// lay out components along the circle
+94
+95
+int n = parent.getComponentCount();
+96
+for (int i = 0; i < n; i++)
+97
+
+114 
+787
+{
+private int minWidth = 0;
+private int minHeight = 0;
+private int preferredWidth = 0;
+private int preferredHeight = 0;
+private boolean sizesSet = false;
+private int maxComponentWidth = 0;
+private int maxComponentHeight = 0;
+public void addLayoutComponent(String name, Component comp)
+
+public void removeLayoutComponent(Component comp)
+
+public void setSizes(Container parent)
+
+56
+57
+public Dimension preferredLayoutSize(Container parent)
+58
+
+65
+public Dimension minimumLayoutSize(Container parent)
+66
+
+73
+74
+public void layoutContainer(Container parent)
+75
+
+int y = ycenter + (int) (Math.sin(angle) * radius);
+// move component so that its center is (x, y)
+// and its size is its preferred size
+Dimension d = c.getPreferredSize();
+c.setBounds(x - d.width / 2, y - d.height / 2, d.width,
+
+232
+{
+setLayout(new CircleLayout());
+add(new JButton("Yellow"));
+add(new JButton("Blue"));
+add(new JButton("Red"));
+add(new JButton("Green"));
+add(new JButton("Orange"));
+add(new JButton("Fuchsia"));
+add(new JButton("Indigo"));
+pack();
+
+1193
+{
+JPanel gridPanel = new JPanel();28
+gridPanel.setLayout(new GridLayout(2, 3));
+29
+30
+typePanel = new ButtonPanel("Type", "Message", "Confirm",
+"Option", "Input");
+31
+messageTypePanel = new ButtonPanel("Message Type",
+"ERROR_MESSAGE", "INFORMATION_MESSAGE",
+32
+"WARNING_MESSAGE", "QUESTION_MESSAGE", "PLAIN_MESSAGE");
+33
+messagePanel = new ButtonPanel("Message", "String", "Icon",
+"Component", "Other", "Object[]");
+34
+optionTypePanel = new ButtonPanel("Confirm", "DEFAULT_OPTION",
+"YES_NO_OPTION",
+35
+"YES_NO_CANCEL_OPTION", "OK_CANCEL_OPTION");
+36
+optionsPanel = new ButtonPanel("Option", "String[]", "Icon[]",
+"Object[]");
+37
+inputPanel = new ButtonPanel("Input", "Text field", "Combo box");
+38
+39
+gridPanel.add(typePanel);
+40
+gridPanel.add(messageTypePanel);
+41
+gridPanel.add(messagePanel);
+42
+gridPanel.add(optionTypePanel);
+43
+gridPanel.add(optionsPanel);
+44
+gridPanel.add(inputPanel);
+45
+46
+// add a panel with a Show button
+47
+48
+JPanel showPanel = new JPanel();
+49
+JButton showButton = new JButton("Show");
+50
+showButton.addActionListener(new ShowAction());
+51
+showPanel.add(showButton);
+52
+53
+add(gridPanel, BorderLayout.CENTER);
+54
+add(showPanel, BorderLayout.SOUTH);
+55
+pack();
+56
+
+65
+{
+messageString, messageIcon,
+69
+messageComponent, messageObject 
+337
+{
+64
+String s = messagePanel.getSelection();
+65
+if (s.equals("String")) return messageString;
+66
+else if (s.equals("Icon")) return messageIcon;
+67
+else if (s.equals("Component")) return messageComponent;
+68
+else if (s.equals("Object[]")) return new Object[] ;
+70
+else if (s.equals("Other")) return messageObject;
+71
+else return null;
+72
+
+102
+{ new
+ImageIcon("yellow-ball.gif"),
+83
+new ImageIcon("blue-ball.gif"), new ImageIcon("red-
+ball.gif") 
+65
+{
+messageString, messageIcon,
+85
+messageComponent, messageObject 
+228
+{
+80
+String s = optionsPanel.getSelection();
+81
+if (s.equals("String[]")) return new String[] ;
+82
+else if (s.equals("Icon[]")) return new Icon[] ;
+84
+else if (s.equals("Object[]")) return new Object[] ;
+86
+else return null;
+87
+
+59
+{
+98
+return JOptionPane.class.getField(s).getInt(null);
+99
+
+82
+{
+95
+String s = panel.getSelection();
+96
+try
+97
+
+100
+catch (Exception e)
+101
+
+104
+
+318
+{
+119
+if (inputPanel.getSelection().equals("Text field"))
+JOptionPane.showInputDialog(
+120
+OptionDialogFrame.this, getMessage(), "Title",
+getType(messageTypePanel));
+121
+else JOptionPane.showInputDialog(OptionDialogFrame.this,
+getMessage(), "Title",
+122
+getType(messageTypePanel), null, new String[] ,
+123
+"Blue");124
+
+657
+{
+114
+if (typePanel.getSelection().equals("Confirm"))
+JOptionPane.showConfirmDialog(
+115
+OptionDialogFrame.this, getMessage(), "Title",
+getType(optionTypePanel),
+116
+getType(messageTypePanel));
+117
+else if (typePanel.getSelection().equals("Input"))
+118
+
+125
+else if (typePanel.getSelection().equals("Message"))
+JOptionPane.showMessageDialog(
+126
+OptionDialogFrame.this, getMessage(), "Title",
+getType(messageTypePanel));
+127
+else if (typePanel.getSelection().equals("Option"))
+JOptionPane.showOptionDialog(
+128
+OptionDialogFrame.this, getMessage(), "Title",
+getType(optionTypePanel),
+129
+getType(messageTypePanel), null, getOptions(),
+getOptions()[0]);
+130
+
+62
+{
+112
+public void actionPerformed(ActionEvent event)
+113
+
+131
+
+1284
+{
+private ButtonPanel typePanel;
+private ButtonPanel messagePanel;
+private ButtonPanel messageTypePanel;
+private ButtonPanel optionTypePanel;
+private ButtonPanel optionsPanel;
+private ButtonPanel inputPanel;
+private String messageString = "Message";
+private Icon messageIcon = new ImageIcon("blue-ball.gif");
+private Object messageObject = new Date();
+private Component messageComponent = new SampleComponent();
+public OptionDialogFrame()
+
+57
+58
+/**
+59
+* Gets the currently selected message.
+60
+* @return a string, icon, component, or object array, depending on
+the Message panel selection
+61
+*/
+62
+public Object getMessage()
+63
+
+73
+74
+/**
+75
+* Gets the currently selected options.
+76
+* @return an array of strings, icons, or objects, depending on the
+Option panel selection
+77
+*/78
+public Object[] getOptions()
+79
+
+88
+/**
+89
+* Gets the selected message or option type
+90
+* @param panel the Message Type or Confirm panel
+91
+* @return the selected XXX_MESSAGE or XXX_OPTION constant from the
+JOptionPane class
+92
+*/
+93
+public int getType(ButtonPanel panel)
+94
+
+105
+106
+/**
+107
+* The action listener for the Show button shows a Confirm, Input,
+Message, or Option dialog
+108
+* depending on the Type panel selection.
+109
+*/
+110
+private class ShowAction implements ActionListener
+111
+
+132 
+226
+{
+140
+Graphics2D g2 = (Graphics2D) g;
+141
+Rectangle2D rect = new Rectangle2D.Double(0, 0, getWidth() - 1,
+getHeight() - 1);
+142
+g2.setPaint(Color.YELLOW);
+143
+g2.fill(rect);
+144
+g2.setPaint(Color.BLUE);
+145
+g2.draw(rect);
+146
+
+103
+{
+138
+public void paintComponent(Graphics g)
+139
+
+147
+148
+public Dimension getPreferredSize()
+149
+
+152 
+150
+{
+25
+JRadioButton b = new JRadioButton(option);
+26
+b.setActionCommand(option);
+27
+add(b);
+28
+group.add(b);
+29
+b.setSelected(option == options[0]);
+30
+
+250
+{
+19
+setBorder(BorderFactory.createTitledBorder(BorderFactory.createEtche
+title));
+20
+setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+21
+group = new ButtonGroup();
+22
+// make one radio button for each option
+23
+for (String option : options)
+24
+
+31
+
+56
+{
+39
+return group.getSelection().getActionCommand();
+40
+
+376
+{
+private ButtonGroup group;
+/**
+* Constructs a button panel.
+* @param title the title shown in the border
+* @param options an array of radio button labels
+*/17
+public ButtonPanel(String title, String... options)
+18
+
+32
+33
+/**
+34
+* Gets the currently selected option.
+35
+* @return the label of the currently selected radio button.
+36
+*/
+37
+public String getSelection()
+38
+
+41 
+332
+{
+super(owner, "About DialogTest", true);
+add(new JLabel(
+"<html><h1><i>Core Java</i></h1><hr>By Cay Horstmann and Gary
+Cornell</html>"),
+BorderLayout.CENTER);
+JPanel panel = new JPanel();
+JButton ok = new JButton("OK");
+ok.addActionListener(new
+ActionListener()
+);
+panel.add(ok);
+add(panel, BorderLayout.SOUTH);
+setSize(250, 150);
+
+122
+{
+if (dialog == null) // first time
+dialog = new AboutDialog(DialogFrame.this);
+dialog.setVisible(true); // pop up dialog
+
+538
+{
+setSize(DEFAULT_WIDTH, DEFAULT_HEIGHT);
+// Construct a File menu.
+JMenuBar menuBar = new JMenuBar();
+setJMenuBar(menuBar);
+JMenu fileMenu = new JMenu("File");
+menuBar.add(fileMenu);
+// Add About and Exit menu items.
+// The About item shows the About dialog.
+JMenuItem aboutItem = new JMenuItem("About");
+aboutItem.addActionListener(new ActionListener()
+);
+fileMenu.add(aboutItem);
+// The Exit item exits the program.
+JMenuItem exitItem = new JMenuItem("Exit");
+exitItem.addActionListener(new ActionListener()
+);
+fileMenu.add(exitItem);
+
+147
+{
+private static final int DEFAULT_WIDTH = 300;
+private static final int DEFAULT_HEIGHT = 200;
+private AboutDialog dialog;
+public DialogFrame()
+54
+
+59
+{
+28
+public void actionPerformed(ActionEvent event)
+29
+
+32
+
+480
+{
+14
+super(owner, "About DialogTest", true);
+15
+16
+// add HTML label to center
+17
+18
+add(
+19
+new JLabel(
+20
+"<html><h1><i>Core Java</i></h1><hr>By Cay Horstmann
+and Gary Cornell</html>"),
+21
+BorderLayout.CENTER);
+22
+23
+// Ok button closes the dialog
+24
+25
+JButton ok = new JButton("Ok");
+26
+ok.addActionListener(new ActionListener()
+27
+);
+33
+// add Ok button to southern border
+34
+JPanel panel = new JPanel();
+35
+panel.add(ok);
+36
+add(panel, BorderLayout.SOUTH);
+37
+38
+pack();
+39
+
+70
+{
+dialog = new JDialog(owner, true);
+dialog.add(this);
+dialog.pack();
+
+125
+{
+ok = false;
+if (dialog == null || dialog.getOwner() != owner)
+
+dialog.setTitle(title);
+dialog.setVisible(true);
+return ok;
+
+59
+{
+34
+public void actionPerformed(ActionEvent event)
+35
+
+38
+
+627
+{
+19
+// construct a File menu
+20
+JMenuBar mbar = new JMenuBar();
+21
+setJMenuBar(mbar);
+22
+JMenu fileMenu = new JMenu("File");
+23
+mbar.add(fileMenu);
+24
+25
+// add Connect and Exit menu items
+26
+JMenuItem connectItem = new JMenuItem("Connect");
+27
+connectItem.addActionListener(new ConnectAction());
+28
+fileMenu.add(connectItem);
+29
+30
+// The Exit item exits the program
+31
+JMenuItem exitItem = new JMenuItem("Exit");
+32
+exitItem.addActionListener(new ActionListener()
+33
+);
+39
+fileMenu.add(exitItem);
+40
+41
+textArea = new JTextArea(TEXT_ROWS, TEXT_COLUMNS);
+42
+add(new JScrollPane(textArea), BorderLayout.CENTER);
+43
+pack();
+44
+
+167
+{
+// if accepted, retrieve user input
+User u = dialog.getUser();
+textArea.append("user name = " + u.getName() + ", password =
++ (new String(u.getPassword())) + "\n");
+
+231
+{
+// if first time, construct dialog
+if (dialog == null) dialog = new PasswordChooser();
+// set default values
+dialog.setUser(new User("yourname", null));
+// pop up dialog
+if (dialog.showDialog(DataExchangeFrame.this, "Connect"))
+
+
+389
+{
+12
+public static final int TEXT_ROWS = 20;
+13
+public static final int TEXT_COLUMNS = 40;
+14
+private PasswordChooser dialog = null;
+15
+private JTextArea textArea;
+16
+17
+public DataExchangeFrame()
+18
+
+45
+/**
+46
+* The Connect action pops up the password dialog.47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+"
+65
+66
+67
+68
+69
+*/
+private class ConnectAction implements ActionListener
+
+
+929
+{
+setLayout(new BorderLayout());
+// construct a panel with user name and password fields
+JPanel panel = new JPanel();
+panel.setLayout(new GridLayout(2, 2));
+panel.add(new JLabel("User name:"));
+panel.add(username = new JTextField(""));
+panel.add(new JLabel("Password:"));
+panel.add(password = new JPasswordField(""));28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+add(panel, BorderLayout.CENTER);
+// create Ok and Cancel buttons that terminate the dialog
+okButton = new JButton("Ok");
+okButton.addActionListener(new ActionListener()
+);
+JButton cancelButton = new JButton("Cancel");
+cancelButton.addActionListener(new ActionListener()
+);
+// add buttons to southern border
+JPanel buttonPanel = new JPanel();
+buttonPanel.add(okButton);
+buttonPanel.add(cancelButton);
+add(buttonPanel, BorderLayout.SOUTH);
+
+63
+{
+return new User(username.getText(), password.getPassword());
+
+134
+{
+91
+dialog = new JDialog(owner, true);
+92
+dialog.add(this);
+93
+dialog.getRootPane().setDefaultButton(okButton);
+94
+dialog.pack();
+95
+
+423
+{
+ok = false;
+// locate the owner frame
+Frame owner = null;
+if (parent instanceof Frame) owner = (Frame) parent;86
+else owner = (Frame)
+SwingUtilities.getAncestorOfClass(Frame.class, parent);
+87
+88
+// if first time, or if owner has changed, make new dialog
+89
+if (dialog == null || dialog.getOwner() != owner)
+90
+
+96
+97
+// set title and show dialog
+98
+dialog.setTitle(title);
+99
+dialog.setVisible(true);
+100
+return ok;
+101
+
+588
+{
+private JTextField username;
+private JPasswordField password;
+private JButton okButton;
+private boolean ok;
+private JDialog dialog;
+public PasswordChooser()
+
+/**
+* Sets the dialog defaults.
+* @param u the default user information
+*/
+public void setUser(User u)
+
+/**
+* Gets the dialog entries.
+* @return a User object whose state represents the dialog entries
+*/
+public User getUser()
+
+/**
+* Show the chooser panel in a dialog
+* @param parent a component in the owner frame or null
+* @param title the dialog window title
+*/
+public boolean showDialog(Component parent, String title)
+
+102 
+75
+{
+if (!f.isDirectory() && filter.accept(f))
+return icon;
+else return null;
+
+131
+{
+public FileIconView(FileFilter aFilter, Icon anIcon)
+
+public Icon getIcon(File f)
+
+private FileFilter filter;
+private Icon icon;
+
+92
+{
+setPreferredSize(new Dimension(100, 100));
+setBorder(BorderFactory.createEtchedBorder());
+
+205
+{
+ImageIcon icon = new ImageIcon(f.getPath());
+if(icon.getIconWidth() > getWidth())
+icon = new ImageIcon(icon.getImage().getScaledInstance(
+getWidth(), -1, Image.SCALE_DEFAULT));
+setIcon(icon);
+repaint();
+
+77
+{
+public ImagePreviewer(JFileChooser chooser)
+
+public void loadImage(File f)
+
+75
+{
+File newFile = (File) event.getNewValue();
+// update the accessory
+. . .
+
+79
+{
+if (event.getPropertyName() ==
+JFileChooser.SELECTED_FILE_CHANGED_PROPERTY)
+
+
+57
+{
+public void propertyChange(PropertyChangeEvent event)
+
+
+109
+{
+42
+String name = chooser.getSelectedFile().getPath();
+43
+label.setIcon(new ImageIcon(name));
+44
+pack();
+45
+
+260
+{
+34
+chooser.setCurrentDirectory(new File("."));
+35
+36
+// show file chooser dialog
+37
+int result =
+chooser.showOpenDialog(ImageViewerFrame.this);
+38
+39
+// if image file accepted, set it as icon of the label
+40
+if (result == JFileChooser.APPROVE_OPTION)
+41
+
+46
+
+59
+{
+32
+public void actionPerformed(ActionEvent event)
+33
+
+47
+
+59
+{
+53
+public void actionPerformed(ActionEvent event)
+54
+
+57
+
+1143
+{
+setSize(DEFAULT_WIDTH, DEFAULT_HEIGHT);22
+// set up menu bar
+23
+JMenuBar menuBar = new JMenuBar();
+24
+setJMenuBar(menuBar);
+25
+JMenu menu = new JMenu("File");
+26
+menuBar.add(menu);
+27
+28
+JMenuItem openItem = new JMenuItem("Open");
+29
+menu.add(openItem);
+30
+openItem.addActionListener(new ActionListener()
+31
+);
+48
+49
+JMenuItem exitItem = new JMenuItem("Exit");
+50
+menu.add(exitItem);
+51
+exitItem.addActionListener(new ActionListener()
+52
+);
+58
+59
+// use a label to display the images
+60
+label = new JLabel();
+61
+add(label);
+62
+63
+// set up file chooser
+64
+chooser = new JFileChooser();
+65
+66
+// accept all image files ending with .jpg, .jpeg, .gif
+67
+/*
+68
+final ExtensionFileFilter filter = new ExtensionFileFilter();
+69
+filter.addExtension("jpg");
+70
+filter.addExtension("jpeg");
+71
+filter.addExtension("gif");
+72
+filter.setDescription("Image files");
+73
+*/
+74
+FileNameExtensionFilter filter =
+75
+new FileNameExtensionFilter("Image files", "jpg", "jpeg",
+"gif");
+76
+chooser.setFileFilter(filter);
+7778
+chooser.setAccessory(new ImagePreviewer(chooser));
+79
+80
+chooser.setFileView(new FileIconView(filter, new
+ImageIcon("palette.gif")));
+81
+
+177
+{
+private static final int DEFAULT_WIDTH = 300;
+private static final int DEFAULT_HEIGHT = 400;
+private JLabel label;
+private JFileChooser chooser;
+public ImageViewerFrame()
+
+82 
+410
+{
+29
+// the user has selected a new file
+30
+File f = (File) event.getNewValue();
+31
+if (f == null)
+32
+
+36
+// read the image into an icon
+37
+ImageIcon icon = new ImageIcon(f.getPath());
+38
+39
+// if the icon is too large to fit, scale it
+40
+if (icon.getIconWidth() > getWidth()) icon = new
+ImageIcon(icon.getImage()
+41
+.getScaledInstance(getWidth(), -1,
+Image.SCALE_DEFAULT));42
+43
+44
+45
+46
+47
+48
+setIcon(icon);
+
+85
+{
+27
+if (event.getPropertyName() ==
+JFileChooser.SELECTED_FILE_CHANGED_PROPERTY)
+28
+
+
+63
+{
+25
+public void propertyChange(PropertyChangeEvent event)
+26
+
+
+173
+{
+20
+setPreferredSize(new Dimension(100, 100));
+21
+setBorder(BorderFactory.createEtchedBorder());
+22
+23
+chooser.addPropertyChangeListener(new PropertyChangeListener()
+24
+);
+
+208
+{
+13
+/**
+14
+* Constructs an ImagePreviewer.
+15
+* @param chooser the file chooser whose property changes trigger an
+image change in this
+16
+* previewer
+17
+*/
+18
+public ImagePreviewer(JFileChooser chooser)
+19
+
+
+84
+{
+29
+if (!f.isDirectory() && filter.accept(f)) return icon;
+30
+else return null;
+31
+
+362
+{
+13
+private FileFilter filter;
+14
+private Icon icon;
+15
+16
+/**
+17
+* Constructs a FileIconView.
+18
+* @param aFilter a file filter--all files that this filter accepts
+will be shown with the icon.
+19
+* @param anIcon--the icon shown with all accepted files.
+20
+*/
+21
+public FileIconView(FileFilter aFilter, Icon anIcon)
+22
+
+26
+27
+public Icon getIcon(File f)
+28
+
+32 
+384
+{
+JButton modalButton = new JButton("Modal");
+modalButton.addActionListener(new ModalListener());
+add(modalButton);
+JButton modelessButton = new JButton("Modeless");
+modelessButton.addActionListener(new ModelessListener());
+add(modelessButton);
+JButton immediateButton = new JButton("Immediate");
+immediateButton.addActionListener(new ImmediateListener());25
+add(immediateButton);
+26
+
+201
+{
+35
+Color defaultColor = getBackground();
+36
+Color selected =
+JColorChooser.showDialog(ColorChooserPanel.this, "Set background",
+37
+defaultColor);
+38
+if (selected != null) setBackground(selected);
+39
+
+59
+{
+33
+public void actionPerformed(ActionEvent event)
+34
+
+40
+
+59
+{
+58
+public void actionPerformed(ActionEvent event)
+59
+
+62
+
+247
+{
+53
+chooser = new JColorChooser();
+54
+dialog = JColorChooser.createDialog(ColorChooserPanel.this,
+"Background Color",
+55
+false /* not modal */, chooser,
+56
+new ActionListener() // OK button listener
+57
+, null /* no Cancel button listener */);
+63
+
+71
+{
+67
+chooser.setColor(getBackground());
+68
+dialog.setVisible(true);
+69
+
+159
+{
+48
+private JDialog dialog;
+49
+private JColorChooser chooser;
+50
+51
+public ModelessListener()
+52
+
+64
+65
+public void actionPerformed(ActionEvent event)
+66
+
+70
+
+56
+{
+86
+public void stateChanged(ChangeEvent event)
+87
+
+90
+
+219
+{
+83
+chooser = new JColorChooser();
+84
+chooser.getSelectionModel().addChangeListener(new
+ChangeListener()
+85
+);
+91
+dialog = new JDialog((Frame) null, false /* not modal */);
+92
+dialog.add(chooser);
+93
+dialog.pack();
+94
+
+72
+{
+98
+chooser.setColor(getBackground());
+99
+dialog.setVisible(true);
+100
+
+160
+{
+78
+private JDialog dialog;79
+private JColorChooser chooser;
+80
+81
+public ImmediateListener()
+82
+
+95
+96
+public void actionPerformed(ActionEvent event)
+97
+
+101
+
+572
+{
+public ColorChooserPanel()
+
+27
+28
+/**
+29
+* This listener pops up a modal color chooser
+30
+*/
+31
+private class ModalListener implements ActionListener
+32
+
+41
+42
+/**
+43
+* This listener pops up a modeless color chooser. The panel color is
+changed when the user
+44
+* clicks the OK button.
+45
+*/
+46
+private class ModelessListener implements ActionListener
+47
+
+71
+72
+/**
+73
+* This listener pops up a modeless color chooser. The panel color is
+changed immediately when
+74
+* the user picks a new color.
+75
+*/
+76
+private class ImmediateListener implements ActionListener
+77
+
+102 
+152
+{
+JFrame frame = new ResourceTestFrame();
+frame.setTitle("ResourceTest");
+frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+frame.setVisible(true);
+
+374
+{
+setSize(DEFAULT_WIDTH, DEFAULT_HEIGHT);
+URL aboutURL = getClass().getResource("about.gif");
+Image img = new ImageIcon(aboutURL).getImage();
+setIconImage(img);
+JTextArea textArea = new JTextArea();
+InputStream stream = getClass().getResourceAsStream("about.txt");
+Scanner in = new Scanner(stream);
+while (in.hasNext())
+textArea.append(in.nextLine() + "\n");
+add(textArea);
+
+123
+{
+private static final int DEFAULT_WIDTH = 300;
+private static final int DEFAULT_HEIGHT = 300;
+public ResourceTestFrame()
+
+
+52
+{
+InputStream in = contents.getInputStream();
+. . .
+
+55
+{
+OutputStream out = contents.getOutputStream();
+. . .
+
+484
+{
+18
+setTitle();
+19
+panel = new CalculatorPanel();
+20
+add(panel);21
+22
+JMenu fileMenu = new JMenu("File");
+23
+JMenuBar menuBar = new JMenuBar();
+24
+menuBar.add(fileMenu);
+25
+setJMenuBar(menuBar);
+26
+27
+JMenuItem openItem = fileMenu.add("Open");
+28
+openItem.addActionListener(EventHandler.create(ActionListener.class,
+this, "open"));
+29
+JMenuItem saveItem = fileMenu.add("Save");
+30
+saveItem.addActionListener(EventHandler.create(ActionListener.class,
+this, "save"));
+31
+32
+pack();
+33
+
+201
+{
+54
+FileContents contents = service.get(key);
+55
+InputStream in = contents.getInputStream();
+56
+BufferedReader reader = new BufferedReader(new
+InputStreamReader(in));
+57
+title = reader.readLine();
+58
+
+350
+{
+61
+title = JOptionPane.showInputDialog("Please supply a frame
+title:");
+62
+if (title == null) return;
+63
+64
+service.create(key, 100);
+65
+FileContents contents = service.get(key);
+66
+OutputStream out = contents.getOutputStream(true);72
+catch (UnavailableServiceException e)
+73
+
+76
+catch (MalformedURLException e)
+77
+
+80
+catch (IOException e)
+81
+
+84
+
+54
+{
+105
+panel.append(line);
+106
+panel.append("\n");
+107
+
+198
+{
+100
+InputStream in = contents.getInputStream();
+101
+BufferedReader reader = new BufferedReader(new
+InputStreamReader(in));
+102
+String line;
+103
+while ((line = reader.readLine()) != null)
+104
+
+108
+
+273
+{
+93
+FileOpenService service = (FileOpenService) ServiceManager
+94
+.lookup("javax.jnlp.FileOpenService");
+95
+FileContents contents = service.openFileDialog(".", new
+String[] );
+96
+97
+JOptionPane.showMessageDialog(this, contents.getName());
+98
+if (contents != null)
+99
+
+109
+
+95
+{
+91
+try
+92
+
+110
+catch (UnavailableServiceException e)
+111
+
+114
+catch (IOException e)
+115
+
+118
+
+392
+{
+126
+ByteArrayOutputStream out = new ByteArrayOutputStream();
+127
+PrintStream printOut = new PrintStream(out);128
+printOut.print(panel.getText());
+129
+InputStream data = new
+ByteArrayInputStream(out.toByteArray());
+130
+FileSaveService service = (FileSaveService) ServiceManager
+131
+.lookup("javax.jnlp.FileSaveService");
+132
+service.saveFileDialog(".", new String[] , data,
+"calc.txt");
+133
+
+97
+{
+124
+try
+125
+
+134
+catch (UnavailableServiceException e)
+135
+
+138
+catch (IOException e)
+139
+
+142
+
+553
+{
+43
+String title = null;
+44
+45
+BasicService basic = (BasicService)
+ServiceManager.lookup("javax.jnlp.BasicService");
+46
+URL codeBase = basic.getCodeBase();
+47
+48
+PersistenceService service = (PersistenceService)
+ServiceManager
+49
+.lookup("javax.jnlp.PersistenceService");
+50
+URL key = new URL(codeBase, "title");
+51
+52
+try
+53
+
+59
+catch (FileNotFoundException e)
+60
+
+85
+86
+/**
+87
+* Opens a history file and updates the display.
+88
+*/
+89
+public void open()
+90
+
+119
+/**
+120
+* Saves the calculator history to a file.
+121
+*/
+122
+public void save()
+123
+
+143 
+102
+{
+18
+JLabel label = new JLabel("Not a Hello, World applet",
+SwingConstants.CENTER);
+19
+add(label);
+20
+
+52
+{
+14
+EventQueue.invokeLater(new Runnable()
+15
+);
+22
+
+103
+{
+String fontName = getParameter("font");
+int fontSize = Integer.parseInt(getParameter("size"));
+. . .
+
+121
+{
+27
+values[i] = Double.parseDouble(getParameter("value." +
+(i + 1)));
+28
+names[i] = getParameter("name." + (i + 1));
+29
+
+276
+{
+20
+String v = getParameter("values");
+21
+if (v == null) return;
+22
+int n = Integer.parseInt(v);
+23
+double[] values = new double[n];
+24
+String[] names = new String[n];
+25
+for (int i = 0; i < n; i++)
+26
+
+30
+31
+add(new ChartComponent(values, names,
+getParameter("title")));
+32
+
+52
+{
+16
+EventQueue.invokeLater(new Runnable()
+17
+);
+34
+
+75
+{
+69
+if (minValue > v) minValue = v;
+70
+if (maxValue < v) maxValue = v;
+71
+
+56
+{
+112
+y1 += maxValue * scale;
+113
+height = -height;
+114
+
+712
+{
+105
+// get the coordinates of the bar rectangle
+106
+double x1 = i * barWidth + 1;
+107
+double y1 = top;
+108
+double height = values[i] * scale;
+109
+if (values[i] >= 0) y1 += (maxValue - values[i]) * scale;
+110
+else
+111
+
+115
+116
+// fill the bar and draw the bar outline
+117
+Rectangle2D rect = new Rectangle2D.Double(x1, y1, barWidth - 2,
+height);
+118
+g2.setPaint(Color.RED);
+119
+g2.fill(rect);
+120
+g2.setPaint(Color.BLACK);
+121
+g2.draw(rect);
+122
+// draw the centered label below the bar
+123
+Rectangle2D labelBounds = labelFont.getStringBounds(names[i],
+context);
+124
+125
+double labelWidth = labelBounds.getWidth();
+126
+x = x1 + (barWidth - labelWidth) / 2;
+127
+g2.drawString(names[i], (float) x, (float) y);
+128
+
+1350
+{
+61
+Graphics2D g2 = (Graphics2D) g;
+62
+63
+// compute the minimum and maximum values
+64
+if (values == null) return;
+65
+double minValue = 0;
+66
+double maxValue = 0;
+67
+for (double v : values)
+68
+
+72
+if (maxValue == minValue) return;
+73
+int panelWidth = getWidth();
+74
+int panelHeight = getHeight();
+75
+76
+Font titleFont = new Font("SansSerif", Font.BOLD, 20);
+77
+Font labelFont = new Font("SansSerif", Font.PLAIN, 10);
+78
+79
+// compute the extent of the title
+80
+FontRenderContext context = g2.getFontRenderContext();
+81
+Rectangle2D titleBounds = titleFont.getStringBounds(title,
+context);
+82
+double titleWidth = titleBounds.getWidth();
+83
+double top = titleBounds.getHeight();
+84
+85
+// draw the title
+86
+double y = -titleBounds.getY(); // ascent
+87
+double x = (panelWidth - titleWidth) / 2;
+88
+g2.setFont(titleFont);
+89
+g2.drawString(title, (float) x, (float) y);
+90
+91
+// compute the extent of the bar labels
+92
+LineMetrics labelMetrics = labelFont.getLineMetrics("", context);
+93
+double bottom = labelMetrics.getHeight();
+94
+95
+y = panelHeight - labelMetrics.getDescent();
+96
+g2.setFont(labelFont);97
+98
+// get the scale factor and width for the bars
+99
+double scale = (panelHeight - top - bottom) / (maxValue -
+minValue);
+100
+int barWidth = panelWidth / values.length;
+101
+102
+// draw the bars
+103
+for (int i = 0; i < values.length; i++)
+104
+
+129
+
+381
+{
+42
+private double[] values;
+43
+private String[] names;
+44
+private String title;
+45
+46
+/**
+47
+* Constructs a ChartComponent.
+48
+* @param v the array of values for the chart
+49
+* @param n the array of names for the values
+50
+* @param t the title of the chart
+51
+*/
+52
+public ChartComponent(double[] v, String[] n, String t)
+53
+
+58
+59
+public void paintComponent(Graphics g)
+60
+
+130 
+74
+{
+Applet a = e.nextElement();
+System.out.println(a.getClass().getName());
+
+82
+{
+23
+PropertiesFrame frame = new PropertiesFrame();
+24
+frame.setVisible(true);
+25
+
+52
+{
+19
+EventQueue.invokeLater(new Runnable()
+20
+);
+27
+
+51
+{
+17
+public static void main(String[] args)
+18
+
+28 
+88
+{
+61
+FileInputStream in = new FileInputStream(propertiesFile);
+62
+settings.load(in);
+63
+
+115
+{
+93
+FileOutputStream out = new
+FileOutputStream(propertiesFile);
+94
+settings.store(out, "Program Properties");
+95
+
+267
+{
+86
+settings.put("left", "" + getX());
+87
+settings.put("top", "" + getY());
+88
+settings.put("width", "" + getWidth());89
+settings.put("height", "" + getHeight());
+90
+settings.put("title", getTitle());
+91
+try
+92
+
+96
+catch (IOException ex)
+97
+
+100
+System.exit(0);
+101
+
+58
+{
+84
+public void windowClosing(WindowEvent event)
+85
+
+102
+
+1261
+{
+44
+// get position, size, title from properties
+45
+String userDir = System.getProperty("user.home");
+46
+File propertiesDir = new File(userDir, ".corejava");
+47
+if (!propertiesDir.exists()) propertiesDir.mkdir();
+48
+propertiesFile = new File(propertiesDir, "program.properties");
+49
+50
+Properties defaultSettings = new Properties();
+51
+defaultSettings.put("left", "0");
+52
+defaultSettings.put("top", "0");
+53
+defaultSettings.put("width", "" + DEFAULT_WIDTH);
+54
+defaultSettings.put("height", "" + DEFAULT_HEIGHT);
+55
+defaultSettings.put("title", "");
+56
+57
+settings = new Properties(defaultSettings);
+58
+59
+if (propertiesFile.exists()) try
+60
+
+64
+catch (IOException ex)
+65
+
+68
+69
+int left = Integer.parseInt(settings.getProperty("left"));
+70
+int top = Integer.parseInt(settings.getProperty("top"));
+71
+int width = Integer.parseInt(settings.getProperty("width"));
+72
+int height = Integer.parseInt(settings.getProperty("height"));
+73
+setBounds(left, top, width, height);
+74
+75
+// if no title given, ask user
+76
+77
+String title = settings.getProperty("title");
+78
+if (title.equals("")) title = JOptionPane.showInputDialog("Please
+supply a frame title:");
+79
+if (title == null) title = "";
+80
+setTitle(title);
+81
+82
+addWindowListener(new WindowAdapter()
+83
+);
+103
+
+207
+{
+36
+private static final int DEFAULT_WIDTH = 300;
+37
+private static final int DEFAULT_HEIGHT = 200;
+38
+39
+private File propertiesFile;
+40
+private Properties settings;
+41
+42
+public PropertiesFrame()
+43
+
+104 
+141
+{
+22
+PreferencesFrame frame = new PreferencesFrame();
+23
+frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+24
+frame.setVisible(true);
+25
+
+52
+{
+18
+EventQueue.invokeLater(new Runnable()
+19
+);
+27
+
+51
+{
+16
+public static void main(String[] args)
+17
+
+28 
+78
+{
+67
+return f.getName().toLowerCase().endsWith(".xml") ||
+f.isDirectory();
+68
+
+82
+{
+65
+public boolean accept(File f)66
+
+69
+70
+public String getDescription()
+71
+
+74
+
+120
+{
+92
+OutputStream out = new
+FileOutputStream(chooser.getSelectedFile());
+93
+node.exportSubtree(out);
+94
+out.close();
+95
+
+95
+{
+88
+if (chooser.showSaveDialog(PreferencesFrame.this) ==
+JFileChooser.APPROVE_OPTION)
+89
+
+101
+
+60
+{
+86
+public void actionPerformed(ActionEvent event)
+87
+
+102
+
+130
+{
+114
+InputStream in = new
+FileInputStream(chooser.getSelectedFile());
+115
+Preferences.importPreferences(in);
+116
+in.close();
+117
+
+130
+{
+112
+try
+113
+
+118
+catch (Exception e)119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141 
+94
+{
+110
+if (chooser.showOpenDialog(PreferencesFrame.this) ==
+JFileChooser.APPROVE_OPTION)
+111
+
+
+
+58
+{
+108
+public void actionPerformed(ActionEvent event)
+109
+
+
+1325
+{
+41
+// get position, size, title from preferences
+42
+43
+Preferences root = Preferences.userRoot();
+44
+final Preferences node = root.node("/com/horstmann/corejava");
+45
+int left = node.getInt("left", 0);
+46
+int top = node.getInt("top", 0);
+47
+int width = node.getInt("width", DEFAULT_WIDTH);
+48
+int height = node.getInt("height", DEFAULT_HEIGHT);
+49
+setBounds(left, top, width, height);
+50
+51
+// if no title given, ask user
+52
+53
+String title = node.get("title", "");
+54
+if (title.equals("")) title = JOptionPane.showInputDialog("Please
+supply a frame title:");
+55
+if (title == null) title = "";
+56
+setTitle(title);
+57
+58
+// set up file chooser that shows XML files
+59
+final JFileChooser chooser = new JFileChooser();
+60
+chooser.setCurrentDirectory(new File("."));
+61
+62
+// accept all files ending with .xml
+63
+chooser.setFileFilter(new javax.swing.filechooser.FileFilter()
+64
+);
+75
+76
+// set up menus
+77
+JMenuBar menuBar = new JMenuBar();
+78
+setJMenuBar(menuBar);
+79
+JMenu menu = new JMenu("File");
+80
+menuBar.add(menu);
+81
+82
+JMenuItem exportItem = new JMenuItem("Export preferences");
+83
+menu.add(exportItem);
+84
+exportItem.addActionListener(new ActionListener()
+85
+);
+103
+104
+JMenuItem importItem = new JMenuItem("Import preferences");
+105
+menu.add(importItem);
+106
+importItem.addActionListener(new ActionListener()
+107
+
+
+176
+{
+node.putInt("left", getX());
+node.putInt("top", getY());
+node.putInt("width", getWidth());
+node.putInt("height", getHeight());
+node.put("title", getTitle());
+System.exit(0);
+
+254
+{
+36
+private static final int DEFAULT_WIDTH = 300;
+37
+private static final int DEFAULT_HEIGHT = 200;
+38
+39
+public PreferencesFrame()
+40
+);
+JMenuItem exitItem = new JMenuItem("Exit");
+menu.add(exitItem);
+exitItem.addActionListener(new ActionListener()
+);
+
+61
+{
+. . .
+public Image loadImage(String s) throws IOException
+
+
+85
+{
+. . .
+public Image loadImage(String s) throws FileNotFoundException,
+EOFException
+
+
+82
+{
+. . .
+void drawImage(int i) throws ArrayIndexOutOfBoundsException // bad style
+
+
+74
+{
+public FileFormatException() 
+public FileFormatException(String gripe)
+
+
+88
+{
+InputStream in = new FileInputStream(filename);
+int b;
+while ((b = in.read()) != -1)
+
+
+88
+{
+InputStream in = new FileInputStream(filename);
+int b;
+while ((b = in.read()) != -1)
+
+
+55
+{
+emergency action for missing files and unknown hosts
+
+67
+{
+throw new ServletException("database error: " + e.getMessage());
+
+84
+{
+Throwable se = new ServletException("database error");
+se.initCause(e);
+throw se;
+
+54
+{
+while (in.hasNext())
+System.out.println(in.next());
+
+61
+{
+while (in.hasNext())
+out.println(in.next().toUpperCase());
+
+57
+{
+StackTraceElement[] frames = map.get(t);
+analyze frames
+286
+{
+System.out.println("factorial(" + n + "):");
+Throwable t = new Throwable();
+StackTraceElement[] frames = t.getStackTrace();
+for (StackTraceElement f : frames)
+System.out.println(f);
+int r;
+if (n <= 1) r = 1;
+else r = n * factorial(n - 1);
+System.out.println("return " + r);
+return r;
+
+106
+{
+Scanner in = new Scanner(System.in);
+System.out.print("Enter n: ");
+int n = in.nextInt();
+factorial(n);
+
+212
+{
+/**
+* Computes the factorial of a number
+* @param n a non-negative integer
+* @return n! = 1 * 2 * . . . * n
+*/
+public static int factorial(int n)
+30
+31
+32
+33
+34
+35
+36
+37
+public static void main(String[] args)
+
+
+66
+{
+try
+
+catch (EmptyStackException e)
+
+try
+
+catch (IOException e)
+
+
+55
+{
+InputStream in = new FileInputStream(filename);. . .
+
+153
+{
+logger.entering("com.mycompany.mylib.Reader", "read",
+new Object[] );
+. . .
+logger.exiting("com.mycompany.mylib.Reader", "read", count);
+return count;
+
+135
+{
+IOException exception = new IOException(". . .");
+logger.throwing("com.mycompany.mylib.Reader", "read", exception);
+throw exception;
+
+81
+{Logger.getLogger("com.mycompany.myapp").log(Level.WARNING, "Reading
+image", e);
+
+89
+{
+public void write(int b)  // not called
+public void write(byte[] b, int off, int len)
+
+
+88
+{
+. . .
+final JTextArea output = new JTextArea();
+setOutputStream(new
+OutputStream()
+);
+
+195
+{
+Logger.getLogger("").setLevel(Level.ALL);
+final int LOG_ROTATION_COUNT = 10;
+Handler handler = new FileHandler("%h/myapp.log", 0,
+LOG_ROTATION_COUNT);
+Logger.getLogger("").addHandler(handler);
+
+64
+{
+logger.log(Level.SEVERE, "Can't create log file handler", e);
+
+265
+{
+22
+Logger.getLogger("com.horstmann.corejava").setLevel(Level.ALL)
+23
+final int LOG_ROTATION_COUNT = 10;
+24
+Handler handler = new
+FileHandler("%h/LoggingImageViewer.log", 0, LOG_ROTATION_COUNT);
+25
+Logger.getLogger("com.horstmann.corejava").addHandler(handler)
+26
+
+68
+{
+29
+Logger.getLogger("com.horstmann.corejava").log(Level.SEVERE,31
+
+396
+{
+37
+Handler windowHandler = new WindowHandler();
+38
+windowHandler.setLevel(Level.ALL);
+39
+Logger.getLogger("com.horstmann.corejava").addHandler(windo
+40
+41
+JFrame frame = new ImageViewerFrame();
+42
+frame.setTitle("LoggingImageViewer");
+43
+frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+44
+45
+Logger.getLogger("com.horstmann.corejava").fine("Showing
+frame");
+46
+frame.setVisible(true);
+47
+
+191
+{
+17
+if (System.getProperty("java.util.logging.config.class") == null
+18
+&& System.getProperty("java.util.logging.config.file") ==
+null)
+19
+
+33
+EventQueue.invokeLater(new Runnable()
+34
+);
+49
+
+51
+{
+15
+public static void main(String[] args)
+16
+
+50 
+54
+{
+82
+public void actionPerformed(ActionEvent event)87
+
+633
+{
+65
+logger.entering("ImageViewerFrame", "<init>");
+66
+setSize(DEFAULT_WIDTH, DEFAULT_HEIGHT);
+67
+68
+// set up menu bar
+69
+JMenuBar menuBar = new JMenuBar();
+70
+setJMenuBar(menuBar);
+71
+72
+JMenu menu = new JMenu("File");
+73
+menuBar.add(menu);
+74
+75
+JMenuItem openItem = new JMenuItem("Open");
+76
+menu.add(openItem);
+77
+openItem.addActionListener(new FileOpenListener());
+78
+JMenuItem exitItem = new JMenuItem("Exit");
+79
+menu.add(exitItem);
+80
+exitItem.addActionListener(new ActionListener()
+81
+);
+88
+89
+// use a label to display the images
+90
+label = new JLabel();
+91
+add(label);
+92
+logger.exiting("ImageViewerFrame", "<init>");
+93
+
+80
+{
+110
+return f.getName().toLowerCase().endsWith(".gif") ||
+f.isDirectory();
+111
+
+89
+{
+108
+public boolean accept(File f)
+109
+
+112
+113
+public String getDescription()
+114
+
+117
+
+152
+{
+125
+String name = chooser.getSelectedFile().getPath();
+126
+logger.log(Level.FINE, "Reading file ", name);
+127
+label.setIcon(new ImageIcon(name));
+128
+
+667
+{
+99
+logger.entering("ImageViewerFrame.FileOpenListener",
+"actionPerformed", event);
+100
+101
+// set up file chooser
+102
+JFileChooser chooser = new JFileChooser();
+103
+chooser.setCurrentDirectory(new File("."));
+104
+105
+// accept all files ending with .gif
+106
+chooser.setFileFilter(new javax.swing.filechooser.FileFilter()
+107
+);
+118
+119
+// show file chooser dialog
+120
+int r = chooser.showOpenDialog(ImageViewerFrame.this);
+121
+122
+// if image file accepted, set it as icon of the label
+123
+if (r == JFileChooser.APPROVE_OPTION)
+124
+
+129
+else logger.fine("File open dialog canceled.");
+130
+logger.exiting("ImageViewerFrame.FileOpenListener",
+"actionPerformed");
+131
+
+60
+{
+97
+public void actionPerformed(ActionEvent event)
+98
+
+132
+
+314
+{
+57
+private static final int DEFAULT_WIDTH = 300;
+58
+private static final int DEFAULT_HEIGHT = 400;
+59
+60
+private JLabel label;
+61
+private static Logger logger =
+Logger.getLogger("com.horstmann.corejava");
+62
+63
+public ImageViewerFrame()
+64
+
+94
+95
+private class FileOpenListener implements ActionListener
+96
+
+133 
+89
+{
+public void write(int b)
+ // not called
+public void write(byte[] b, int off, int len)
+
+
+254
+{
+frame = new JFrame();
+final JTextArea output = new JTextArea();
+output.setEditable(false);
+frame.setSize(200, 200);
+frame.add(new JScrollPane(output));
+frame.setFocusableWindowState(false);
+frame.setVisible(true);
+setOutputStream(new OutputStream()
+);
+
+66
+{
+if (!frame.isVisible()) return;
+super.publish(record);
+flush();
+
+210
+{
+140
+private JFrame frame;
+141142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+public WindowHandler()
+
+public void publish(LogRecord record)
+
+
+67
+{
+methods and fields
+. . .
+public static void main(String[] args)
+
+
+103
+{
+double result = super.nextDouble();
+Logger.getGlobal().info("nextDouble: " + result);
+return result;
+
+57
+{
+public void uncaughtException(Thread t, Throwable e)
+;
+
+68
+{
+22
+System.out.println(method + ":" + args[0]);
+23
+return null;
+24
+
+77
+{
+20
+public Object invoke(Object proxy, Method method, Object[]
+args)
+21
+
+25
+
+87
+{
+17
+// the handler for all event proxies
+18
+handler = new InvocationHandler()
+19
+;
+26
+
+268
+{
+36
+// get all events to which this component can listen
+37
+BeanInfo info = Introspector.getBeanInfo(c.getClass());
+38
+39
+EventSetDescriptor[] eventSets = info.getEventSetDescriptors();
+40
+for (EventSetDescriptor eventSet : eventSets)
+41
+addListener(c, eventSet);
+42
+
+125
+{
+50
+// get all children and call add recursively
+51
+for (Component comp : ((Container) c).getComponents())
+52
+add(comp);
+53
+
+147
+{
+34
+try
+35
+
+43
+catch (IntrospectionException e)
+44
+
+46
+// ok not to add listeners if exception is thrown
+47
+48
+if (c instanceof Container)
+49
+
+54
+
+398
+{
+62
+// make proxy object for this listener type and route all calls to
+the handler
+63
+Object proxy = Proxy.newProxyInstance(null, new Class[] ,
+64
+handler);
+6566
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+// add the proxy as a listener to the component
+Method addListenerMethod = eventSet.getAddListenerMethod();
+try
+
+catch (ReflectiveOperationException e)
+
+// ok not to add listener if exception is thrown
+
+453
+{
+13
+private InvocationHandler handler;
+14
+15
+public EventTracer()
+16
+
+27
+28
+/**
+29
+* Adds event tracers for all events to which this component and its
+children can listen
+30
+* @param c a component
+31
+*/
+32
+public void add(Component c)
+33
+
+55
+/**
+56
+* Add a listener to the given event set
+57
+* @param c a component
+58
+* @param eventSet a descriptor of a listener interface
+59
+*/
+60
+public void addListener(Component c, EventSetDescriptor eventSet)
+61
+
+
+204
+{
+19
+// make frame with a button panel
+20
+21
+ButtonFrame frame = new ButtonFrame();
+22
+frame.setTitle("ButtonTest");
+23
+frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+24
+frame.setVisible(true);
+25
+
+100
+{
+35
+final Robot robot = new Robot(screen);
+36
+robot.waitForIdle();
+37
+new Thread()
+38
+.start();
+44
+
+297
+{
+15
+EventQueue.invokeLater(new Runnable()
+16
+);
+27
+28
+// attach a robot to the screen device
+29
+30
+GraphicsEnvironment environment =
+GraphicsEnvironment.getLocalGraphicsEnvironment();
+31
+GraphicsDevice screen = environment.getDefaultScreenDevice();
+32
+33
+try
+34
+
+45
+catch (AWTException e)
+46
+
+49
+
+721
+{
+57
+// simulate a space bar press
+58
+robot.keyPress(' ');
+59
+robot.keyRelease(' ');
+60
+61
+// simulate a tab key followed by a space
+62
+robot.delay(2000);
+63
+robot.keyPress(KeyEvent.VK_TAB);
+64
+robot.keyRelease(KeyEvent.VK_TAB);
+65
+robot.keyPress(' ');
+66
+robot.keyRelease(' ');
+67
+68
+// simulate a mouse click over the rightmost button
+69
+robot.delay(2000);70
+robot.mouseMove(220, 40);
+71
+robot.mousePress(InputEvent.BUTTON1_MASK);
+72
+robot.mouseRelease(InputEvent.BUTTON1_MASK);
+73
+74
+// capture the screen and show the resulting image
+75
+robot.delay(2000);
+76
+BufferedImage image = robot.createScreenCapture(new Rectangle(0,
+0, 400, 300));
+77
+78
+ImageFrame frame = new ImageFrame(image);
+79
+frame.setVisible(true);
+80
+
+205
+{13
+public static void main(String[] args)
+14
+
+50
+51
+/**
+52
+* Runs a sample test procedure
+53
+* @param robot the robot attached to the screen device
+54
+*/
+55
+public static void runTest(Robot robot)
+56
+
+81 
+144
+{
+96
+setTitle("Capture");
+97
+setSize(DEFAULT_WIDTH, DEFAULT_HEIGHT);
+98
+99
+JLabel label = new JLabel(new ImageIcon(image));
+100
+add(label);
+101
+
+198
+{
+88
+private static final int DEFAULT_WIDTH = 450;
+89
+private static final int DEFAULT_HEIGHT = 350;
+90
+91
+/**
+92
+* @param image the image to display
+93
+*/
+94
+public ImageFrame(Image image)
+95
+
+102 
+154
+{
+JFrame frame = new BuggyButtonFrame();
+frame.setTitle("BuggyButtonTest");
+frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+frame.setVisible(true);
+
+125
+{
+setSize(DEFAULT_WIDTH, DEFAULT_HEIGHT);
+// add panel to frame
+BuggyButtonPanel panel = new BuggyButtonPanel();
+add(panel);
+
+122
+{
+private static final int DEFAULT_WIDTH = 300;
+private static final int DEFAULT_HEIGHT = 200;
+public BuggyButtonFrame()
+
+
+389
+{
+ActionListener listener = new ButtonListener();
+JButton yellowButton = new JButton("Yellow");
+add(yellowButton);
+yellowButton.addActionListener(listener);
+JButton blueButton = new JButton("Blue");
+add(blueButton);
+blueButton.addActionListener(listener);
+JButton redButton = new JButton("Red");
+add(redButton);
+redButton.addActionListener(listener);59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+
+206
+{
+String arg = event.getActionCommand();
+if (arg.equals("yellow")) setBackground(Color.yellow);
+else if (arg.equals("blue")) setBackground(Color.blue);
+else if (arg.equals("red")) setBackground(Color.red);
+
+85
+{
+public BuggyButtonPanel()
+
+private class ButtonListener implements ActionListener
+
+
+91
+{
+private Object[] elementData;
+. . .
+public Object get(int i) 
+public void add(Object o) 
+
+196
+{
+private T first;
+private T second;
+public Pair() 
+public Pair(T first, T second) 
+public T getFirst() 
+public T getSecond() 
+public void setFirst(T newValue) 
+public void setSecond(T newValue) 
+
+171
+{
+11
+String[] words = ;
+12
+Pair<String> mm = ArrayAlg.minmax(words);
+13
+System.out.println("min = " + mm.getFirst());
+14
+System.out.println("max = " + mm.getSecond());
+15
+
+93
+{
+32
+if (min.compareTo(a[i]) > 0) min = a[i];
+33
+if (max.compareTo(a[i]) < 0) max = a[i];
+34
+
+171
+{
+27
+if (a == null || a.length == 0) return null;
+28
+String min = a[0];
+29
+String max = a[0];
+30
+for (int i = 1; i < a.length; i++)
+31
+
+35
+return new Pair<>(min, max);
+36
+
+241
+{
+20
+/**
+21
+* Gets the minimum and maximum of an array of strings.
+22
+* @param a an array of strings
+23
+* @return a pair with the min and max value, or null if a is null or
+empty
+24
+*/
+25
+public static Pair<String> minmax(String[] a)
+26
+
+37 
+168
+{
+if (a == null || a.length == 0) return null;
+T smallest = a[0];for (int i = 1; i < a.length; i++)
+if (smallest.compareTo(a[i]) > 0) smallest = a[i];
+return smallest;
+
+52
+{
+public static <T> T min(T[] a) // almost correct
+
+
+276
+{
+15
+new GregorianCalendar(1906, Calendar.DECEMBER, 9), // G.
+Hopper
+16
+new GregorianCalendar(1815, Calendar.DECEMBER, 10), // A.
+Lovelace
+17
+new GregorianCalendar(1903, Calendar.DECEMBER, 3), // J. von
+Neumann
+18
+new GregorianCalendar(1910, Calendar.JUNE, 22), // K. Zuse
+19
+
+224
+{
+13
+GregorianCalendar[] birthdays =
+14
+;
+20
+Pair<GregorianCalendar> mm = ArrayAlg.minmax(birthdays);
+21
+System.out.println("min = " + mm.getFirst().getTime());
+22
+System.out.println("max = " + mm.getSecond().getTime());
+23
+
+51
+{
+11
+public static void main(String[] args)
+12
+
+24 
+93
+{
+41
+if (min.compareTo(a[i]) > 0) min = a[i];
+42
+if (max.compareTo(a[i]) < 0) max = a[i];
+43
+
+161
+{
+36
+if (a == null || a.length == 0) return null;
+37
+T min = a[0];
+38
+T max = a[0];
+39
+for (int i = 1; i < a.length; i++)
+40
+
+44
+return new Pair<>(min, max);
+45
+
+271
+{
+28
+/**
+29
+Gets the minimum and maximum of an array of objects of type T.
+30
+@param a an array of objects of type T
+31
+@return a pair with the min and max value, or null if a is
+32
+null or empty
+33
+*/
+34
+public static <T extends Comparable> Pair<T> minmax(T[] a)
+35
+
+46 
+221
+{
+private Object first;
+private Object second;
+public Pair(Object first, Object second)
+
+public Object getFirst() 
+public Object getSecond() 
+public void setFirst(Object newValue) 
+public void setSecond(Object newValue) 
+
+77
+{
+private T lower;
+private T upper;
+. . .public Interval(T first, T second)
+
+
+114
+{
+private Comparable lower;
+private Comparable upper;
+. . .
+public Interval(Comparable first, Comparable second) 
+
+66
+{
+if (second.compareTo(getFirst()) >= 0)
+super.setSecond(second);
+
+61
+{
+public Employee clone() throws CloneNotSupportedException 
+
+56
+{ return new Pair<>(cl.newInstance(), cl.newInstance()) 
+134
+{
+private Object[] elements;
+. . .
+@SuppressWarnings("unchecked") public E get(int n) 
+public void set(int n, E e)  // no cast needed
+
+79
+{
+Object[] mm = new Object[2];
+. . .
+return (T[]) mm; // compiles with warning
+
+78
+{
+T[] mm = (T[]) Array.newInstance(a.getClass().getComponentType(), 2);
+. . .
+
+76
+{
+if (singleInstance == null) construct new instance
+return singleInstance;
+
+94
+{private static T singleInstance; // ERROR
+public static T getSingleInstance() // ERROR
+
+of T
+
+56
+{
+try
+
+catch (T e) // ERROR--can't catch type variable
+
+
+177
+{
+public abstract void body() throws Exception;
+public Thread toThread()
+
+@SuppressWarnings("unchecked")
+public static <T extends Throwable> void throwAs(Throwable e) throws T
+
+
+99
+{
+Scanner in = new Scanner(new File("ququx"));
+while (in.hasNext())
+System.out.println(in.next());
+
+54
+{ return first.equals(value) &&
+second.equals(value); 
+149
+{
+Employee first = p.getFirst();
+Employee second = p.getSecond();
+System.out.println(first.getName() + " and " + second.getName() + " are
+buddies.";
+
+102
+{
+if (min.getBonus() > a[i].getBonus()) min = a[i];
+if (max.getBonus() < a[i].getBonus()) max = a[i];
+
+162
+{
+if (a == null || a.length == 0) return;
+Manager min = a[0];Manager max = a[0];
+for (int i = 1; i < a.length; i++)
+
+result.setFirst(min);
+result.setSecond(max);
+
+56
+{
+return p.getFirst() == null || p.getSecond() == null;
+
+65
+{
+T t = p.getFirst();
+p.setFirst(p.getSecond());
+p.setSecond(t);
+
+89
+{
+minmaxBonus(a, result);
+PairAlg.swap(result); // OK--swapHelper captures wildcard type
+
+630
+{
+11
+Manager ceo = new Manager("Gus Greedy", 800000, 2003, 12, 15);
+12
+Manager cfo = new Manager("Sid Sneaky", 600000, 2003, 12, 15);
+13
+Pair<Manager> buddies = new Pair<>(ceo, cfo);
+14
+printBuddies(buddies);
+15
+16
+ceo.setBonus(1000000);
+17
+cfo.setBonus(500000);
+18
+Manager[] managers = ;
+19
+20
+Pair<Employee> result = new Pair<>();
+21
+minmaxBonus(managers, result);
+22
+System.out.println("first: " + result.getFirst().getName()
+23
++ ", second: " + result.getSecond().getName());
+24
+maxminBonus(managers, result);
+25
+System.out.println("first: " + result.getFirst().getName()
+26
++ ", second: " + result.getSecond().getName());
+27
+
+162
+{
+31
+Employee first = p.getFirst();
+32
+Employee second = p.getSecond();
+33
+System.out.println(first.getName() + " and " + second.getName() +
+" are buddies.");
+34
+
+110
+{43
+if (min.getBonus() > a[i].getBonus()) min = a[i];
+44
+if (max.getBonus() < a[i].getBonus()) max = a[i];
+45
+
+187
+{
+38
+if (a == null || a.length == 0) return;
+39
+Manager min = a[0];
+40
+Manager max = a[0];
+41
+for (int i = 1; i < a.length; i++)
+42
+
+46
+result.setFirst(min);
+47
+result.setSecond(max);
+48
+
+104
+{
+51
+minmaxBonus(a, result);
+52
+PairAlg.swapHelper(result); // OK--swapHelper captures wildcard
+type
+53
+
+285
+{
+9
+public static void main(String[] args)
+10
+
+28
+29
+public static void printBuddies(Pair<? extends Employee> p)
+30
+
+35
+36
+public static void minmaxBonus(Manager[] a, Pair<? super Manager>
+result)
+37
+
+49
+public static void maxminBonus(Manager[] a, Pair<? super Manager>
+result)
+50
+
+54 
+62
+{
+60
+return p.getFirst() == null || p.getSecond() == null;
+61
+
+77
+{
+67
+T t = p.getFirst();
+68
+p.setFirst(p.getSecond());
+69
+p.setSecond(t);
+70
+
+151
+{
+58
+public static boolean hasNulls(Pair<?> p)
+59
+
+62
+63
+public static void swap(Pair<?> p) 
+64
+65
+public static <T> void swapHelper(Pair<T> p)
+66
+
+71 
+55
+{
+return new Pair<>(c.newInstance(), c.newInstance());
+
+140
+{
+18
+Scanner in = new Scanner(System.in);
+19
+System.out.println("Enter class name (e.g.
+java.util.Collections): ");
+20
+name = in.next();
+21
+
+179
+{
+25
+// print generic info for class and public methods
+26
+Class<?> cl = Class.forName(name);
+27
+printClass(cl);
+28
+for (Method m : cl.getDeclaredMethods())
+29
+printMethod(m);
+30
+
+173
+{
+// read class name from command line args or user input
+String name;
+if (args.length > 0) name = args[0];
+else17
+
+22
+23
+try
+24
+
+31
+catch (ClassNotFoundException e)
+32
+
+35
+
+64
+{
+44
+System.out.print(" extends ");
+45
+printType(sc, false);
+46
+
+254
+{
+39
+System.out.print(cl);
+40
+printTypes(cl.getTypeParameters(), "<", ", ", ">", true);
+41
+Type sc = cl.getGenericSuperclass();
+42
+if (sc != null)
+43
+
+47
+printTypes(cl.getGenericInterfaces(), " implements ", ", ", "",
+false);
+48
+System.out.println();
+49
+
+403
+{
+52
+String name = m.getName();
+53
+System.out.print(Modifier.toString(m.getModifiers()));
+54
+System.out.print(" ");
+55
+printTypes(m.getTypeParameters(), "<", ", ", "> ", true);
+56
+57
+printType(m.getGenericReturnType(), false);
+58
+System.out.print(" ");
+59
+System.out.print(name);
+60
+System.out.print("(");
+61
+printTypes(m.getGenericParameterTypes(), "", ", ", "", false);
+62
+System.out.println(")");
+63
+
+335
+{
+68
+if (pre.equals(" extends ") && Arrays.equals(types, new Type[] )) return;
+69
+if (types.length > 0) System.out.print(pre);
+70
+for (int i = 0; i < types.length; i++)71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119 
+71
+{
+if (i > 0) System.out.print(sep);
+printType(types[i], isDefinition);
+
+304
+{
+public static void main(String[] args)
+
+36
+37
+public static void printClass(Class<?> cl)
+38
+
+50
+public static void printMethod(Method m)
+51
+
+64
+65
+public static void printTypes(Type[] types, String pre, String sep,
+String suf,
+66
+boolean isDefinition)
+67
+
+
+if (types.length > 0) System.out.print(suf);
+
+63
+{
+Class<?> t = (Class<?>) type;
+System.out.print(t.getName());
+
+153
+{
+TypeVariable<?> t = (TypeVariable<?>) type;
+System.out.print(t.getName());
+if (isDefinition)
+printTypes(t.getBounds(), " extends ", " & ", "", false);
+
+187
+{
+WildcardType t = (WildcardType) type;
+System.out.print("?");
+printTypes(t.getUpperBounds(), " extends ", " & ", "", false);
+printTypes(t.getLowerBounds(), " super ", " & ", "", false);
+
+198
+{
+ParameterizedType t = (ParameterizedType) type;
+Type owner = t.getOwnerType();
+if (owner != null)
+
+printType(t.getRawType(), false);
+printTypes(t.getActualTypeArguments(), "<", ", ", ">", false);
+
+148
+{
+GenericArrayType t = (GenericArrayType) type;
+System.out.print("");
+printType(t.getGenericComponentType(), isDefinition);
+System.out.print("[]");
+
+199
+{
+if (type instanceof Class)
+
+else if (type instanceof TypeVariable)
+
+else if (type instanceof WildcardType)
+
+else if (type instanceof ParameterizedType)
+
+else if (type instanceof GenericArrayType)
+
+
+160
+{
+CircularArrayQueue(int capacity) 
+public void add(E element) 
+public E remove() 
+public int size() 
+private E[] elements;
+private int head;
+private int tail;
+
+124
+{
+LinkedListQueue() 
+public void add(E element) 
+public E remove() 
+public int size() private Link head;
+private Link tail;
+
+55
+{
+boolean add(E element);
+Iterator<E> iterator();
+. . .
+58
+{
+String element = iter.next();
+do something with element
+
+74
+{
+for (E element : c)
+if (element.equals(obj))
+return true;
+return false;
+
+99
+{
+for (E element : this) // calls iterator()
+if (element.equals(obj))
+return = true;
+return false;
+
+90
+{
+. . .public abstract Iterator<E> iterator();
+public boolean contains(Object obj)
+
+. . .
+
+62
+{
+if (aIter.hasNext()) aIter.next();
+aIter.add(bIter.next());
+
+76
+{
+bIter.next(); // skip next element
+bIter.remove(); // remove that element
+
+58
+{
+bIter.next(); // skip one element
+if (bIter.hasNext())
+
+
+648
+{
+List<String> a = new LinkedList<>();
+a.add("Amy");
+a.add("Carl");
+a.add("Erica");
+List<String> b = new LinkedList<>();
+b.add("Bob");
+b.add("Doug");22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+b.add("Frances");
+b.add("Gloria");
+// merge the words from b into a
+ListIterator<String> aIter = a.listIterator();
+Iterator<String> bIter = b.iterator();
+while (bIter.hasNext())
+
+System.out.println(a);
+// remove every second word from b
+bIter = b.iterator();
+while (bIter.hasNext())
+
+System.out.println(b);
+// bulk operation: remove all words in b from a
+a.removeAll(b);
+System.out.println(a);
+
+161
+{
+String word = in.next();
+long callTime = System.currentTimeMillis();
+words.add(word);
+callTime = System.currentTimeMillis() - callTime;
+totalTime += callTime;
+
+379
+{
+Set<String> words = new HashSet<>(); // HashSet implements Set
+long totalTime = 0;
+Scanner in = new Scanner(System.in);
+while (in.hasNext())
+
+Iterator<String> iter = words.iterator();
+for (int i = 1; i <= 20 && iter.hasNext(); i++)
+System.out.println(iter.next());
+System.out.println(". . .");
+System.out.println(words.size() + " distinct words. " + totalTime
+milliseconds.");
+
+107
+{
+String descrA = a.getDescription();
+String descrB = b.getDescription();
+return descrA.compareTo(descrB);
+
+107
+{
+String descrA = a.getDescription();
+String descrB = b.getDescription();
+return descrA.compareTo(descrB);
+
+107
+{
+String descrA = a.getDescription();
+String descrB = b.getDescription();
+return descrA.compareTo(descrB);
+
+370
+{
+SortedSet<Item> parts = new TreeSet<>();
+parts.add(new Item("Toaster", 1234));
+parts.add(new Item("Widget", 4562));
+parts.add(new Item("Modem", 9912));
+System.out.println(parts);
+SortedSet<Item> sortByDescription = new TreeSet<>(new25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+Comparator<Item>()
+);
+sortByDescription.addAll(parts);
+System.out.println(sortByDescription);
+
+65
+{
+20
+description = aDescription;
+21
+partNumber = aPartNumber;
+22
+
+82
+{
+35
+return "[descripion=" + description + ", partNumber=" + partNumber
++ "]";
+36
+
+275
+{
+39
+if (this == otherObject) return true;
+40
+if (otherObject == null) return false;
+41
+if (getClass() != otherObject.getClass()) return false;
+42
+Item other = (Item) otherObject;
+43
+return Objects.equals(description, other.description) &&
+partNumber == other.partNumber;
+44
+
+54
+{
+48
+return Objects.hash(description, partNumber);
+49
+
+62
+{
+53
+return Integer.compare(partNumber, other.partNumber);
+54
+
+537
+{
+10
+private String description;
+11
+private int partNumber;
+12
+13
+/**
+14
+* Constructs an item.
+15
+* @param aDescription the item's description
+16
+* @param aPartNumber the item's part number
+17
+*/
+18
+public Item(String aDescription, int aPartNumber)
+19
+
+23
+24
+/**
+25
+* Gets the description of this item.
+26
+* @return the description
+27
+*/
+28
+public String getDescription()
+29
+
+32
+33
+public String toString()
+34
+37
+public boolean equals(Object otherObject)
+38
+
+45
+46
+public int hashCode()
+47
+
+50
+51
+public int compareTo(Item other)
+52
+
+55 
+642
+{
+14
+PriorityQueue<GregorianCalendar> pq = new PriorityQueue<>();
+15
+pq.add(new GregorianCalendar(1906, Calendar.DECEMBER, 9)); // G.
+Hopper
+16
+pq.add(new GregorianCalendar(1815, Calendar.DECEMBER, 10)); // A.
+Lovelace
+17
+pq.add(new GregorianCalendar(1903, Calendar.DECEMBER, 3)); // J.
+von Neumann
+18
+pq.add(new GregorianCalendar(1910, Calendar.JUNE, 22)); // K. Zuse
+19
+20
+System.out.println("Iterating over elements...");
+21
+for (GregorianCalendar date : pq)
+22
+System.out.println(date.get(Calendar.YEAR));23
+24
+25
+26
+27
+System.out.println("Removing elements...");
+while (!pq.isEmpty())
+System.out.println(pq.remove().get(Calendar.YEAR));
+
+95
+{
+String key = entry.getKey();
+Employee value = entry.getValue();
+do something with key, value
+
+133
+{
+35
+String key = entry.getKey();
+36
+Employee value = entry.getValue();
+37
+System.out.println("key=" + key + ", value=" + value);
+38
+
+667
+{
+14
+Map<String, Employee> staff = new HashMap<>();
+15
+staff.put("144-25-5464", new Employee("Amy Lee"));
+16
+staff.put("567-24-2546", new Employee("Harry Hacker"));
+17
+staff.put("157-62-7935", new Employee("Gary Cooper"));
+18
+staff.put("456-62-5527", new Employee("Francesca Cruz"));
+19
+20
+// print all entries
+21
+System.out.println(staff);
+22
+23
+// remove an entry
+24
+staff.remove("567-24-2546");
+25
+26
+// replace an entry
+27
+staff.put("456-62-5527", new Employee("Francesca Miller"));
+28
+29
+// look up a value
+30
+System.out.println(staff.get("157-62-7935"));
+31
+32
+// iterate through all entries
+33
+for (Map.Entry<String, Employee> entry : staff.entrySet())
+34
+
+39
+
+51
+{
+12
+public static void main(String[] args)
+13
+
+40 
+63
+{
+protected boolean removeEldestEntry(Map.Entry<K, V> eldest)
+
+
+65
+{ MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY,
+SUNDAY 
+73
+{
+T next = iter.next();
+if (largest.compareTo(next) < 0)
+largest = next;
+
+73
+{
+T next = iter.next();
+if (largest.compareTo(next) < 0)
+largest = next;
+
+152
+{
+if (c.isEmpty()) throw new NoSuchElementException();
+Iterator<T> iter = c.iterator();
+T largest = iter.next();while (iter.hasNext())
+
+return largest;
+
+274
+{
+List<Integer> numbers = new ArrayList<>();
+for (int i = 1; i <= 49; i++)
+numbers.add(i);16
+17
+18
+19
+20
+21
+Collections.shuffle(numbers);
+List<Integer> winningCombination = numbers.subList(0, 6);
+Collections.sort(winningCombination);
+System.out.println(winningCombination);
+
+132
+{
+List<JMenuItem> items = new ArrayList<>()
+for (int i = 0; i < menu.getItemCount(); i++)
+items.add(menu.getItem(i));
+return items;
+
+92
+{
+count++;
+int k = 2 * i;
+while (k <= n)29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+
+
+321
+{
+int n = 2000000;
+long start = System.currentTimeMillis();
+BitSet b = new BitSet(n + 1);
+int count = 0;
+int i;
+for (i = 2; i <= n; i++)
+b.set(i);
+i = 2;
+while (i * i <= n)
+
+while (i <= n)
+
+long end = System.currentTimeMillis();
+System.out.println(count + " primes");
+System.out.println((end - start) + " milliseconds");
+
+67
+{
+if (b.test(i))
+
+i++;35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+
+322
+{
+const int N = 2000000;
+clock_t cstart = clock();
+bitset<N + 1> b;
+int count = 0;
+int i;
+for (i = 2; i <= N; i++)
+b.set(i);
+i = 2;
+while (i * i <= N)
+
+while (i <= N)
+
+clock_t cend = clock();
+double millis = 1000.0 * (cend - cstart) / CLOCKS_PER_SEC;
+cout << count << " primes\n" << millis << " milliseconds\n";
+return 0;
+
+87
+{
+ball.move(panel.getBounds());
+panel.paint(panel.getGraphics());
+Thread.sleep(DELAY);
+
+122
+{
+JFrame frame = new BounceFrame();21
+frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+22
+frame.setVisible(true);
+23
+
+59
+{
+50
+public void actionPerformed(ActionEvent event)
+51
+
+54
+
+59
+{
+58
+public void actionPerformed(ActionEvent event)
+59
+
+62
+
+314
+{
+43
+setTitle("Bounce");
+44
+45
+comp = new BallComponent();
+46
+add(comp, BorderLayout.CENTER);
+47
+JPanel buttonPanel = new JPanel();
+48
+addButton(buttonPanel, "Start", new ActionListener()
+49
+);
+55
+56
+addButton(buttonPanel, "Close", new ActionListener()
+57
+);
+63
+add(buttonPanel, BorderLayout.SOUTH);
+64
+pack();
+65
+
+171
+{
+74
+JButton button = new JButton(title);
+75
+c.add(button);
+76
+button.addActionListener(listener);77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100 
+512
+{
+33
+private BallComponent comp;
+34
+public static final int STEPS = 1000;
+35
+public static final int DELAY = 3;
+36
+37
+/**
+38
+* Constructs the frame with the component for showing the bouncing
+ball and Start and Close
+39
+* buttons
+40
+*/
+41
+public BounceFrame()
+42
+
+66
+/**
+67
+* Adds a button to a container.
+68
+* @param c the container
+69
+* @param title the button title
+70
+* @param listener the action listener for the button
+71
+*/
+72
+public void addButton(Container c, String title, ActionListener
+listener)
+73
+
+
+84
+{
+ball.move(comp.getBounds());
+comp.paint(comp.getGraphics());
+Thread.sleep(DELAY);
+
+76
+{
+Ball ball = new Ball();
+comp.add(ball);
+for (int i = 1; i <= STEPS; i++)
+
+
+241
+{
+24
+x += dx;
+25
+y += dy;
+26
+if (x < bounds.getMinX())27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+
+if (x + XSIZE >= bounds.getMaxX())
+
+if (y < bounds.getMinY())
+
+if (y + YSIZE >= bounds.getMaxY())
+
+
+51
+{
+return new Ellipse2D.Double(x, y, XSIZE, YSIZE);
+
+424
+{
+12
+private static final int XSIZE = 15;
+13
+private static final int YSIZE = 15;
+14
+private double x = 0;
+15
+private double y = 0;
+16
+private double dx = 1;
+17
+private double dy = 1;
+18
+19
+/**
+20
+* Moves the ball to the next position, reversing direction if it
+hits one of the edges
+21
+*/
+22
+public void move(Rectangle2D bounds)
+23
+
+/**
+* Gets the shape of the ball at its current position.
+*/
+public Ellipse2D getShape()
+
+
+116
+{
+30
+super.paintComponent(g); // erase background
+31
+Graphics2D g2 = (Graphics2D) g;
+32
+for (Ball b : balls)
+33
+
+36
+
+55
+{ return new
+Dimension(DEFAULT_WIDTH, DEFAULT_HEIGHT); 
+341
+{
+private static final int DEFAULT_WIDTH = 450;
+private static final int DEFAULT_HEIGHT = 350;
+private java.util.List<Ball> balls = new ArrayList<>();
+/**
+* Add a ball to the component.
+* @param b the ball to add
+*/23
+public void add(Ball b)
+24
+
+27
+28
+public void paintComponent(Graphics g)
+29
+
+37
+38
+public Dimension getPreferredSize() 
+39 
+78
+{
+ball.move(component.getBounds());
+component.repaint();
+Thread.sleep(DELAY);
+
+146
+{
+JFrame frame = new BounceFrame();
+frame.setTitle("BounceThread");
+frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+frame.setVisible(true);
+
+90
+{
+55
+ball.move(component.getBounds());
+56
+component.repaint();
+57
+Thread.sleep(DELAY);
+58
+
+54
+{
+51
+try
+52
+
+60
+catch (InterruptedException e)
+61
+
+63
+
+333
+{
+private Ball ball;
+private Component component;
+public static final int STEPS = 1000;
+public static final int DELAY = 5;
+/**
+* Constructs the runnable.
+* @param aBall the ball to bounce
+* @param aComponent the component in which the ball bounces
+*/
+public BallRunnable(Ball aBall, Component aComponent)
+
+public void run()50
+
+64
+65 
+59
+{
+85
+public void actionPerformed(ActionEvent event)
+86
+
+89
+
+59
+{
+93
+public void actionPerformed(ActionEvent event)
+94
+
+97
+
+289
+{
+80
+comp = new BallComponent();
+81
+add(comp, BorderLayout.CENTER);
+82
+JPanel buttonPanel = new JPanel();
+83
+addButton(buttonPanel, "Start", new ActionListener()
+84
+);
+90
+91
+addButton(buttonPanel, "Close", new ActionListener()
+92
+);
+98
+add(buttonPanel, BorderLayout.SOUTH);
+99
+pack();
+100
+
+106
+{
+110
+JButton button = new JButton(title);
+111
+c.add(button);
+112
+button.addActionListener(listener);
+113
+
+137
+{
+120
+Ball b = new Ball();
+121
+comp.add(b);
+122
+Runnable r = new BallRunnable(b, comp);
+123
+Thread t = new Thread(r);
+124
+t.start();
+125
+
+577
+{
+72
+private BallComponent comp;
+73
+74
+/**
+75
+* Constructs the frame with the component for showing the bouncing
+ball and Start and Close
+76
+* buttons
+77
+*/
+78
+public BounceFrame()
+79
+
+101
+102
+/**
+103
+* Adds a button to a container.
+104
+* @param c the container
+105
+* @param title the button title
+106
+* @param listener the action listener for the button107
+*/
+108
+public void addButton(Container c, String title, ActionListener
+listener)
+109
+
+114
+115
+/**
+116
+* Adds a bouncing ball to the canvas and starts a thread to make it
+bounce
+117
+*/
+118
+public void addBall()
+119
+
+126 
+59
+{
+. . .
+while (!Thread.currentThread().isInterrupted() &&
+
+
+95
+{
+try
+
+catch(InterruptedException e)
+
+finally
+
+// exiting the run method terminates the thread
+
+95
+{
+try
+
+catch(InterruptedException e)
+
+finally
+
+// exiting the run method terminates the thread
+
+68
+{
+. . .
+try 
+catch (InterruptedException e)  // DON'T IGNORE!
+. . .
+
+51
+{
+. . .
+try 
+catch (InterruptedException e) 
+. . .
+
+222
+{
+System.out.print(Thread.currentThread());
+accounts[from] -= amount;
+System.out.printf(" %10.2f from %d to %d", amount, from, to);
+accounts[to] += amount;
+System.out.printf(" Total Balance: %10.2f%n", getTotalBalance());
+
+190
+{
+int toAccount = (int) (bank.size() * Math.random());
+double amount = maxAmount * Math.random();
+bank.transfer(fromAccount, toAccount, amount);
+Thread.sleep((int) (DELAY * Math.random()));
+
+117
+{
+19
+TransferRunnable r = new TransferRunnable(b, i,
+INITIAL_BALANCE);
+20
+Thread t = new Thread(r);
+21
+t.start();
+22
+
+104
+{
+15
+Bank b = new Bank(NACCOUNTS, INITIAL_BALANCE);
+16
+int i;
+17
+for (i = 0; i < NACCOUNTS; i++)
+18
+
+23
+
+152
+{
+10
+public static final int NACCOUNTS = 100;
+11
+public static final double INITIAL_BALANCE = 1000;
+12
+13
+public static void main(String[] args)
+14
+
+24 
+100
+{
+accounts = new double[n];
+for (int i = 0; i < accounts.length; i++)
+accounts[i] = initialBalance;
+
+259
+{
+if (accounts[from] < amount) return;
+System.out.print(Thread.currentThread());
+accounts[from] -= amount;
+System.out.printf(" %10.2f from %d to %d", amount, from, to);
+accounts[to] += amount;
+System.out.printf(" Total Balance: %10.2f%n", getTotalBalance());
+
+66
+{
+double sum = 0;
+for (double a : accounts)
+sum += a;
+return sum;
+
+792
+{
+private final double[] accounts;
+/**13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+* Constructs the bank.
+* @param n the number of accounts
+* @param initialBalance the initial balance for each account
+*/
+public Bank(int n, double initialBalance)
+
+/**
+* Transfers money from one account to another.
+* @param from the account to transfer from
+* @param to the account to transfer to
+* @param amount the amount to transfer
+*/
+public void transfer(int from, int to, double amount)
+
+/**
+* Gets the sum of all account balances.
+* @return the total balance
+*/
+public double getTotalBalance()
+
+/**
+* Gets the number of accounts in the bank.
+* @return the number of accounts
+*/
+public int size()
+
+
+61
+{
+23
+bank = b;
+24
+fromAccount = from;
+25
+maxAmount = max;
+26
+
+205
+{
+34
+int toAccount = (int) (bank.size() * Math.random());
+35
+double amount = maxAmount * Math.random();
+36
+bank.transfer(fromAccount, toAccount, amount);
+37
+Thread.sleep((int) (DELAY * Math.random()));
+38
+
+54
+{
+30
+try
+31
+
+40
+catch (InterruptedException e)
+41
+
+43
+
+432
+{
+10
+private Bank bank;
+11
+private int fromAccount;
+12
+private double maxAmount;
+13
+private int DELAY = 10;
+14
+15
+/**
+16
+* Constructs a transfer runnable.
+17
+* @param b the bank between whose account money is transferred
+18
+* @param from the account to transfer money from
+19
+* @param max the maximum amount of money in each transfer
+20
+*/
+21
+public TransferRunnable(Bank b, int from, double max)
+22
+
+27
+28
+public void run()
+29
+
+44 
+84
+{
+myLock.unlock(); // make sure the lock is unlocked even if an exception
+is thrown
+
+222
+{
+System.out.print(Thread.currentThread());
+accounts[from] -= amount;
+System.out.printf(" %10.2f from %d to %d", amount, from, to);
+accounts[to] += amount;
+System.out.printf(" Total Balance: %10.2f%n", getTotalBalance());
+
+152
+{
+private Lock bankLock = new ReentrantLock(); // ReentrantLock implements
+the Lock interface
+. . .
+public void transfer(int from, int to, int amount)
+
+
+59
+{
+while (accounts[from] < amount)
+
+// transfer funds
+. . .
+
+51
+{
+. . .
+sufficientFunds = bankLock.newCondition();
+
+57
+{
+private Condition sufficientFunds;
+. . .public Bank()
+
+
+112
+{
+while (accounts[from] < amount)
+sufficientFunds.await();
+// transfer funds
+. . .
+sufficientFunds.signalAll();
+
+193
+{
+22
+accounts = new double[n];
+23
+for (int i = 0; i < accounts.length; i++)
+24
+accounts[i] = initialBalance;
+25
+bankLock = new ReentrantLock();
+26
+sufficientFunds = bankLock.newCondition();
+27
+
+335
+{
+39
+while (accounts[from] < amount)
+40
+sufficientFunds.await();
+41
+System.out.print(Thread.currentThread());
+42
+accounts[from] -= amount;
+43
+System.out.printf(" %10.2f from %d to %d", amount, from, to);
+44
+accounts[to] += amount;
+45
+System.out.printf(" Total Balance: %10.2f%n",
+getTotalBalance());
+46
+sufficientFunds.signalAll();
+47
+
+51
+{
+36
+bankLock.lock();
+37
+try
+38
+
+48
+finally
+49
+
+52
+
+128
+{
+63
+double sum = 0;
+64
+65
+for (double a : accounts)66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+sum += a;
+return sum;
+
+804
+{
+12
+private final double[] accounts;
+13
+private Lock bankLock;
+14
+private Condition sufficientFunds;
+15
+/**
+16
+* Constructs the bank.
+17
+* @param n the number of accounts
+18
+* @param initialBalance the initial balance for each account
+19
+*/
+20
+public Bank(int n, double initialBalance)
+21
+
+28
+/**
+29
+* Transfers money from one account to another.
+30
+* @param from the account to transfer from
+31
+* @param to the account to transfer to
+32
+* @param amount the amount to transfer
+33
+*/
+34
+public void transfer(int from, int to, double amount) throws
+InterruptedException
+35
+
+53
+54
+/**
+55
+* Gets the sum of all account balances.
+56
+* @return the total balance
+57
+*/
+58
+public double getTotalBalance()
+59
+
+/**
+* Gets the number of accounts in the bank.
+* @return the number of accounts
+*/
+public int size()
+
+
+204
+{
+while (accounts[from] < amount)
+wait(); // wait on intrinsic object lock's single condition
+accounts[from] -= amount;
+accounts[to] += amount;
+notifyAll(); // notify all threads waiting on the condition
+
+167
+{
+private double[] accounts;
+public synchronized void transfer(int from, int to, int amount) throws
+InterruptedException
+
+public synchronized double getTotalBalance() 
+173
+{10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+throws
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64 
+100
+{
+accounts = new double[n];
+for (int i = 0; i < accounts.length; i++)
+accounts[i] = initialBalance;
+
+275
+{
+while (accounts[from] < amount)
+wait();
+System.out.print(Thread.currentThread());
+accounts[from] -= amount;
+System.out.printf(" %10.2f from %d to %d", amount, from, to);
+accounts[to] += amount;
+System.out.printf(" Total Balance: %10.2f%n", getTotalBalance());
+notifyAll();
+
+66
+{
+double sum = 0;
+for (double a : accounts)
+sum += a;
+return sum;
+
+52
+{
+accounts[from] -= amount;
+accounts[to] += amount;
+
+68
+{
+synchronized (lock) // an ad-hoc lock
+
+System.out.println(. . .);
+
+122
+{
+private double[] accounts;
+private Object lock = new Object();
+. . .
+public void transfer(int from, int to, int amount)
+
+123
+{
+accounts.set(from, accounts.get(from) - amount);
+accounts.set(to, accounts.get(to) + amount);
+System.out.println(. . .);
+
+96
+{
+accounts.set(from, accounts.get(from) - amount);
+accounts.set(to, accounts.get(to) + amount);
+
+54
+{
+synchronized (accounts)
+
+System.out.println(. . .);
+
+82
+{
+for (int i = 0; i < threads.length; i++)
+threads[i].suspend(); // Don't do this
+
+53
+{ while (suspendRequested) suspendCondition.await(); 
+62
+{
+suspendRequested = false;
+suspendLock.lock();
+try 
+finally 
+
+629
+{
+15
+Scanner in = new Scanner(System.in);
+16
+System.out.print("Enter base directory (e.g.
+/usr/local/jdk1.6.0/src): ");
+17
+String directory = in.nextLine();
+18
+System.out.print("Enter keyword (e.g. volatile): ");
+19
+String keyword = in.nextLine();
+20
+21
+final int FILE_QUEUE_SIZE = 10;
+22
+final int SEARCH_THREADS = 100;
+23
+24
+BlockingQueue<File> queue = new ArrayBlockingQueue<>
+(FILE_QUEUE_SIZE);
+25
+26
+FileEnumerationTask enumerator = new FileEnumerationTask(queue,
+new File(directory));
+27
+new Thread(enumerator).start();
+28
+for (int i = 1; i <= SEARCH_THREADS; i++)
+29
+new Thread(new SearchTask(queue, keyword)).start();
+30
+
+51
+{
+13
+public static void main(String[] args)
+14
+
+31 
+75
+{
+49
+this.queue = queue;
+50
+this.startingDirectory = startingDirectory;
+51
+
+59
+{
+57
+enumerate(startingDirectory);
+58
+queue.put(DUMMY);
+59
+
+54
+{
+55
+try
+56
+
+60
+catch (InterruptedException e)
+61
+
+63
+
+74
+{
+74
+if (file.isDirectory()) enumerate(file);
+75
+else queue.put(file);
+76
+
+77
+{
+71
+File[] files = directory.listFiles();
+72
+for (File file : files)
+73
+
+77
+
+670
+{
+38
+public static File DUMMY = new File("");
+39
+private BlockingQueue<File> queue;
+40
+private File startingDirectory;41
+42
+/**
+43
+* Constructs a FileEnumerationTask.
+44
+* @param queue the blocking queue to which the enumerated files are
+added
+45
+* @param startingDirectory the directory in which to start the
+enumeration
+46
+*/
+47
+public FileEnumerationTask(BlockingQueue<File> queue, File
+startingDirectory)
+48
+
+52
+53
+public void run()
+54
+
+64
+65
+/**
+66
+* Recursively enumerates all files in a given directory and its
+subdirectories.
+67
+* @param directory the directory in which to start
+68
+*/
+69
+public void enumerate(File directory) throws InterruptedException
+70
+
+78 
+54
+{95
+this.queue = queue;
+96
+this.keyword = keyword;
+97
+
+107
+{
+106
+File file = queue.take();
+107
+if (file == FileEnumerationTask.DUMMY)
+108
+
+112
+else search(file);
+113
+
+55
+{
+103
+boolean done = false;
+104
+while (!done)
+105
+
+114
+
+90
+{
+101
+try
+102
+
+115
+catch (IOException e)
+116
+
+119
+catch (InterruptedException e)
+120
+
+122
+
+160
+{
+135
+lineNumber++;
+136
+String line = in.nextLine();
+137
+if (line.contains(keyword))
+138
+System.out.printf("%s:%d:%s%n", file.getPath(),
+lineNumber, line);
+139
+
+64
+{
+132
+int lineNumber = 0;
+133
+while (in.hasNextLine())
+134
+
+140
+
+52
+{
+130
+try (Scanner in = new Scanner(file))
+131
+
+141
+
+498
+{
+85
+private BlockingQueue<File> queue;
+86
+private String keyword;
+87
+88
+/**
+89
+* Constructs a SearchTask.
+90
+* @param queue the queue from which to take files
+91
+* @param keyword the keyword to look for
+92
+*/
+93
+public SearchTask(BlockingQueue<File> queue, String keyword)
+94
+
+98
+99
+public void run()
+100
+
+123
+124
+/**
+125
+* Searches a file for a given keyword and prints all matching lines.
+126
+* @param file the file to search
+127
+*/
+128
+public void search(File file) throws IOException
+129
+
+142 
+85
+{
+Iterator<K> iter = synchHashMap.keySet().iterator();
+while (iter.hasNext()) . . .;
+
+149
+{
+V get() throws . . .;
+V get(long timeout, TimeUnit unit) throws . . .;
+void cancel(boolean mayInterrupt);
+boolean isCancelled();
+boolean isDone();
+
+118
+{
+public MatchCounter(File directory, String keyword) 
+public Integer call()  // returns the number of matching files
+
+61
+{
+26
+System.out.println(task.get() + " matching files.");
+27
+
+513
+{
+14
+Scanner in = new Scanner(System.in);
+15
+System.out.print("Enter base directory (e.g.
+/usr/local/jdk5.0/src): ");
+16
+String directory = in.nextLine();
+17
+System.out.print("Enter keyword (e.g. volatile): ");
+18
+String keyword = in.nextLine();
+19
+20
+MatchCounter counter = new MatchCounter(new File(directory),keyword);
+21
+FutureTask<Integer> task = new FutureTask<>(counter);
+22
+Thread t = new Thread(task);
+23
+t.start();
+24
+try
+25
+
+28
+catch (ExecutionException e)
+29
+
+32
+catch (InterruptedException e)
+33
+
+35
+
+51
+{
+12
+public static void main(String[] args)
+13
+
+36 
+63
+{
+54
+this.directory = directory;
+55
+this.keyword = keyword;
+56
+
+189
+{
+69
+MatchCounter counter = new MatchCounter(file, keyword);
+70
+FutureTask<Integer> task = new FutureTask<>(counter);
+71
+results.add(task);
+72
+Thread t = new Thread(task);
+73
+t.start();
+74
+
+158
+{77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121 
+197
+{
+63
+File[] files = directory.listFiles();
+64
+List<Future<Integer>> results = new ArrayList<>();
+65
+66
+for (File file : files)
+67
+if (file.isDirectory())
+68
+
+75
+else
+76
+
+if (search(file)) count++;
+
+101
+{
+60
+count = 0;
+61
+try
+62
+
+for (Future<Integer> result : results)
+try
+
+catch (ExecutionException e)
+
+
+372
+{
+43
+private File directory;
+44
+private String keyword;
+45
+private int count;
+46
+47
+/**
+48
+* Constructs a MatchCounter.
+49
+* @param directory the directory in which to start the search
+50
+* @param keyword the keyword to look for
+51
+*/
+52
+public MatchCounter(File directory, String keyword)
+53
+
+57
+58
+public Integer call()
+59
+
+catch (InterruptedException e)
+
+return count;
+
+73
+{
+String line = in.nextLine();
+if (line.contains(keyword)) found = true;
+
+75
+{
+boolean found = false;
+while (!found && in.hasNextLine())
+
+return found;
+
+63
+{
+28
+System.out.println(result.get() + " matching files.");
+29
+
+692
+{
+15
+Scanner in = new Scanner(System.in);
+16
+System.out.print("Enter base directory (e.g.
+/usr/local/jdk5.0/src): ");
+17
+String directory = in.nextLine();
+18
+System.out.print("Enter keyword (e.g. volatile): ");
+19
+String keyword = in.nextLine();
+20
+21
+ExecutorService pool = Executors.newCachedThreadPool();
+22
+23
+MatchCounter counter = new MatchCounter(new File(directory),
+keyword, pool);
+24
+Future<Integer> result = pool.submit(counter);
+25
+26
+try
+27
+
+30
+catch (ExecutionException e)
+31
+
+34
+catch (InterruptedException e)
+35
+
+37
+pool.shutdown();
+38
+39
+int largestPoolSize = ((ThreadPoolExecutor)
+pool).getLargestPoolSize();40
+System.out.println("largest pool size=" + largestPoolSize);
+41
+
+68
+{
+13
+public static void main(String[] args) throws Exception
+14
+
+42 
+84
+{
+61
+this.directory = directory;
+62
+this.keyword = keyword;
+63
+this.pool = pool;
+64
+
+144
+{
+77
+MatchCounter counter = new MatchCounter(file, keyword,
+pool);
+78
+Future<Integer> result = pool.submit(counter);
+79
+results.add(result);
+80
+
+384
+{
+71
+File[] files = directory.listFiles();
+72
+List<Future<Integer>> results = new ArrayList<>();
+73
+74
+for (File file : files)
+75
+if (file.isDirectory())
+76
+
+81
+else
+82
+
+85
+86
+for (Future<Integer> result : results)
+87
+try
+88
+
+91
+catch (ExecutionException e)
+92
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126 
+484
+{
+48
+private File directory;
+49
+private String keyword;
+50
+private ExecutorService pool;
+51
+private int count;
+52
+53
+/**
+54
+* Constructs a MatchCounter.
+55
+* @param directory the directory in which to start the search
+56
+* @param keyword the keyword to look for
+57
+* @param pool the thread pool for submitting subtasks
+58
+*/
+59
+public MatchCounter(File directory, String keyword, ExecutorService
+pool)
+60
+
+65
+66
+public Integer call()
+67
+
+catch (InterruptedException e)
+
+return count;
+
+73
+{
+String line = in.nextLine();
+if (line.contains(keyword)) found = true;
+
+75
+{
+boolean found = false;
+while (!found && in.hasNextLine())
+
+return found;
+
+87
+{
+break problem into subproblems
+recursively solve each subproblem
+combine the results
+
+203
+{
+int mid = (from + to) / 2;
+Counter first = new Counter(values, from, mid, filter);
+Counter second = new Counter(values, mid, to, filter);
+invokeAll(first, second);
+return first.join() + second.join();
+
+443
+{
+final int SIZE = 10000000;
+double[] numbers = new double[SIZE];
+for (int i = 0; i < SIZE; i++) numbers[i] = Math.random();
+Counter counter = new Counter(numbers, 0, numbers.length,
+new Filter()19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+);
+ForkJoinPool pool = new ForkJoinPool();
+pool.invoke(counter);
+System.out.println(counter.join());
+
+78
+{
+this.values = values;
+this.from = from;
+this.to = to;
+this.filter = filter;
+
+64
+{
+int count = 0;
+for (int i = from; i < to; i++)
+
+return count;
+
+203
+{
+int mid = (from + to) / 2;
+Counter first = new Counter(values, from, mid, filter);
+Counter second = new Counter(values, mid, to, filter);
+invokeAll(first, second);
+return first.join() + second.join();
+
+221
+{
+public static final int THRESHOLD = 1000;
+private double[] values;
+private int from;
+private int to;
+private Filter filter;
+public Counter(double[] values, int from, int to, Filter filter)
+
+protected Integer compute()
+
+
+187
+{
+int i = Math.abs(generator.nextInt());
+if (i % 2 == 0)
+combo.insertItemAt(new Integer(i), 0);
+else if (combo.getItemCount() > 0)
+combo.removeItemAt(i % combo.getItemCount());
+sleep(1);
+
+169
+{
+22
+JFrame frame = new SwingThreadFrame();
+23
+frame.setTitle("SwingThreadTest");
+24
+frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+25
+frame.setVisible(true);
+26
+
+52
+{
+18
+EventQueue.invokeLater(new Runnable()
+19
+);
+28
+
+51
+{
+16
+public static void main(String[] args)
+17
+
+29 
+59
+{
+51
+new Thread(new GoodWorkerRunnable(combo)).start();
+52
+
+59
+{
+49
+public void actionPerformed(ActionEvent event)
+50
+
+53
+
+58
+{
+60
+new Thread(new BadWorkerRunnable(combo)).start();
+61
+
+58
+{
+58
+public void actionPerformed(ActionEvent event)59
+
+62
+
+534
+{
+39
+final JComboBox<Integer> combo = new JComboBox<>();
+40
+combo.insertItemAt(Integer.MAX_VALUE, 0);
+41
+combo.setPrototypeDisplayValue(combo.getItemAt(0));
+42
+combo.setSelectedIndex(0);
+43
+44
+JPanel panel = new JPanel();
+45
+46
+JButton goodButton = new JButton("Good");
+47
+goodButton.addActionListener(new ActionListener()
+48
+);
+54
+panel.add(goodButton);
+55
+JButton badButton = new JButton("Bad");
+56
+badButton.addActionListener(new ActionListener()
+57
+);
+63
+panel.add(badButton);
+64
+65
+panel.add(combo);
+66
+add(panel);
+67
+pack();
+68
+
+53
+{
+83
+combo = aCombo;
+84
+generator = new Random();
+85
+
+196
+{
+93
+int i = Math.abs(generator.nextInt());
+94
+if (i % 2 == 0) combo.insertItemAt(i, 0);
+95
+else if (combo.getItemCount() > 0) combo.removeItemAt(i %
+combo.getItemCount());
+96
+Thread.sleep(1);
+97
+
+56
+{
+89
+try
+90
+
+99
+catch (InterruptedException e)
+100
+
+102
+
+162
+{
+78
+private JComboBox<Integer> combo;
+79
+private Random generator;
+80
+81
+public BadWorkerRunnable(JComboBox<Integer> aCombo)
+82
+
+86
+87
+public void run()
+88
+
+103 
+56
+{
+116
+combo = aCombo;
+117
+generator = new Random();
+118
+
+184
+{
+130
+int i = Math.abs(generator.nextInt());
+131
+if (i % 2 == 0) combo.insertItemAt(i, 0);
+132
+else if (combo.getItemCount() > 0)
+combo.removeItemAt(i
+133
+% combo.getItemCount());
+134
+
+76
+{
+126
+EventQueue.invokeLater(new Runnable()
+127
+);
+136
+Thread.sleep(1);
+137
+
+59
+{
+122
+try
+123
+
+139
+catch (InterruptedException e)
+140
+
+142
+
+170
+{
+111
+private JComboBox<Integer> combo;112
+private Random generator;
+113
+114
+public GoodWorkerRunnable(JComboBox<Integer> aCombo)
+115
+
+119
+120
+public void run()
+121
+
+143 
+260
+{
+String line = in.nextLine();
+lineNumber++;
+text.append(line);
+text.append("\n");
+ProgressData data = new ProgressData();
+data.number = lineNumber;
+data.line = line;
+publish(data);
+Thread.sleep(1); // to test cancellation; no need to do this in your
+programs
+
+114
+{
+int lineNumber = 0;
+Scanner in = new Scanner(new FileInputStream(file));
+while (in.hasNextLine())
+
+return text;
+
+187
+{
+if (isCancelled()) return;
+StringBuilder b = new StringBuilder();
+statusLine.setText("" + data.get(data.size() - 1).number);
+for (ProgressData d : data) 
+textArea.append(b.toString());
+
+131
+{
+25
+JFrame frame = new SwingWorkerFrame();
+26
+frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+27
+frame.setVisible(true);
+28
+
+52
+{
+21
+EventQueue.invokeLater(new Runnable()
+22
+);
+30
+
+68
+{
+19
+public static void main(String[] args) throws Exception
+20
+
+31 
+177
+{
+77
+textArea.setText("");
+78
+openItem.setEnabled(false);
+79
+textReader = new
+TextReader(chooser.getSelectedFile());
+80
+textReader.execute();
+81
+cancelItem.setEnabled(true);
+82
+
+186
+{
+71
+// show file chooser dialog
+72
+int result = chooser.showOpenDialog(null);73
+74
+// if file selected, set it as icon of the label
+75
+if (result == JFileChooser.APPROVE_OPTION)
+76
+
+83
+
+59
+{
+69
+public void actionPerformed(ActionEvent event)
+70
+
+84
+
+59
+{
+91
+public void actionPerformed(ActionEvent event)
+92
+
+95
+
+671
+{
+50
+chooser = new JFileChooser();
+51
+chooser.setCurrentDirectory(new File("."));
+52
+53
+textArea = new JTextArea(TEXT_ROWS, TEXT_COLUMNS);
+54
+add(new JScrollPane(textArea));
+55
+56
+statusLine = new JLabel(" ");
+57
+add(statusLine, BorderLayout.SOUTH);
+58
+59
+JMenuBar menuBar = new JMenuBar();
+60
+setJMenuBar(menuBar);
+61
+JMenu menu = new JMenu("File");
+62
+menuBar.add(menu);
+63
+64
+openItem = new JMenuItem("Open");
+65
+menu.add(openItem);
+66
+67
+openItem.addActionListener(new ActionListener()
+68
+);
+85
+86
+cancelItem = new JMenuItem("Cancel");
+87
+menu.add(cancelItem);
+88
+cancelItem.setEnabled(false);
+89
+cancelItem.addActionListener(new ActionListener()
+90
+);
+96
+pack();
+97
+
+53
+{
+101
+public int number;
+102
+public String line;
+103
+
+299
+{
+124
+String line = in.nextLine();
+125
+lineNumber++;
+126
+text.append(line);127
+text.append("\n");
+128
+ProgressData data = new ProgressData();
+129
+data.number = lineNumber;
+130
+data.line = line;
+131
+publish(data);
+132
+Thread.sleep(1); // to test cancellation; no need to do this
+in your programs
+133
+
+114
+{
+119
+int lineNumber = 0;
+120
+try (Scanner in = new Scanner(new FileInputStream(file)))
+121
+
+135
+return text;
+136
+
+215
+{
+143
+if (isCancelled()) return;
+144
+StringBuilder b = new StringBuilder();
+145
+statusLine.setText("" + data.get(data.size() - 1).number);
+146
+for (ProgressData d : data)
+147
+
+151
+textArea.append(b.toString());
+152
+
+113
+{
+158
+StringBuilder result = get();
+159
+textArea.setText(result.toString());
+160
+statusLine.setText("Done");
+161
+
+69
+{
+167
+textArea.setText("");
+168
+statusLine.setText("Cancelled");
+169
+
+210
+{
+156
+try
+157
+
+162
+catch (InterruptedException ex)
+163
+
+165
+catch (CancellationException ex)
+166
+
+170
+catch (ExecutionException ex)
+171
+
+174
+175
+cancelItem.setEnabled(false);
+176
+openItem.setEnabled(true);
+177
+
+514
+{
+106
+private File file;
+107
+private StringBuilder text = new StringBuilder();
+108
+109
+public TextReader(File file)
+110
+
+113
+114
+// The following method executes in the worker thread; it doesn't
+touch Swing components.
+115
+116
+@Override
+117
+public StringBuilder doInBackground() throws IOException,
+InterruptedException
+118
+
+137
+138
+// The following methods execute in the event dispatch thread.
+139
+140
+@Override
+141
+public void process(List<ProgressData> data)
+142
+
+153
+@Override
+154
+public void done()
+155
+
+178
+
+475
+{
+39
+private JFileChooser chooser;
+40
+private JTextArea textArea;
+41
+private JLabel statusLine;
+42
+private JMenuItem openItem;
+43
+private JMenuItem cancelItem;
+44
+private SwingWorker<StringBuilder, ProgressData> textReader;
+45
+public static final int TEXT_ROWS = 20;
+46
+public static final int TEXT_COLUMNS = 60;
+47
+48
+public SwingWorkerFrame()
+49
+
+98
+99
+private class ProgressData
+100
+
+104
+private class TextReader extends SwingWorker<StringBuilder,
+ProgressData>
+105
+;
+179 
