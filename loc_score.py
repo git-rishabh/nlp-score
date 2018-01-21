@@ -8,6 +8,7 @@ from imports import *
 # answer = "Yes: implements Runnable is the preferred way to do it, IMO. You're not really specialising the thread's behaviour. You're just giving it something to run. That means composition is the philosophically purer way to go. In practical terms, it means you can implement Runnable and extend from another class as well."
 
 def nlp_score(answer):
+	# print "."
 	s = common.getSentencesFromCorpus()
 	keywords = common.getKeywordsSet(answer)
 	# print keywords
@@ -75,34 +76,34 @@ def nlp_score(answer):
 				max1i = i
 			max1 = max(max1, counter)
 		maxes.append(max1)
-		threshold_minimum_score_to_qualify_as_match = alpha * max1
-		# print ""
-		present_count = 0
-		for i in range(len(s)):
-			if(i%10000 == 0):
-				# sys.stdout.write('.')
-				sys.stdout.flush()
-			counter = 0.0
-			keywords_found_temp = []
-			done = dict()
-			for j in range(window_size):
-				if(i+j>=len(s)):
-					break
-				for word in s[i+j].split(" "):
-					if(word in sentence_keywords and word in weighted_dictionary):
-						counter = counter + weighted_dictionary[word]
-						keywords_found_temp.append(word)
-						done[word] = True
-			if len(done) < beta*len(sentence_keywords):
-				continue
-			if(len(keywords_found_temp) != 0):
-				counter = counter / len(keywords_found_temp)
-			if(counter > threshold_minimum_score_to_qualify_as_match):
-				present_count += 1
-				ans_lines_list[sentence_iter].append(i)
-				keywords_found_total.extend(keywords_found_temp)
-		keywords_found_combined_sentences.extend(keywords_found_total)
-		total_matches += present_count
+		# threshold_minimum_score_to_qualify_as_match = alpha * max1
+		# # print ""
+		# present_count = 0
+		# for i in range(len(s)):
+		# 	if(i%10000 == 0):
+		# 		# sys.stdout.write('.')
+		# 		sys.stdout.flush()
+		# 	counter = 0.0
+		# 	keywords_found_temp = []
+		# 	done = dict()
+		# 	for j in range(window_size):
+		# 		if(i+j>=len(s)):
+		# 			break
+		# 		for word in s[i+j].split(" "):
+		# 			if(word in sentence_keywords and word in weighted_dictionary):
+		# 				counter = counter + weighted_dictionary[word]
+		# 				keywords_found_temp.append(word)
+		# 				done[word] = True
+		# 	if len(done) < beta*len(sentence_keywords):
+		# 		continue
+		# 	if(len(keywords_found_temp) != 0):
+		# 		counter = counter / len(keywords_found_temp)
+		# 	if(counter > threshold_minimum_score_to_qualify_as_match):
+		# 		present_count += 1
+		# 		ans_lines_list[sentence_iter].append(i)
+		# 		keywords_found_total.extend(keywords_found_temp)
+		# keywords_found_combined_sentences.extend(keywords_found_total)
+		# total_matches += present_count
 		# print "\n",ans_lines_list[sentence_iter]
 		# print sentences[sentence_iter].strip()
 		# print "Best match of ", max1
@@ -115,12 +116,12 @@ def nlp_score(answer):
 	# print "Total keywords in matched windows: " + str(common.convertToDictionary(keywords_found_combined_sentences))
 
 
-	temp_ans_lines_list = []
-	for l in ans_lines_list:
-		if l != []:
-			temp_ans_lines_list.append(l)
+	# temp_ans_lines_list = []
+	# for l in ans_lines_list:
+	# 	if l != []:
+	# 		temp_ans_lines_list.append(l)
 
-	ans_lines_list = temp_ans_lines_list
+	# ans_lines_list = temp_ans_lines_list
 
-	score = localisation.computeLocalisedScore(ans_lines_list, k, total_lines_corpus, threshold)
-	return score
+	# score = localisation.computeLocalisedScore(ans_lines_list, k, total_lines_corpus, threshold)
+	return max(maxes)
