@@ -16,7 +16,7 @@ def nlp_score(answer):
 	weighted_dictionary = common.get_weighted_dictionary(answer)
 
 
-	window_size = 10
+	window_size = 100
 	alpha = 0.0
 	beta = 0.5
 
@@ -53,7 +53,7 @@ def nlp_score(answer):
 		###########Modification end
 		max1 = -1
 		keywords_found_total = []
-		for i in range(len(s)):
+		for i in range(0,len(s),100):
 			if(i%10000 == 0):
 				# sys.stdout.write('.')
 				sys.stdout.flush()
